@@ -383,7 +383,7 @@
   .level-card .lvl-num { font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--magenta-deep); }
   .level-card h3 { font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 1.4rem; letter-spacing: -0.01em; }
   .level-card p { color: var(--ink-muted); font-size: 0.96rem; line-height: 1.5; }
-  .level-bar { height: 5px; border-radius: 999px; background: var(--magenta-soft); overflow: hidden; margin-top: 0.4rem; }
+  .level-bar { height: 5px; border-radius: 999px; background: var(--magenta-soft); overflow: hidden; margin-top: auto; }
   .level-bar i { display: block; height: 100%; background: var(--magenta); width: 0; border-radius: 999px; transition: width 1.1s var(--ease); }
 
   /* =========================================================
@@ -455,8 +455,7 @@
   .price-card ul li { font-size: 0.92rem; padding: 6px 0; display: flex; gap: 0.6rem; align-items: baseline; }
   .price-card ul li::before { content: '✓'; font-weight: 700; color: var(--magenta); }
   .price-card.is-feature ul li::before { color: var(--magenta-soft); }
-  .price-card .p-tag { position: absolute; top: 16px; right: 16px; background: var(--magenta-soft); color: var(--magenta-deep); padding: 4px 10px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
-  .price-card.is-feature .p-tag { background: var(--paper); color: var(--magenta-deep); }
+  .price-card .p-tag { align-self: flex-start; background: var(--paper); color: var(--magenta-deep); padding: 5px 12px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.7rem; }
   .price-card .p-button { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 12px 22px; border-radius: 999px; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: -0.01em; margin-top: 1.2rem; transition: transform 0.18s ease, background 0.18s ease; }
   .price-card .p-button:hover { transform: translateY(-2px); }
   .price-card:not(.is-feature) .p-button { background: var(--magenta); color: var(--paper); }
@@ -509,9 +508,8 @@
   .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); margin-bottom: 0.7rem; }
   .post-title { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 1.22rem; line-height: 1.2; letter-spacing: -0.015em; margin-bottom: 0.6rem; }
   .post-excerpt { color: var(--ink-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem; }
-  .post-cta { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--magenta-deep); letter-spacing: -0.01em; }
-  .post-cta .arrow { transition: transform 0.18s ease; }
-  .post-card:hover .post-cta .arrow { transform: translateX(4px); }
+  .post-cta { display: inline-flex; align-items: center; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--magenta-deep); letter-spacing: -0.01em; border-bottom: 2px solid var(--magenta-soft); padding-bottom: 2px; transition: border-color 0.18s ease; }
+  .post-card:hover .post-cta { border-color: var(--magenta-deep); }
   .blog-footer { margin-top: clamp(2rem, 4vw, 3rem); display: flex; justify-content: center; }
 
   /* =========================================================
@@ -944,7 +942,7 @@
             <div class="post-meta">12 мая 2026 · 5 мин</div>
             <h3 class="post-title">Как начать бегать: первая неделя</h3>
             <p class="post-excerpt">5 простых шагов для тех, кто никогда не бегал, но хочет попробовать. Без фанатизма и без «убиться в первый день».</p>
-            <span class="post-cta">Читать <span class="arrow">→</span></span>
+            <span class="post-cta">Читать статью</span>
           </div>
         </a>
       </article>
@@ -959,7 +957,7 @@
             <div class="post-meta">28 апреля 2026 · 7 мин</div>
             <h3 class="post-title">Техника бега: 5 ошибок, которые делают все</h3>
             <p class="post-excerpt">Короткий шаг, приземление на пятку, напряжённые плечи, взгляд в пол, руки в карманах. Разбираем и исправляем.</p>
-            <span class="post-cta">Читать <span class="arrow">→</span></span>
+            <span class="post-cta">Читать статью</span>
           </div>
         </a>
       </article>
@@ -974,7 +972,7 @@
             <div class="post-meta">15 апреля 2026 · 6 мин</div>
             <h3 class="post-title">Пульсовые зоны: зачем следить за пульсом</h3>
             <p class="post-excerpt">Почему «бегать по ощущениям» не всегда работает. Простое объяснение зон без графиков и формул.</p>
-            <span class="post-cta">Читать <span class="arrow">→</span></span>
+            <span class="post-cta">Читать статью</span>
           </div>
         </a>
       </article>
@@ -1003,7 +1001,7 @@
       <div class="contact-row"><label>Бесплатно</label><span class="val">первая тренировка</span></div>
       <div class="contact-row"><label>Сбор</label><span class="val">Гагаринский парк</span></div>
       <div class="contact-row"><label>Город</label><span class="val">Симферополь · Крым</span></div>
-      <a href="https://t.me/YanaProBeg" target="_blank" rel="noopener" class="contact-row contact-row-link"><label>Telegram</label><span class="val">@YanaProBeg →</span></a>
+      <a href="https://t.me/YanaProBeg" target="_blank" rel="noopener" class="contact-row contact-row-link"><label>Telegram</label><span class="val">@YanaProBeg</span></a>
     </div>
   </div>
 </section>
