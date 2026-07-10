@@ -494,9 +494,10 @@
   .blog-head h2 { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: var(--fs-h2); line-height: 1.0; letter-spacing: -0.025em; margin-top: 1rem; }
   .blog-head h2 em { font-style: italic; font-weight: 200; color: var(--magenta); }
   .blog-head p { color: var(--ink-muted); max-width: 40ch; font-size: 1.05rem; }
-  .blog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-  @media (max-width: 1100px){ .blog-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px){ .blog-grid { grid-template-columns: 1fr; } }
+  .blog-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
+  @media (max-width: 1200px){ .blog-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 760px){ .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px){ .blog-grid { grid-template-columns: 1fr; } }
   .post-card { background: var(--paper); border-radius: 14px; overflow: hidden; transition: transform 0.2s var(--ease), box-shadow 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
   .post-card:hover { transform: translateY(-5px); box-shadow: 0 18px 38px -14px rgba(185,20,92,0.3); }
   .post-card a { display: block; color: inherit; }
@@ -933,6 +934,21 @@
     </div>
 
     <div class="blog-grid reveal" data-delay="1">
+      <article class="post-card">
+        <a href="blog/beg-v-zharu.html">
+          <div class="post-cover">
+            <img src="assets/blog/heat.jpg" alt="" loading="lazy" width="400" height="300">
+            <span class="post-cover-tag">Жара</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">10 июля 2026 · 7 мин</div>
+            <h3 class="post-title">Бег в жару: 8 правил тренировок летом</h3>
+            <p class="post-excerpt">Как тренироваться в жару и не угробить здоровье: тайминг, вода, темп, пульс, одежда, акклиматизация.</p>
+            <span class="post-cta">Читать статью</span>
+          </div>
+        </a>
+      </article>
+
       <article class="post-card">
         <a href="blog/ofp-dlya-begunov.html">
           <div class="post-cover">
