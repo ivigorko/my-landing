@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ivigorko.github.io/my-landing/sitemap.xml
