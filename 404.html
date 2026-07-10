@@ -1,0 +1,787 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1A0A14" />
+<title>404 — Сбились с маршрута · ПРОБег</title>
+<meta name="description" content="Кажется, вы свернули не туда. Возвращайтесь на старт — побежим вместе. Беговой клуб ПРОБег в Симферополе." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://yanaprobeg.ru/404.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ПРОБег" />
+<meta property="og:title" content="404 — Сбились с маршрута · ПРОБег" />
+<meta property="og:description" content="Возвращайтесь на старт — побежим вместе. Беговой клуб ПРОБег в Симферополе." />
+<meta property="og:url" content="https://yanaprobeg.ru/404.html" />
+<meta property="og:image" content="https://yanaprobeg.ru/assets/logo.png" />
+<meta property="og:locale" content="ru_RU" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23EC1E76'/%3E%3Ctext x='50' y='73' font-family='Arial,sans-serif' font-size='62' font-weight='700' text-anchor='middle' fill='white'%3E%D0%9F%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:hidden;background:#0A0510;color:#FFF7F2;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;border:none;background:none;cursor:pointer;color:inherit}
+
+  :root{
+    --magenta:#EC1E76;
+    --magenta-deep:#B9145C;
+    --magenta-glow:rgba(236,30,118,.55);
+    --cream:#FFF7F2;
+    --ink:#1A0A14;
+    --ink-muted:rgba(255,247,242,.62);
+    --ink-faint:rgba(255,247,242,.35);
+  }
+
+  /* Canvas: full-screen 3D */
+  #scene{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:1;background:radial-gradient(ellipse at 50% 70%,#2A0A20 0%,#0A0510 60%,#000 100%)}
+  #scene.fallback-hidden{display:none}
+
+  /* Vignette overlay */
+  .vignette{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse at 50% 55%,transparent 35%,rgba(0,0,0,.55) 95%);mix-blend-mode:multiply}
+
+  /* Loader (visible only while Three.js initializes) */
+  .loader{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;background:#0A0510;transition:opacity .8s ease .2s;pointer-events:none}
+  .loader.hidden{opacity:0}
+  .loader-pulse{width:64px;height:64px;border-radius:50%;background:var(--magenta);box-shadow:0 0 60px 8px var(--magenta-glow);animation:pulse 1.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(.6);opacity:.5}50%{transform:scale(1.05);opacity:1}}
+
+  /* Text overlay */
+  .overlay{position:fixed;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 24px clamp(36px,8vh,80px);text-align:center;pointer-events:none}
+  .overlay > *{pointer-events:auto}
+  .overlay > div{max-width:680px;padding:0 12px}
+
+  /* big 404 floating at top */
+  .code-top{position:fixed;top:clamp(60px,8vh,90px);left:50%;transform:translateX(-50%);z-index:3;font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(4.5rem,10vw,8.5rem);line-height:.85;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,247,242,.85);text-stroke:1.5px rgba(255,247,242,.85);margin:0;pointer-events:none;opacity:0;animation:rise 1s cubic-bezier(.2,.7,.2,1) .15s forwards;text-shadow:0 0 60px rgba(236,30,118,.4)}
+  .code-top .fill{display:inline-block;color:var(--cream);-webkit-text-stroke:0}
+  .code-top .accent{display:inline-block;color:var(--magenta);-webkit-text-stroke:0;text-shadow:0 0 40px var(--magenta-glow),0 0 16px var(--magenta-glow);position:relative}
+  .code-top .accent::before{content:"0";position:absolute;inset:0;color:#FF6BA8;mix-blend-mode:screen;animation:glitch 5.5s steps(1) infinite;clip-path:polygon(0 30%,100% 30%,100% 60%,0 60%)}
+  @keyframes glitch{0%,88%,100%{opacity:0;transform:translate(0,0)}90%{opacity:.8;transform:translate(-3px,1px)}93%{opacity:.4;transform:translate(2px,-1px)}96%{opacity:0;transform:translate(0,0)}}
+
+  .kicker{font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(.78rem,1.1vw,.95rem);letter-spacing:.22em;color:var(--magenta);text-transform:uppercase;margin-bottom:14px;display:inline-flex;align-items:center;gap:10px;opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) .35s forwards}
+  .kicker-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--magenta);box-shadow:0 0 14px var(--magenta-glow);animation:blink 1.6s ease-in-out infinite}
+  @keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+
+  .title{font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.05;letter-spacing:.005em;text-transform:uppercase;color:var(--cream);max-width:780px;margin:0 auto 12px;opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) .5s forwards;text-shadow:0 2px 24px rgba(0,0,0,.6),0 0 30px rgba(236,30,118,.25)}
+
+  .sub{font-family:'Manrope',sans-serif;font-weight:400;font-size:clamp(.95rem,1.5vw,1.1rem);line-height:1.55;color:var(--ink-muted);max-width:520px;margin:0 auto 28px;opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) .65s forwards;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) .8s forwards}
+
+  .cta{position:relative;display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;background:var(--magenta);color:#fff;font-family:'Unbounded',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 10px 40px -8px var(--magenta-glow),inset 0 0 0 0 rgba(255,255,255,0);transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease;cursor:pointer;overflow:hidden;border:none}
+  .cta::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.25) 50%,transparent 100%);transform:translateX(-100%);transition:transform .55s ease}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 16px 48px -8px var(--magenta-glow),0 0 0 4px rgba(236,30,118,.15)}
+  .cta:hover::before{transform:translateX(100%)}
+  .cta:active{transform:translateY(0)}
+  .cta-ghost{display:inline-flex;align-items:center;gap:8px;padding:16px 22px;border-radius:999px;background:transparent;color:var(--cream);font-family:'Unbounded',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid rgba(255,247,242,.18);transition:background .25s ease,border-color .25s ease;cursor:pointer}
+  .cta-ghost:hover{background:rgba(255,247,242,.06);border-color:rgba(255,247,242,.35)}
+
+  .corner{position:fixed;top:20px;left:24px;z-index:4;display:flex;align-items:center;gap:10px;font-family:'Unbounded',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:var(--cream);pointer-events:auto;opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) .2s forwards}
+  .corner-mark{width:32px;height:32px;border-radius:8px;background:var(--magenta);box-shadow:0 0 24px var(--magenta-glow);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;line-height:1}
+
+  .corner-r{position:fixed;top:20px;right:24px;z-index:4;font-family:'Manrope',sans-serif;font-weight:500;font-size:.8rem;letter-spacing:.04em;color:var(--ink-faint);text-transform:uppercase;pointer-events:none;opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) .3s forwards}
+
+  /* CSS-only fallback (shown if WebGL unavailable) */
+  .css-fallback{position:fixed;inset:0;z-index:1;display:none;background:radial-gradient(ellipse at 50% 60%,#3A0E2C 0%,#0A0510 70%);overflow:hidden}
+  .css-fallback.show{display:block}
+  .css-fallback::before,.css-fallback::after{content:"";position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(236,30,118,.45) 0%,transparent 70%);filter:blur(40px);animation:drift 14s ease-in-out infinite}
+  .css-fallback::before{width:520px;height:520px;top:-12%;left:-10%}
+  .css-fallback::after{width:420px;height:420px;bottom:-8%;right:-8%;animation-delay:-7s}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.1)}}
+  .css-fallback-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(236,30,118,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(236,30,118,.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%)}
+
+  @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+  @media (max-width:640px){
+    .corner-r{display:none}
+    .corner{top:14px;left:16px;font-size:.85rem}
+    .corner-mark{width:28px;height:28px;font-size:1rem}
+    .overlay{padding-bottom:clamp(28px,7vh,60px)}
+    .sub{font-size:.92rem;margin-bottom:24px}
+    .cta,.cta-ghost{padding:14px 22px;font-size:.85rem}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="scene"></canvas>
+<div class="vignette"></div>
+
+<div class="corner">
+  <span class="corner-mark">П</span>
+  <span>ПРОБег</span>
+</div>
+<div class="corner-r">Симферополь · беговой клуб</div>
+
+<div class="overlay">
+  <div>
+    <div class="kicker">сбились с пути<span class="kicker-dot"></span>сигнал потерян</div>
+    <h2 class="title">Сбились с маршрута</h2>
+    <p class="sub">Кажется, вы свернули не туда. Давайте вернёмся на старт и&nbsp;побежим вместе.</p>
+    <div class="cta-row">
+      <a href="/" class="cta" aria-label="Вернуться на главную">Вернуться на старт</a>
+      <a href="https://vk.com/malovayana" target="_blank" rel="noopener" class="cta-ghost">ВКонтакте</a>
+    </div>
+  </div>
+</div>
+
+<h1 class="code-top" aria-hidden="true">4<span class="accent">0</span>4</h1>
+
+<div class="loader" id="loader"><div class="loader-pulse"></div></div>
+
+<div class="css-fallback" id="css-fallback">
+  <div class="css-fallback-grid"></div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+/* =========================================================
+   CAPABILITY CHECK
+   ========================================================= */
+const hasWebGL = (() => {
+  try {
+    const c = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl')));
+  } catch (e) { return false; }
+})();
+
+if (!hasWebGL) {
+  document.getElementById('css-fallback').classList.add('show');
+  document.getElementById('scene').classList.add('fallback-hidden');
+  document.getElementById('loader').classList.add('hidden');
+  throw new Error('No WebGL — fallback shown');
+}
+
+/* =========================================================
+   CONSTANTS
+   ========================================================= */
+const MAGENTA = new THREE.Color('#EC1E76');
+const MAGENTA_DEEP = new THREE.Color('#B9145C');
+const MAGENTA_SOFT = new THREE.Color('#FFD5E8');
+const INK = new THREE.Color('#1A0A14');
+const INK_MUTED = new THREE.Color('#3A1A2E');
+const CREAM = new THREE.Color('#FFF7F2');
+const SKY_TOP = new THREE.Color('#0A0510');
+const SKY_HORIZON = new THREE.Color('#5A0A38');
+
+const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+const lowPower = (navigator.deviceMemory || 4) < 4 || isCoarse;
+let W = window.innerWidth, H = window.innerHeight;
+
+/* GPS route curve (declared early so the city can avoid it)
+   Strategy: 9 anchor points evenly distributed around the disk (every 40°),
+   with 3 local "wobble" points between each pair → covers the full 360° AND
+   has real loops. Final 2 points escape beyond the platform rim. */
+function buildTangledRoute() {
+  const pts = [];
+  let seed = 9181;
+  const r = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+
+  const ANCHORS = 9;                       /* every 40° → full 360° */
+  const WOBBLES_PER_SECTOR = 3;            /* 3 local noise points between anchors */
+
+  for (let i = 0; i < ANCHORS; i++) {
+    const a1 = (i / ANCHORS) * Math.PI * 2;
+    const a2 = ((i + 1) / ANCHORS) * Math.PI * 2;
+    /* varying radius per anchor so the route isn't a perfect ring */
+    const rad1 = 2.0 + r() * 3.0;          /* 2..5 */
+    const rad2 = 2.0 + r() * 3.0;
+    const x1 = Math.cos(a1) * rad1, z1 = Math.sin(a1) * rad1;
+    const x2 = Math.cos(a2) * rad2, z2 = Math.sin(a2) * rad2;
+
+    /* anchor 1 */
+    pts.push(new THREE.Vector3(x1, 0.06, z1));
+
+    /* wobble points along the sector (with perpendicular jitter for loops) */
+    for (let k = 0; k < WOBBLES_PER_SECTOR; k++) {
+      const t = (k + 1) / (WOBBLES_PER_SECTOR + 1);
+      const bx = x1 + (x2 - x1) * t;
+      const bz = z1 + (z2 - z1) * t;
+      /* perpendicular direction */
+      const ppx = -(z2 - z1), ppz = (x2 - x1);
+      const ppl = Math.hypot(ppx, ppz) || 1;
+      const noise = (r() - 0.5) * 1.4;     /* ±0.7 perpendicular */
+      let px = bx + (ppx / ppl) * noise;
+      let pz = bz + (ppz / ppl) * noise;
+      /* soft cap inside platform */
+      const radius = Math.hypot(px, pz);
+      if (radius > 6.6) {
+        px = px * 6.4 / radius;
+        pz = pz * 6.4 / radius;
+      }
+      pts.push(new THREE.Vector3(px, 0.06, pz));
+    }
+  }
+
+  /* final 2 points: cross the rim, go off the platform into the void */
+  const last = pts[pts.length - 1];
+  const outDir = Math.atan2(last.z, last.x);
+  pts.push(new THREE.Vector3(last.x + Math.cos(outDir) * 1.2, 0.06, last.z + Math.sin(outDir) * 1.2));
+  pts.push(new THREE.Vector3(last.x + Math.cos(outDir) * 2.6, 0.06, last.z + Math.sin(outDir) * 2.6));
+  return pts;
+}
+const trackPoints = buildTangledRoute();
+const trackCurve = new THREE.CatmullRomCurve3(trackPoints, false, 'catmullrom', 0.5);
+
+/* =========================================================
+   RENDERER
+   ========================================================= */
+const canvas = document.getElementById('scene');
+const renderer = new THREE.WebGLRenderer({
+  canvas, antialias: !lowPower, alpha: false, powerPreference: 'high-performance'
+});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(W, H, false);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = !lowPower;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+/* =========================================================
+   SCENE
+   ========================================================= */
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x1A0814, 0.030);
+scene.background = null;
+
+/* Gradient sky (sphere) */
+{
+  const skyGeo = new THREE.SphereGeometry(80, 32, 16);
+  const skyMat = new THREE.ShaderMaterial({
+    side: THREE.BackSide,
+    depthWrite: false,
+    uniforms: {
+      topColor:    { value: SKY_TOP },
+      horizonColor:{ value: SKY_HORIZON },
+      offset:      { value: 12 },
+      exponent:    { value: 0.7 }
+    },
+    vertexShader: `varying vec3 vWorld; void main(){ vWorld = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
+    fragmentShader: `uniform vec3 topColor; uniform vec3 horizonColor; uniform float offset; uniform float exponent; varying vec3 vWorld;
+      void main(){
+        float h = normalize(vWorld + vec3(0., offset, 0.)).y;
+        gl_FragColor = vec4(mix(horizonColor, topColor, max(pow(max(h,0.0), exponent), 0.0)), 1.0);
+      }`
+  });
+  scene.add(new THREE.Mesh(skyGeo, skyMat));
+}
+
+/* =========================================================
+   CAMERA
+   ========================================================= */
+const camera = new THREE.PerspectiveCamera(36, W/H, 0.1, 200);
+const camBase = new THREE.Vector3(0, 16, 11);
+const camTarget = new THREE.Vector3(0, 0, 0);
+camera.position.copy(camBase);
+camera.lookAt(camTarget);
+
+/* =========================================================
+   LIGHTING
+   ========================================================= */
+scene.add(new THREE.HemisphereLight(0xFFD5E8, 0x2A0814, 0.85));
+
+const keyLight = new THREE.DirectionalLight(0xFFE0EE, 1.6);
+keyLight.position.set(6, 10, 4);
+keyLight.castShadow = !lowPower;
+keyLight.shadow.mapSize.set(1024, 1024);
+keyLight.shadow.camera.near = 0.5;
+keyLight.shadow.camera.far = 40;
+keyLight.shadow.camera.left = -10;
+keyLight.shadow.camera.right = 10;
+keyLight.shadow.camera.top = 10;
+keyLight.shadow.camera.bottom = -10;
+keyLight.shadow.bias = -0.0008;
+scene.add(keyLight);
+
+const frontLight = new THREE.DirectionalLight(0xFFC8DD, 0.7);
+frontLight.position.set(-3, 4, 6);
+scene.add(frontLight);
+
+const magentaRim = new THREE.PointLight(MAGENTA.getHex(), 80, 18, 1.6);
+magentaRim.position.set(-3, 3, -4);
+scene.add(magentaRim);
+
+const magentaFill = new THREE.PointLight(MAGENTA_DEEP.getHex(), 40, 14, 1.8);
+magentaFill.position.set(2, 1.5, 4);
+scene.add(magentaFill);
+
+/* =========================================================
+   PLATFORM (miniature diorama base, with rim glow)
+   ========================================================= */
+{
+  /* main circular platform — the "diorama base" */
+  const platformGeo = new THREE.CylinderGeometry(8.5, 8.5, 0.15, 96, 1);
+  const platformMat = new THREE.MeshStandardMaterial({
+    color: 0x1A0814,
+    roughness: 0.85,
+    metalness: 0.1,
+    emissive: 0x2A0814,
+    emissiveIntensity: 0.3
+  });
+  const platform = new THREE.Mesh(platformGeo, platformMat);
+  platform.position.y = -0.075;
+  platform.receiveShadow = !lowPower;
+  scene.add(platform);
+
+  /* glowing rim — magenta neon edge around the platform */
+  const rimGeo = new THREE.TorusGeometry(8.5, 0.06, 8, 96);
+  const rimMat = new THREE.MeshBasicMaterial({
+    color: MAGENTA.getHex(),
+    transparent: true,
+    opacity: 0.85
+  });
+  const rim = new THREE.Mesh(rimGeo, rimMat);
+  rim.rotation.x = Math.PI / 2;
+  rim.position.y = 0.0;
+  scene.add(rim);
+
+  /* second rim, slightly larger and additive for halo */
+  const rimHaloGeo = new THREE.TorusGeometry(8.5, 0.25, 8, 96);
+  const rimHaloMat = new THREE.MeshBasicMaterial({
+    color: MAGENTA.getHex(),
+    transparent: true,
+    opacity: 0.18,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+  const rimHalo = new THREE.Mesh(rimHaloGeo, rimHaloMat);
+  rimHalo.rotation.x = Math.PI / 2;
+  rimHalo.position.y = 0.0;
+  scene.add(rimHalo);
+
+  /* subtle radial glow disc on the platform top */
+  const glowGeo = new THREE.CircleGeometry(8.4, 64);
+  const glowMat = new THREE.ShaderMaterial({
+    transparent: true,
+    depthWrite: false,
+    uniforms: { uColor: { value: MAGENTA_DEEP } },
+    vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
+    fragmentShader: `uniform vec3 uColor; varying vec2 vUv; void main(){ float d = distance(vUv, vec2(0.5)); float a = smoothstep(0.5, 0.0, d) * 0.18; gl_FragColor = vec4(uColor, a); }`
+  });
+  const glow = new THREE.Mesh(glowGeo, glowMat);
+  glow.rotation.x = -Math.PI / 2;
+  glow.position.y = 0.005;
+  scene.add(glow);
+}
+
+/* =========================================================
+   LOW-POLY CITY (Simferopol-styled, procedural)
+   ========================================================= */
+{
+  const cityGroup = new THREE.Group();
+
+  /* deterministic pseudo-random */
+  let seed = 1337;
+  const rand = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+
+  const buildingGeo = new THREE.BoxGeometry(1, 1, 1);
+  const buildingMat = new THREE.MeshStandardMaterial({
+    color: 0x3A1429,
+    roughness: 0.85,
+    metalness: 0.05,
+    emissive: 0x2A0814,
+    emissiveIntensity: 0.6
+  });
+
+  /* top-down miniature city: keep route corridor clear, scatter buildings around */
+  const COUNT = lowPower ? 55 : 90;
+  const inst = new THREE.InstancedMesh(buildingGeo, buildingMat, COUNT);
+  inst.castShadow = !lowPower;
+  inst.receiveShadow = !lowPower;
+  const dummy = new THREE.Object3D();
+  const COLOR_TINT = new THREE.Color();
+
+  let placed = 0, i = 0;
+  while (placed < COUNT && i < COUNT * 4) {
+    i++;
+    const r = 2.0 + rand() * 6.0;
+    const theta = rand() * Math.PI * 2;
+    const x = Math.cos(theta) * r;
+    const z = Math.sin(theta) * r;
+
+    /* keep ~0.35m clearance from the route so it stays visible */
+    let tooClose = false;
+    for (let s = 0; s < 80; s++) {
+      const p = trackCurve.getPointAt(s / 79);
+      if (Math.hypot(x - p.x, z - p.z) < 0.5) { tooClose = true; break; }
+    }
+    if (tooClose) continue;
+
+    /* miniature-scale buildings: low + squat */
+    const w = 0.35 + rand() * 0.85;
+    const d = 0.35 + rand() * 0.85;
+    const h = 0.25 + rand() * 1.6;
+
+    dummy.position.set(x, h/2, z);
+    dummy.scale.set(w, h, d);
+    dummy.rotation.y = rand() * 0.3 - 0.15;
+    dummy.updateMatrix();
+    inst.setMatrixAt(placed, dummy.matrix);
+
+    /* color tint: some buildings glow slightly */
+    const glowChance = rand();
+    if (glowChance > 0.78) {
+      COLOR_TINT.setHex(0x2A0E1F).lerp(MAGENTA, 0.25 + rand()*0.25);
+      inst.setColorAt(placed, COLOR_TINT);
+    } else if (glowChance > 0.55) {
+      COLOR_TINT.setHex(0x2A0E1F).lerp(MAGENTA_SOFT, 0.1 + rand()*0.15);
+      inst.setColorAt(placed, COLOR_TINT);
+    } else {
+      inst.setColorAt(placed, COLOR_TINT.setHex(0x2A0E1F));
+    }
+    placed++;
+  }
+  inst.count = placed;
+  inst.instanceMatrix.needsUpdate = true;
+  if (inst.instanceColor) inst.instanceColor.needsUpdate = true;
+  cityGroup.add(inst);
+
+  /* a few "tall" landmark buildings — concentrated on the rim */
+  const landmarkMat = new THREE.MeshStandardMaterial({
+    color: 0x3A0E2C,
+    roughness: 0.6,
+    metalness: 0.2,
+    emissive: MAGENTA_DEEP,
+    emissiveIntensity: 0.5
+  });
+  for (let i = 0; i < 4; i++) {
+    const lmGeo = new THREE.CylinderGeometry(0.25, 0.35, 1.8 + rand()*1.0, 8);
+    const lm = new THREE.Mesh(lmGeo, landmarkMat);
+    const angle = (i / 4) * Math.PI * 2 + 0.4;
+    const dist = 6.5 + rand()*1.0;
+    lm.position.set(Math.cos(angle) * dist, 0.9, Math.sin(angle) * dist);
+    lm.castShadow = !lowPower;
+    cityGroup.add(lm);
+  }
+
+  scene.add(cityGroup);
+}
+
+/* =========================================================
+   GPS-TRACK (glowing tube, on the platform)
+   ========================================================= */
+{
+  /* main glowing route — slightly raised so it sits ABOVE ground */
+  const tubeGeo = new THREE.TubeGeometry(trackCurve, 320, 0.07, 12, true);
+  const tubeMat = new THREE.MeshBasicMaterial({
+    color: MAGENTA.getHex(),
+    transparent: true,
+    opacity: 0.95
+  });
+  const tube = new THREE.Mesh(tubeGeo, tubeMat);
+  scene.add(tube);
+
+  /* outer halo (additive glow) */
+  const haloGeo = new THREE.TubeGeometry(trackCurve, 320, 0.22, 12, true);
+  const haloMat = new THREE.MeshBasicMaterial({
+    color: MAGENTA.getHex(),
+    transparent: true,
+    opacity: 0.20,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+  scene.add(new THREE.Mesh(haloGeo, haloMat));
+
+  /* pulse dots along the path */
+  const dotCount = 32;
+  for (let i = 0; i < dotCount; i++) {
+    const t = i / dotCount;
+    const p = trackCurve.getPointAt(t);
+    const dotGeo = new THREE.SphereGeometry(0.06, 8, 8);
+    const dotMat = new THREE.MeshBasicMaterial({
+      color: MAGENTA_SOFT.getHex(),
+      transparent: true,
+      opacity: 0.85,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+    const dot = new THREE.Mesh(dotGeo, dotMat);
+    dot.position.copy(p);
+    dot.userData.phase = t * 6.28 + i * 0.4;
+    scene.add(dot);
+  }
+
+  /* "you are here" marker near the start of the route */
+  const startP = trackCurve.getPointAt(0);
+  const startMarkerGeo = new THREE.SphereGeometry(0.15, 16, 12);
+  const startMarkerMat = new THREE.MeshBasicMaterial({
+    color: 0xFFFFFF, transparent: true, opacity: 0.95
+  });
+  const startMarker = new THREE.Mesh(startMarkerGeo, startMarkerMat);
+  startMarker.position.copy(startP);
+  startMarker.position.y = 0.4;
+  scene.add(startMarker);
+  /* pulse halo around the start marker */
+  const startHalo = new THREE.Mesh(
+    new THREE.SphereGeometry(0.3, 16, 12),
+    new THREE.MeshBasicMaterial({
+      color: 0xFFFFFF, transparent: true, opacity: 0.3,
+      blending: THREE.AdditiveBlending, depthWrite: false
+    })
+  );
+  startHalo.position.copy(startP);
+  startHalo.position.y = 0.4;
+  startHalo.userData.startHalo = true;
+  scene.add(startHalo);
+}
+
+/* =========================================================
+   "OFF-ROUTE" PULSING MARKER (where the route leaves the platform)
+   ========================================================= */
+{
+  const xGroup = new THREE.Group();
+  const xMat = new THREE.MeshBasicMaterial({ color: 0xFF3B7A, transparent: true, opacity: 0.95 });
+  const barGeo = new THREE.BoxGeometry(0.08, 0.4, 0.08);
+  const b1 = new THREE.Mesh(barGeo, xMat);
+  b1.rotation.z = Math.PI / 4;
+  const b2 = new THREE.Mesh(barGeo, xMat);
+  b2.rotation.z = -Math.PI / 4;
+  xGroup.add(b1, b2);
+  /* place at the end of the track where it leaves the platform */
+  const endP = trackCurve.getPointAt(1.0);
+  xGroup.position.copy(endP);
+  xGroup.position.y = 0.6;
+  xGroup.userData.basePos = endP.clone();
+  xGroup.userData.basePos.y = 0.6;
+  scene.add(xGroup);
+}
+
+/* =========================================================
+   ATMOSPHERIC PARTICLES (drifting dust)
+   ========================================================= */
+{
+  const PCOUNT = lowPower ? 80 : 180;
+  const positions = new Float32Array(PCOUNT * 3);
+  const seeds = new Float32Array(PCOUNT);
+  for (let i = 0; i < PCOUNT; i++) {
+    positions[i*3+0] = (Math.random() - 0.5) * 30;
+    positions[i*3+1] = Math.random() * 12;
+    positions[i*3+2] = (Math.random() - 0.5) * 30;
+    seeds[i] = Math.random() * 6.28;
+  }
+  const pGeo = new THREE.BufferGeometry();
+  pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  pGeo.setAttribute('aSeed', new THREE.BufferAttribute(seeds, 1));
+  const pMat = new THREE.ShaderMaterial({
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    uniforms: {
+      uTime:   { value: 0 },
+      uColor:  { value: MAGENTA_SOFT },
+      uSize:   { value: lowPower ? 8.0 : 14.0 }
+    },
+    vertexShader: `
+      attribute float aSeed;
+      uniform float uTime;
+      uniform float uSize;
+      varying float vSeed;
+      void main(){
+        vec3 p = position;
+        p.y += sin(uTime*0.3 + aSeed) * 0.4;
+        p.x += sin(uTime*0.2 + aSeed*1.7) * 0.3;
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_PointSize = uSize * (1.0 / -mv.z) * (0.6 + 0.4*sin(uTime*0.8 + aSeed));
+        gl_Position = projectionMatrix * mv;
+        vSeed = aSeed;
+      }`,
+    fragmentShader: `
+      uniform vec3 uColor;
+      varying float vSeed;
+      void main(){
+        vec2 c = gl_PointCoord - 0.5;
+        float d = length(c);
+        if (d > 0.5) discard;
+        float a = smoothstep(0.5, 0.0, d) * (0.5 + 0.5*sin(vSeed*3.0));
+        gl_FragColor = vec4(uColor, a*0.55);
+      }`
+  });
+  const points = new THREE.Points(pGeo, pMat);
+  scene.add(points);
+  scene.userData.particles = pMat;
+}
+
+/* =========================================================
+   POST-PROCESSING
+   ========================================================= */
+let composer = null;
+let bloom = null;
+if (!lowPower) {
+  composer = new EffectComposer(renderer);
+  composer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  composer.setSize(W, H);
+  composer.addPass(new RenderPass(scene, camera));
+  bloom = new UnrealBloomPass(new THREE.Vector2(W, H), 0.75, 0.55, 0.78);
+  composer.addPass(bloom);
+  composer.addPass(new OutputPass());
+}
+
+/* =========================================================
+   INPUT (mouse parallax + idle orbit)
+   ========================================================= */
+const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+let lastInputAt = performance.now();
+const IDLE_MS = 2500;
+
+window.addEventListener('pointermove', (e) => {
+  mouse.tx = (e.clientX / window.innerWidth - 0.5) * 2;
+  mouse.ty = (e.clientY / window.innerHeight - 0.5) * 2;
+  lastInputAt = performance.now();
+}, { passive: true });
+
+window.addEventListener('touchmove', (e) => {
+  if (!e.touches[0]) return;
+  mouse.tx = (e.touches[0].clientX / window.innerWidth - 0.5) * 2;
+  mouse.ty = (e.touches[0].clientY / window.innerHeight - 0.5) * 2;
+  lastInputAt = performance.now();
+}, { passive: true });
+
+window.addEventListener('keydown', () => { lastInputAt = performance.now(); });
+
+/* deviceorientation for mobile (subtle parallax) */
+window.addEventListener('deviceorientation', (e) => {
+  if (e.beta == null || e.gamma == null) return;
+  mouse.tx = Math.max(-1, Math.min(1, e.gamma / 30));
+  mouse.ty = Math.max(-1, Math.min(1, (e.beta - 30) / 30));
+  lastInputAt = performance.now();
+}, { passive: true });
+
+/* =========================================================
+   RESIZE
+   ========================================================= */
+function onResize() {
+  W = window.innerWidth; H = window.innerHeight;
+  camera.aspect = W / H;
+  camera.updateProjectionMatrix();
+  renderer.setSize(W, H, false);
+  if (composer) composer.setSize(W, H);
+  if (bloom) bloom.resolution.set(W, H);
+}
+window.addEventListener('resize', onResize);
+
+/* =========================================================
+   ANIMATION LOOP
+   ========================================================= */
+const clock = new THREE.Clock();
+let camAngle = 0;
+
+function tick() {
+  const dt = clock.getDelta();
+  const t = clock.getElapsedTime();
+
+  /* mouse parallax smoothing */
+  mouse.x += (mouse.tx - mouse.x) * 0.06;
+  mouse.y += (mouse.ty - mouse.y) * 0.06;
+
+  /* idle orbit (very slow, only after long inactivity) */
+  const idle = (performance.now() - lastInputAt) > IDLE_MS;
+  if (idle) camAngle += dt * 0.04;
+
+  const orbitX = Math.cos(camAngle) * camBase.x - Math.sin(camAngle) * camBase.z;
+  const orbitZ = Math.sin(camAngle) * camBase.x + Math.cos(camAngle) * camBase.z;
+  const orbitY = camBase.y + Math.sin(t * 0.4) * 0.15;  /* breathing */
+
+  /* parallax: tilt camera around target by mouse offset */
+  const px = mouse.x * 0.7;
+  const py = -mouse.y * 0.4;
+
+  /* dampened camera position (don't apply orbit angle fully, ease in) */
+  const orbitFactor = Math.min(t * 0.15, 1.0);  /* ease-in over 6.5s */
+  const easedAngle = camAngle * orbitFactor;
+  const orbitXeased = Math.cos(easedAngle) * camBase.x - Math.sin(easedAngle) * camBase.z;
+  const orbitZeased = Math.sin(easedAngle) * camBase.x + Math.cos(easedAngle) * camBase.z;
+
+  camera.position.set(orbitXeased + px, orbitY + py, orbitZeased + px*0.3);
+  camera.lookAt(camTarget.x, camTarget.y + Math.sin(t*0.5)*0.05, camTarget.z);
+
+  /* pulse dots along path (the GPS route markers) */
+  scene.traverse((o) => {
+    if (o.userData && o.userData.phase != null && !o.userData.startHalo) {
+      const pulse = 0.5 + 0.5 * Math.sin(t * 3 + o.userData.phase);
+      o.material.opacity = 0.4 + pulse * 0.55;
+      o.scale.setScalar(0.7 + pulse * 0.6);
+    }
+  });
+
+  /* start marker pulse halo (the "you are here" dot at the start of the route) */
+  scene.traverse((o) => {
+    if (o.userData && o.userData.startHalo) {
+      const pulse = 0.5 + 0.5 * Math.sin(t * 2);
+      o.material.opacity = 0.2 + pulse * 0.35;
+      o.scale.setScalar(0.8 + pulse * 0.6);
+    }
+  });
+
+  /* x-marker float + rotate (where the route leaves the platform) */
+  scene.traverse((o) => {
+    if (o.userData && o.userData.basePos && o.children && o.children.length === 2) {
+      o.position.y = o.userData.basePos.y + Math.sin(t * 1.5) * 0.15;
+      o.rotation.y = t * 0.6;
+    }
+  });
+
+  /* particles */
+  if (scene.userData.particles) {
+    scene.userData.particles.uniforms.uTime.value = t;
+  }
+
+  /* render */
+  if (composer) composer.render(dt);
+  else renderer.render(scene, camera);
+
+  requestAnimationFrame(tick);
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
+let initStarted = false;
+function init() {
+  if (initStarted) return;
+  initStarted = true;
+  /* one pre-warm render to compile shaders before revealing */
+  if (composer) composer.render(0.016);
+  else renderer.render(scene, camera);
+
+  /* hide loader */
+  const loader = document.getElementById('loader');
+  if (loader) {
+    loader.classList.add('hidden');
+    setTimeout(() => { if (loader.parentNode) loader.parentNode.removeChild(loader); }, 1200);
+  }
+
+  requestAnimationFrame(tick);
+}
+
+/* Wait for fonts (so overlay text is ready at first frame) */
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(init);
+  /* safety: if fonts hang, init anyway after 1.5s */
+  setTimeout(init, 1500);
+} else {
+  init();
+}
+</script>
+
+</body>
+</html>
