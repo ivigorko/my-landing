@@ -43,10 +43,10 @@ probeg.example.com  →  твой.домен
 sed -i 's|probeg.example.com|твой.домен|g' blog.html blog/*.html
 ```
 
-### 2. Telegram (уже указан актуальный)
-Везде стоит ссылка `https://t.me/YanaProBeg` (канал Яны). Если сменится handle — замени глобально:
+### 2. ВКонтакте (уже указан актуальный)
+Везде стоит ссылка `https://vk.com/malovayana` (группа Яны). Если сменится handle — замени глобально:
 ```bash
-sed -i 's|t.me/YanaProBeg|t.me/новый-handle|g' index.html blog.html blog/*.html
+sed -i 's|vk.com/malovayana|vk.com/новый-handle|g' index.html blog.html blog/*.html
 ```
 
 ### 3. Картинки блога
