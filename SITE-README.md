@@ -44,9 +44,9 @@ sed -i 's|probeg.example.com|твой.домен|g' blog.html blog/*.html
 ```
 
 ### 2. ВКонтакте (уже указан актуальный)
-Везде стоит ссылка `https://vk.com/malovayana` (группа Яны). Если сменится handle — замени глобально:
+Везде стоит ссылка `https://vk.com/probeg_simf` (группа Яны). Если сменится handle — замени глобально:
 ```bash
-sed -i 's|vk.com/malovayana|vk.com/новый-handle|g' index.html blog.html blog/*.html
+sed -i 's|vk.com/probeg_simf|vk.com/новый-handle|g' index.html blog.html blog/*.html
 ```
 
 ### 3. Картинки блога
