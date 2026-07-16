@@ -567,8 +567,9 @@
   </div>
 </header>
 
+<main class="blog-list">
 <div class="wrap">
-  <a href="../blog.html" class="blog-back">К списку статей</a>
+  <a href="../blog.html" class="blog-back">← К списку статей</a>
 
   <article class="post" itemscope itemtype="https://schema.org/Article">
     <div class="post-cover post-hero-cover">
@@ -587,7 +588,7 @@
 
     <div class="post-body" itemprop="articleBody">
 
-      <p>В Симферополе тренер по бегу вживую — редкость. Онлайн-школ бега десятки, школ триатлона, академий подготовки к марафону. А вот прийти в парк и тренироваться с живым тренером в группе — почти негде. Поэтому вокруг темы «нужен ли мне тренер по бегу» накопилась куча мифов. Одни говорят «справлюсь сам», другие — «это только для профи», третьи — «это дорого и не для Симферополя».</p>
+      <p>В Симферополе тренер по бегу вживую — редкость. Онлайн-курсов и школ бега по всей России — десятки (Get.run, S10.run, Simple Run, академия подготовки к марафону и другие), а вот прийти в Симферополе в парк и тренироваться с живым тренером в группе — почти негде. Поэтому вокруг темы «нужен ли мне тренер по бегу» накопилась куча мифов. Одни говорят «справлюсь сам», другие — «это только для профи», третьи — «это дорого и не для Симферополя».</p>
       <p>Мы в клубе ПРОБег ведём тренировки в Симферополе 3-4 раза в неделю и видим одни и те же истории: человек думает одно, приходит на первую тренировку и удивляется. Ниже — пять самых частых мифов и то, что за ними стоит на самом деле. Без рекламной воды — только то, как устроена работа тренера по бегу у нас в клубе.</p>
 
       <h3>Миф 1. Тренер по бегу нужен только профи</h3>
@@ -655,8 +656,8 @@
     </div>
 
     <footer class="post-share">
-      <a href="../index.html#pricing">Записаться в клуб</a>
-      <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">Обсудить во ВКонтакте</a>
+        <a href="../index.html#pricing">Записаться в клуб</a>
+        <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">Обсудить во ВКонтакте</a>
     </footer>
   </article>
 
@@ -707,20 +708,27 @@
   </section>
 
 </div>
+</main>
 
 <footer>
   <div class="wrap footer-inner">
-    <div class="brand">ПРОБег · беговой клуб Симферополь</div>
-    <div>Яна · тренер · основатель · 2026</div>
+    <span class="brand">ПРОБег · Симферополь</span>
+    <span>Бегаем по кайфу вместе · 2026</span>
   </div>
 </footer>
 
 <script>
-  // reveal-on-scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
 </body>
