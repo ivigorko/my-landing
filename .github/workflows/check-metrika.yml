@@ -1,0 +1,44 @@
+name: Check Yandex.Metrika on all pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-metrika:
+    name: Verify Metrika 103646147 is on every HTML page
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Find HTML files without Metrika
+        id: check
+        run: |
+          set -e
+          COUNTER_ID="103646147"
+          MISSING=""
+          # Ищем все HTML, кроме шаблона (в нём метрика закомментирована-размечена, но это не публичная страница)
+          for f in $(find . -type f -name "*.html" ! -name "template.html"); do
+            if ! grep -q "mc\.yandex\.ru/watch/${COUNTER_ID}" "$f"; then
+              MISSING="${MISSING}\n  - ${f}"
+            fi
+          done
+
+          if [ -n "$MISSING" ]; then
+            echo "## ❌ Yandex.Metrika ${COUNTER_ID} is missing on:" >> "$GITHUB_STEP_SUMMARY"
+            echo -e "$MISSING" >> "$GITHUB_STEP_SUMMARY"
+            echo ""
+            echo "::error::Yandex.Metrika ${COUNTER_ID} is missing on the following HTML files:"
+            echo -e "$MISSING"
+            echo ""
+            echo "Вставь код счётчика перед </head> и noscript сразу после <body>."
+            echo "Можно прогнать скрипт: python _inject_metrika.py ${COUNTER_ID}"
+            exit 1
+          fi
+
+          TOTAL=$(find . -type f -name "*.html" ! -name "template.html" | wc -l)
+          echo "## ✅ Yandex.Metrika ${COUNTER_ID} found on all ${TOTAL} HTML pages" >> "$GITHUB_STEP_SUMMARY"
+          echo "OK: Metrika present on ${TOTAL} pages"
