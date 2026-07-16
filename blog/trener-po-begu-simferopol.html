@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Тренер по бегу в Симферополе: 5 мифов, которые мешают начать — блог ПРОБег</title>
+<meta name="description" content="5 мифов о том, что делает тренер по бегу, и почему регулярность важнее мотивации. Помогаем выбрать тренера по бегу в Симферополе и понять, чего ждать от первой тренировки в клубе ПРОБег." />
+<meta name="keywords" content="тренер по бегу, тренер по бегу в Симферополе, тренер по бегу Симферополь, беговой клуб Симферополь, как выбрать тренера по бегу, первая тренировка, ПРОБег, мифы о беге" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23EC1E76'/%3E%3Ctext x='50' y='73' font-family='Arial,sans-serif' font-size='62' font-weight='700' text-anchor='middle' fill='white'%3E%D0%9F%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;400;600;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================================
+     RESET & TOKENS
+     ========================================================= */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+
+  :root {
+    --magenta:      #EC1E76;
+    --magenta-deep: #B9145C;
+    --magenta-soft: #FFD5E8;
+    --cream:        #FFF7F2;
+    --cream-deep:   #FBEBE0;
+    --ink:          #1A0A14;
+    --ink-muted:    #6B4258;
+    --ink-faint:    #A38296;
+    --paper:        #FFFFFF;
+
+    --fs-hero:   clamp(3.5rem, 11vw, 10.5rem);
+    --fs-h2:     clamp(2rem, 5vw, 4rem);
+    --fs-h3:     clamp(1.4rem, 2.6vw, 2.1rem);
+    --fs-kicker: 0.78rem;
+    --fs-body:   1.0625rem;
+    --leading:   1.55;
+
+    --maxw: 1280px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --space-section: clamp(72px, 9vw, 144px);
+
+    --radius: 4px;
+  }
+
+  ::selection { background: var(--magenta); color: var(--paper); }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-kicker);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px; height: 1.5px;
+    background: currentColor;
+    display: inline-block;
+  }
+  .eyebrow.on-pink { color: var(--paper); }
+  .eyebrow.on-pink::before { background: var(--paper); }
+  .eyebrow.on-cream { color: var(--magenta-deep); }
+  .eyebrow.on-cream::before { background: var(--magenta-deep); }
+
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--cream);
+    border-bottom: 1px solid var(--magenta-soft);
+    backdrop-filter: blur(8px);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 14px; padding-bottom: 14px;
+    color: var(--ink);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 14px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .nav-logo img { height: 64px; width: auto; display: block; }
+  .nav-logo .nav-wordmark {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    transition: color 0.18s ease;
+  }
+  .nav-links a:hover { color: var(--magenta); }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--magenta);
+    color: var(--paper);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: -0.01em;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .nav-cta:hover { background: var(--magenta-deep); transform: translateY(-1px); }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-in { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  footer {
+    background: var(--cream-deep);
+    color: var(--ink-muted);
+    padding: 32px 0;
+    font-size: 0.85rem;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  .footer-inner .brand {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  /* =========================================================
+     BLOG PAGE STYLES
+     ========================================================= */
+  .blog-hero {
+    background: var(--magenta);
+    color: var(--paper);
+    padding-top: clamp(72px, 9vw, 128px);
+    padding-bottom: clamp(48px, 7vw, 96px);
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(255,255,255,0.12), transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(0,0,0,0.15), transparent 55%);
+    pointer-events: none;
+  }
+  .blog-hero-inner { position: relative; z-index: 1; }
+  .blog-hero h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin: 1.2rem 0 1.5rem;
+    text-transform: uppercase;
+  }
+  .blog-hero h1 em { font-style: italic; font-weight: 200; color: var(--magenta-soft); }
+  .blog-hero p {
+    max-width: 56ch;
+    font-size: 1.15rem;
+    line-height: 1.55;
+    opacity: 0.92;
+  }
+
+  .blog-list { background: var(--cream); padding-top: var(--space-section); padding-bottom: var(--space-section); }
+  .blog-back {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--magenta-deep);
+    margin-bottom: 2.5rem;
+  }
+  .blog-back:hover { color: var(--magenta); }
+
+  .post {
+    background: var(--paper);
+    border-radius: var(--radius);
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    overflow: hidden;
+    scroll-margin-top: 120px;
+  }
+  .post-cover.post-hero-cover {
+    aspect-ratio: 21 / 9;
+    display: block;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-cover::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.6; mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+  .post-cover-tag {
+    position: absolute;
+    bottom: 1.4rem;
+    left: 1.4rem;
+    z-index: 2;
+    background: rgba(255,255,255,0.96);
+    color: var(--magenta-deep);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+
+  .post-header { padding: clamp(1.8rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem) 0; }
+  .post-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 1rem;
+  }
+  .post-header h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.6rem;
+  }
+  .post-header h2 em { font-style: italic; font-weight: 200; color: var(--magenta); }
+  .post-dek {
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--ink-muted);
+    max-width: 60ch;
+  }
+
+  .post-body {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    max-width: 70ch;
+    margin: 0 auto;
+  }
+  .post-body p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+  .post-body p strong { color: var(--ink); font-weight: 700; }
+  .post-body h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.015em;
+    margin: 2rem 0 0.8rem;
+  }
+  .post-body h4 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    margin: 1.6rem 0 0.4rem;
+    color: var(--ink);
+  }
+  .post-body ul, .post-body ol {
+    margin: 0 0 1.5rem 0;
+    padding-left: 1.4rem;
+  }
+  .post-body li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+  .post-body blockquote {
+    border-left: 3px solid var(--magenta);
+    padding: 0.4rem 0 0.4rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.45;
+    color: var(--magenta-deep);
+  }
+  .post-body a {
+    color: var(--magenta-deep);
+    border-bottom: 1px solid var(--magenta-soft);
+    transition: border-color 0.18s ease;
+  }
+  .post-body a:hover { border-color: var(--magenta); }
+
+  .post-share {
+    margin-top: 2.5rem;
+    padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--magenta-soft);
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+  }
+  .post-share a {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--magenta-deep);
+  }
+  .post-share a:hover { color: var(--magenta); }
+
+  .related {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--magenta-soft);
+  }
+  .related-title {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-card {
+    background: var(--paper);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px -10px rgba(185,20,92,0.25);
+  }
+  .post-card a { display: block; color: inherit; }
+  .post-cover {
+    aspect-ratio: 4 / 3;
+    display: block;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-cover::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.55) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .post-cover img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .post-tag {
+    position: absolute;
+    background: rgba(255,255,255,0.95);
+    color: var(--magenta-deep);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    z-index: 2;
+    left: 1rem; bottom: 1rem;
+  }
+  .post-body-card { padding: 1.4rem 1.5rem 1.6rem; }
+  .post-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-bottom: 0.7rem;
+  }
+  .post-title {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .post-title em { font-style: italic; font-weight: 200; color: var(--magenta); }
+  .post-cta {
+    display: inline-block;
+    margin-top: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--magenta-deep);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 1000px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  .nav-links a[href="blog.html"] { color: var(--magenta); }
+
+  @media (max-width: 720px) {
+    .post-body h3 { font-size: 1.2rem; line-height: 1.3; overflow-wrap: anywhere; word-break: break-word; }
+    .post-body h4 { font-size: 1rem; overflow-wrap: anywhere; word-break: break-word; }
+    .post-body p, .post-body li { overflow-wrap: anywhere; word-break: break-word; }
+  }
+</style>
+
+
+<meta name="author" content="Яна" />
+<link rel="canonical" href="https://yanaprobeg.ru/blog/trener-po-begu-simferopol.html" />
+<meta property="og:title" content="Тренер по бегу в Симферополе: 5 мифов, которые мешают начать" />
+<meta property="og:description" content="5 мифов о том, что делает тренер по бегу, и почему регулярность важнее мотивации. Помогаем выбрать тренера по бегу в Симферополе и понять, чего ждать от первой тренировки. Опыт клуба ПРОБег." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yanaprobeg.ru/blog/trener-po-begu-simferopol.html" />
+<meta property="og:image" content="https://yanaprobeg.ru/assets/blog/trener.jpg" />
+<meta property="article:published_time" content="2026-07-16" />
+<meta property="article:section" content="Старт" />
+<meta property="article:author" content="Яна" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Тренер по бегу в Симферополе: 5 мифов, которые мешают начать" />
+<meta name="twitter:description" content="5 мифов о том, что делает тренер по бегу, и почему регулярность важнее мотивации. Помогаем выбрать тренера по бегу в Симферополе и понять, чего ждать от первой тренировки. Опыт клуба ПРОБег." />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Тренер по бегу в Симферополе: 5 мифов, которые мешают начать",
+  "description": "5 мифов о том, что делает тренер по бегу, и почему регулярность важнее мотивации. Помогаем выбрать тренера по бегу в Симферополе и понять, чего ждать от первой тренировки в клубе ПРОБег.",
+  "datePublished": "2026-07-16",
+  "dateModified": "2026-07-16",
+  "author": {
+    "@type": "Person",
+    "name": "Яна",
+    "jobTitle": "Тренер бегового клуба ПРОБег"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ПРОБег",
+    "url": "https://yanaprobeg.ru",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://yanaprobeg.ru/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://yanaprobeg.ru/blog/trener-po-begu-simferopol.html"
+  },
+  "image": "https://yanaprobeg.ru/assets/blog/trener.jpg",
+  "articleSection": "Старт",
+  "inLanguage": "ru-RU",
+  "keywords": "тренер по бегу, тренер по бегу в Симферополе, тренер по бегу Симферополь, беговой клуб Симферополь, как выбрать тренера по бегу, первая тренировка, ПРОБег, мифы о беге"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли начать бегать самому, без тренера?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно, и многие начинают именно так. Но 8 из 10 новичков бросают в первые 2-3 месяца не из-за лени, а из-за типичных ошибок: слишком быстрый темп, пропуск разминки, бег каждый день, игнорирование боли в коленях и стопах. Тренер на старте — это способ не наступить на грабли, которые уже собрали все до вас. Через 2-3 месяца регулярных тренировок вы уже будете понимать, что вам нужно, и сможете тренироваться самостоятельно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит первая тренировка в клубе ПРОБег?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Первая тренировка в клубе ПРОБег бесплатная. Это знакомство с тренером, определение уровня, разбор формата и ответы на вопросы. После первой тренировки можно взять разовое занятие или месячный абонемент. Уточняйте актуальные цены у тренера во ВКонтакте."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где и когда проходят тренировки клуба ПРОБег?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Все тренировки проходят в Симферополе. Открытая пробежка — каждый вторник в 20:00, сбор у Гагаринского парка, маршрут по Салгирке. Темповая тренировка по средам, ОФП по пятницам, длительная по воскресеньям в 09:00. Все 3-4 тренировки в неделю ведёт тренер клуба лично."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я никогда не бегал(а). Мне подойдёт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, для новичков в клубе ПРОБег есть отдельный уровень. Темп подбирается под группу, отстать невозможно. На первой тренировке тренер определит ваш уровень и предложит подходящий формат. Никаких экзаменов и нормативов — приходите как есть."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем тренер по бегу в клубе отличается от онлайн-тренера?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Главное отличие — обратная связь в реальном времени. Тренер видит вашу технику, поправляет на месте, слышит дыхание, замечает, когда вы перенапряглись. Онлайн-тренер работает с тем, что вы ему прислали: фото, текст, видео. Это полезно, но не заменяет живого присутствия. Плюс в клубе есть группа — а групповой бег в правильном темпе безопаснее одиночного."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени нужно, чтобы начать бегать 5 км без остановки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "При регулярных тренировках 3 раза в неделю — 6-10 недель. В клубе ПРОБег есть готовый план для новичков, по которому первые 5 км обычно пробегают ко второму месяцу. Без плана и регулярности этот срок растягивается до полугода или не наступает вообще."
+      }
+    }
+  ]
+}
+</script>
+
+</head>
+<body>
+
+<!-- =========================== NAV =========================== -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="ПРОБег">
+      <img src="../assets/logo.png" alt="ПРОБег" />
+      <span class="nav-wordmark">ПРОБег</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#schedule">Расписание</a>
+      <a href="../index.html#pricing">Абонементы</a>
+      <a href="../blog.html">Блог</a>
+      <a href="../index.html#yana">Тренер</a>
+    </div>
+    <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener" class="nav-cta">ВКонтакте</a>
+  </div>
+</nav>
+
+<header class="blog-hero">
+  <div class="wrap blog-hero-inner">
+    <span class="eyebrow on-pink">Блог ПРОБег · Старт</span>
+    <h1>Тренер по бегу в Симферополе: <em>5 мифов</em>, которые мешают начать</h1>
+    <p>Что на самом деле делает тренер по бегу, кому он нужен и почему регулярность важнее мотивации. Без воды и рекламных лозунгов — только опыт клуба ПРОБег.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <a href="../blog.html" class="blog-back">К списку статей</a>
+
+  <article class="post" itemscope itemtype="https://schema.org/Article">
+    <div class="post-cover post-hero-cover">
+      <img src="../assets/blog/trener.jpg" alt="Тренер клуба ПРОБег ведёт группу бегунов по парковой тропе на рассвете" loading="lazy">
+      <span class="post-cover-tag">Старт</span>
+    </div>
+    <header class="post-header">
+      <div class="post-date">
+        <time itemprop="datePublished" datetime="2026-07-16">16 июля 2026</time> · 12 мин чтения
+      </div>
+      <h2 itemprop="headline">Тренер по бегу в Симферополе: <em>5 мифов</em>, которые мешают начать</h2>
+      <p class="post-dek" itemprop="description">Разбираем, что на самом деле делает тренер по бегу и почему это не про боль и не про мотивацию. Пять мифов, которые мешают прийти на первую тренировку в клубе ПРОБег в Симферополе.</p>
+      <meta itemprop="author" content="Яна" />
+      <meta itemprop="articleSection" content="Старт" />
+    </header>
+
+    <div class="post-body" itemprop="articleBody">
+
+      <p>В Симферополе тренер по бегу вживую — редкость. Онлайн-школ бега десятки, школ триатлона, академий подготовки к марафону. А вот прийти в парк и тренироваться с живым тренером в группе — почти негде. Поэтому вокруг темы «нужен ли мне тренер по бегу» накопилась куча мифов. Одни говорят «справлюсь сам», другие — «это только для профи», третьи — «это дорого и не для Симферополя».</p>
+      <p>Мы в клубе ПРОБег ведём тренировки в Симферополе 3-4 раза в неделю и видим одни и те же истории: человек думает одно, приходит на первую тренировку и удивляется. Ниже — пять самых частых мифов и то, что за ними стоит на самом деле. Без рекламной воды — только то, как устроена работа тренера по бегу у нас в клубе.</p>
+
+      <h3>Миф 1. Тренер по бегу нужен только профи</h3>
+      <p>Самый живучий миф. Логика понятная: «я не бегаю марафон, зачем мне тренер». На практике ровно наоборот. Тренер нужнее всего на старте — когда техники нет, понимания нагрузки нет, и каждая тренировка либо слишком лёгкая, либо слишком тяжёлая.</p>
+      <p>У нас в клубе ПРОБег около половины занимающихся — это люди, которые не бегали вообще или бросили после первой попытки. Кто-то пришёл после 10, 15, 20 лет сидячего образа жизни. У кого-то колени, у кого-то лишний вес, у кого-то просто страх «я не справлюсь». Именно в этой точке тренер и нужен: он подбирает темп, ставит технику, не даёт перебегать, объясняет, как дышать и куда ставить стопу. Подробно про типичные ошибки новичков мы разбирали в статье <a href="tehnika-bega.html">«Техника бега: 5 ошибок, которые делают все»</a> — там же объясняем, почему эти ошибки не исправить по YouTube.</p>
+      <p>Профи обычно уже знают свои зоны, темп, понимают, как восстанавливаться. Им тренер нужен точечно — на конкретный старт или блок. А новичку тренер нужен как навигатор: чтобы не сбиться с пути в первые два месяца, когда бросают 80% самостоятельных попыток.</p>
+
+      <h3>Миф 2. Бег — это про страдание и пот</h3>
+      <p>Этот миф приходит из двух мест. Первое — старые школьные уроки физкультуры, где норма «2 км на время» превращала бег в наказание. Второе — соцсети с красивыми фотографиями уставших людей и подписями про «убиться, но пробежать». Суммарно получается убеждение: если не тяжело, значит, ты не тренируешься.</p>
+      <p>На самом деле 80% тренировок должны быть лёгкими. Это не лень и не халтура — это физиология. Лёгкий бег укрепляет капилляры, сердце учится работать экономно, мышцы и связки адаптируются без микротравм. Если вы постоянно бегаете «на пределе», через 2-3 месяца придёт перетренированность, а за ней — травма или откат. Про пульсовые зоны и почему 80% времени нужно бегать в зоне 2 мы подробно писали в статье <a href="pulsovye-zony.html">«Пульсовые зоны: зачем следить за пульсом»</a>.</p>
+      <p>В клубе ПРОБег на открытых пробежках мы сознательно держим темп разговорным. Если вы не можете говорить фразами — темп слишком быстрый. Да, первые 2-3 тренировки всё равно будут непривычными, тело вспоминает нагрузку. Но через 3-4 недели регулярных занятий появляется то, что многие ученики называют «второе дыхание» — бег перестаёт быть подвигом и становится привычкой. Это и есть цель.</p>
+
+      <h3>Миф 3. YouTube и приложение заменят тренера</h3>
+      <p>YouTube — отличная штука для понимания, как выглядит правильная техника. Приложение для бега покажет дистанцию и темп. Но есть вещи, которые не видит ни одно приложение и ни одно видео.</p>
+      <p>Например, тренер слышит, как вы дышите — и понимает, что темп надо снизить. Видит, что левая нога ставится носком внутрь — и предлагает упражнения на коррекцию. Замечает, что вы бежите с напряжёнными плечами — и поправляет. Субъективно «мне тяжело» на пульсе 145 — это зона 2, а на пульсе 175 — это уже перебор. Приложение цифру покажет, а интерпретировать её под ваш сегодняшний день может только живой человек.</p>
+      <p>Онлайн-тренер — это компромисс. Он работает с тем, что вы ему прислали. Иногда этого хватает: план тренировок, корректировка раз в неделю, ответы в чате. Но если вы никогда не бегали и не знаете, какие вопросы задавать, онлайн-формат не сработает. Нужен старт вживую — в парке, на дорожке, с тренером, который смотрит, как вы двигаетесь, и поправляет по ходу. Именно поэтому мы в клубе ПРОБег работаем только в очном формате: с группой, в парке, в реальном времени.</p>
+
+      <h3>Миф 4. Тренер по бегу в Симферополе — это дорого</h3>
+      <p>Давайте считать. В Симферополе разовое занятие с индивидуальным тренером по бегу стоит в среднем 2000-3500 ₽. Месячный абонемент в клубе — 4000 ₽ за 8 тренировок, то есть 500 ₽ за тренировку. Это цена двух чашек кофе. Первая тренировка в клубе ПРОБег бесплатная — приходите, смотрите, решаете.</p>
+      <p>Теперь об экономике. Самостоятельные занятия стоят ноль рублей, но: средний новичок покупает 2-3 пары кроссовок за первый год, потому что бегает не в тех. Плюс мазь от колен, пластыри, иногда массаж. Плюс время: метод проб и ошибок — это не 2 месяца, а год. Год — это 12 месяцев попыток вместо 4 месяцев системной работы.</p>
+      <p>Тренер по бегу — это не «услуга», это сокращение пути. Когда рядом человек, который видит ваши ошибки и сразу поправляет, вы не тратите месяцы на растяжку ахилла, не уходите в перетрен, не покупаете кроссовки с избыточной амортизацией «потому что в магазине посоветовали». Про <a href="ofp-dlya-begunov.html">силовую для бегунов</a> и базовые упражнения для укрепления коленей мы тоже рассказываем отдельно — она бесплатна и входит в каждую пятничную тренировку.</p>
+
+      <h3>Миф 5. Тренер сделает меня быстрее за месяц</h3>
+      <p>Нет. Тренер не сделает быстрее за месяц — и не должен обещать. Физиология работает иначе. Аэробная база строится 2-3 месяца минимум, улучшение личного рекорда на 5 км у новичка — это горизонт 4-6 месяцев, на 10 км — 6-9, на полумарафон — 8-12. Если вам обещают «10 км за 40 минут через 4 недели» — это либо неправда, либо про травму.</p>
+      <p>Что тренер реально делает: ускоряет прогресс в 2-3 раза по сравнению с самостоятельными тренировками. Не потому что у него секретные методики, а потому что он сразу отсекает ошибки. Не надо 2 месяца понимать, что каденс низкий, — тренер поправит на первой тренировке. Не надо 3 месяца разбираться, почему после длительной болит колено, — тренер заранее поставит технику и укрепит мышцы. Это сокращение пути, а не волшебная палочка.</p>
+      <p>Среди наших учеников есть люди, которые пришли в клуб, никогда не бегали, а через 12-18 месяцев регулярных тренировок пробежали марафон быстрее четырёх часов. Для человека, который начал с нуля и не имел спортивного бэкграунда, это серьёзный результат. Но это не за месяц и не за два. Это результат системной работы на длинной дистанции — той самой регулярности, которую многие путают с мотивацией.</p>
+
+      <blockquote>Мотивация — это «хочу». Регулярность — это «делаю каждую неделю, даже когда не хочется». Тренер по бегу нужен не для того, чтобы мотивировать. Он нужен, чтобы была система, к которой вы возвращаетесь, когда мотивация заканчивается.</blockquote>
+
+      <h3>Как проходит первая тренировка в клубе ПРОБег</h3>
+      <p>Чтобы снять последний страх — расскажем, как устроена встреча. Первая тренировка бесплатная, по длительности — около часа. Сбор у Гагаринского парка во вторник в 20:00 (или в другое время по договорённости с тренером). Что происходит:</p>
+      <ul>
+        <li><strong>Знакомство и разговор.</strong> Тренер спрашивает про опыт, цели, травмы, ожидания. Не экзамен — обычный человеческий разговор на 10-15 минут.</li>
+        <li><strong>Лёгкая разминка.</strong> Суставная гимнастика, динамическая растяжка, активация мышц. Подробно формат разминки мы разобрали в статье <a href="razminka-i-zaminka.html">«Разминка и заминка: зачем и как»</a> — на первой тренировке всё покажем на практике.</li>
+        <li><strong>Пробежка в комфортном темпе.</strong> 20-30 минут, в темпе разговорном. Тренер бежит рядом, поправляет технику, следит за дыханием. Никто не остаётся один, никто не бежит «в отрыв».</li>
+        <li><strong>Заминка и обратная связь.</strong> 5-7 минут растяжки, разбор впечатлений, ответы на вопросы. После тренировки тренер пишет в общий чат, что увидел, что стоит подтянуть, в каком формате продолжать.</li>
+      </ul>
+      <p>Никаких нормативов, никаких «сдай 3 км на время». Задача первой тренировки — понять, комфортно ли вам, подходит ли формат, нравится ли группа. Дальше решаете сами: разовое занятие, месячный абонемент или просто прийти на следующую открытую пробежку во вторник.</p>
+
+      <h3>Что в итоге даёт работа с тренером</h3>
+      <p>За время работы клуба через ПРОБег прошли десятки людей. Среди них есть те, кто пришёл в клуб, не пробежав ни одного километра, а сейчас готовится к марафонам. Несколько человек пробежали марафон быстрее четырёх часов — серьёзный результат для тех, кто пришёл в клуб, не имея за плечами ни одного старта. Кто-то пришёл за компанию с другом, кто-то — после рекомендации врача снизить вес, кто-то — после 40 лет впервые в жизни выйти на пробежку.</p>
+      <p>Все эти истории объединяет одно: они случились благодаря регулярности, а не разовому порыву. Тренер по бегу в клубе ПРОБег не будет за вас бегать, не будет тянуть на старт и не будет уговаривать выйти в дождь. Но он построит систему, в которой вы будете возвращаться снова и снова — потому что есть группа, есть план, есть понятная следующая тренировка. И ещё потому что в Симферопольской жаре <a href="beg-v-zharu.html">бегать по науке</a> — это не про «терпеть», а про «правильно дозировать нагрузку».</p>
+      <p>Яна — тренер клуба ПРОБег — сама занималась лёгкой атлетикой профессионально, потом был перерыв в 10 лет, возврат в спорт уже как любитель. Высшее физкультурное образование, опыт тренерской работы больше пяти лет, среди её учеников есть те, кто сдавал ГТО на золото, и те, кто готовился к первому марафону. Бег для неё — не спорт высоких достижений, а способ сделать жизнь регулярной и тело послушным. Этому же она учит на тренировках в клубе.</p>
+
+      <h3>Частые вопросы</h3>
+
+      <h4>Можно ли начать бегать самому, без тренера?</h4>
+      <p>Можно, и многие начинают именно так. Но 8 из 10 новичков бросают в первые 2-3 месяца не из-за лени, а из-за типичных ошибок: слишком быстрый темп, пропуск разминки, бег каждый день, игнорирование боли в коленях и стопах. Тренер на старте — это способ не наступить на грабли, которые уже собрали все до вас. Через 2-3 месяца регулярных тренировок вы уже будете понимать, что вам нужно, и сможете тренироваться самостоятельно.</p>
+
+      <h4>Сколько стоит первая тренировка в клубе ПРОБег?</h4>
+      <p>Первая тренировка в клубе ПРОБег бесплатная. Это знакомство с тренером, определение уровня, разбор формата и ответы на вопросы. После первой тренировки можно взять разовое занятие или месячный абонемент. Уточняйте актуальные цены у тренера во ВКонтакте.</p>
+
+      <h4>Где и когда проходят тренировки клуба ПРОБег?</h4>
+      <p>Все тренировки проходят в Симферополе. Открытая пробежка — каждый вторник в 20:00, сбор у Гагаринского парка, маршрут по Салгирке. Темповая тренировка по средам, ОФП по пятницам, длительная по воскресеньям в 09:00. Все 3-4 тренировки в неделю ведёт тренер клуба лично.</p>
+
+      <h4>Я никогда не бегал(а). Мне подойдёт?</h4>
+      <p>Да, для новичков в клубе ПРОБег есть отдельный уровень. Темп подбирается под группу, отстать невозможно. На первой тренировке тренер определит ваш уровень и предложит подходящий формат. Никаких экзаменов и нормативов — приходите как есть.</p>
+
+      <h4>Чем тренер по бегу в клубе отличается от онлайн-тренера?</h4>
+      <p>Главное отличие — обратная связь в реальном времени. Тренер видит вашу технику, поправляет на месте, слышит дыхание, замечает, когда вы перенапряглись. Онлайн-тренер работает с тем, что вы ему прислали: фото, текст, видео. Это полезно, но не заменяет живого присутствия. Плюс в клубе есть группа — а групповой бег в правильном темпе безопаснее одиночного.</p>
+
+      <h4>Сколько времени нужно, чтобы начать бегать 5 км без остановки?</h4>
+      <p>При регулярных тренировках 3 раза в неделю — 6-10 недель. В клубе ПРОБег есть готовый план для новичков, по которому первые 5 км обычно пробегают ко второму месяцу. Без плана и регулярности этот срок растягивается до полугода или не наступает вообще.</p>
+
+    </div>
+
+    <footer class="post-share">
+      <a href="../index.html#pricing">Записаться в клуб</a>
+      <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">Обсудить во ВКонтакте</a>
+    </footer>
+  </article>
+
+  <section class="related" aria-label="Другие статьи">
+    <h3 class="related-title">Другие записи</h3>
+    <div class="blog-grid">
+
+      <article class="post-card">
+        <a href="kak-nachat-begat.html">
+          <div class="post-cover">
+            <img src="../assets/blog/start.jpg" alt="" loading="lazy">
+            <span class="post-tag">Старт</span>
+          </div>
+          <div class="post-body-card">
+            <h2 class="post-title">Как начать бегать: первая неделя</h2>
+            <span class="post-cta">Читать статью</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="post-card">
+        <a href="tehnika-bega.html">
+          <div class="post-cover">
+            <img src="../assets/blog/technique.jpg" alt="" loading="lazy">
+            <span class="post-tag">Техника</span>
+          </div>
+          <div class="post-body-card">
+            <h2 class="post-title">Техника бега: 5 ошибок, которые делают все</h2>
+            <span class="post-cta">Читать статью</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="post-card">
+        <a href="pulsovye-zony.html">
+          <div class="post-cover">
+            <img src="../assets/blog/pulse.jpg" alt="" loading="lazy">
+            <span class="post-tag">Пульс</span>
+          </div>
+          <div class="post-body-card">
+            <h2 class="post-title">Пульсовые зоны: зачем следить за пульсом</h2>
+            <span class="post-cta">Читать статью</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="brand">ПРОБег · беговой клуб Симферополь</div>
+    <div>Яна · тренер · основатель · 2026</div>
+  </div>
+</footer>
+
+<script>
+  // reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
