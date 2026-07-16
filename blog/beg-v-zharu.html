@@ -57,6 +57,7 @@
     --space-section: clamp(72px, 9vw, 144px);
 
     --radius: 4px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   ::selection { background: var(--magenta); color: var(--paper); }
@@ -90,62 +91,69 @@
      NAV
      ========================================================= */
   .nav {
-    position: sticky; top: 0; z-index: 50;
-    background: var(--cream);
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(255,247,242,0.82);
     border-bottom: 1px solid var(--magenta-soft);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   }
   .nav-inner {
     display: flex; align-items: center; justify-content: space-between;
-    padding-top: 14px; padding-bottom: 14px;
-    color: var(--ink);
+    padding-top: 12px; padding-bottom: 12px; color: var(--ink);
   }
-  .nav-logo {
-    display: flex; align-items: center; gap: 14px;
-    font-family: 'Unbounded', sans-serif;
-    font-weight: 800;
-    font-size: 1.25rem;
-    letter-spacing: -0.01em;
-  }
-  .nav-logo img {
-    height: 64px; width: auto;
-    display: block;
-    /* Logo recolored to dark wine for max contrast on cream nav. */
-  }
-  /* The wordmark span is for screen readers / fallback - hide visually. */
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { height: 54px; width: auto; display: block; }
   .nav-logo .nav-wordmark {
-    position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border: 0;
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
   }
   .nav-links {
-    display: flex; gap: clamp(1rem, 3vw, 2.5rem);
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--ink);
+    display: flex; align-items: center; gap: clamp(1rem, 2.6vw, 2.2rem);
+    font-size: 0.95rem; font-weight: 600; color: var(--ink);
   }
-  .nav-links a {
-    position: relative;
-    padding: 6px 0;
-    transition: color 0.18s ease;
+  .nav-links a { position: relative; padding: 6px 0; transition: color 0.18s ease; }
+  .nav-links a::after {
+    content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 0;
+    background: var(--magenta); transition: width 0.22s var(--ease);
   }
   .nav-links a:hover { color: var(--magenta); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: var(--magenta); }
+  .nav-links a.active::after { width: 100%; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
   .nav-cta {
-    background: var(--magenta);
-    color: var(--paper);
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 0.9rem;
+    background: var(--magenta); color: var(--paper);
+    padding: 10px 20px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
+    display: inline-flex; align-items: center; gap: 0.5rem;
     transition: transform 0.18s ease, background 0.18s ease;
   }
   .nav-cta:hover { transform: translateY(-1px); background: var(--magenta-deep); }
-  @media (max-width: 760px) {
-    .nav-links { display: none; }
+  .nav-burger {
+    display: none; width: 42px; height: 42px; border-radius: 12px;
+    border: 1px solid var(--magenta-soft); background: var(--paper);
+    align-items: center; justify-content: center; flex-direction: column; gap: 5px;
+  }
+  .nav-burger span { width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform 0.25s var(--ease), opacity 0.2s ease; }
+  body.menu-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  body.menu-open .nav-burger span:nth-child(2) { opacity: 0; }
+  body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile menu panel */
+  .mobile-menu {
+    position: fixed; inset: 0; top: 0; z-index: 55;
+    background: var(--magenta); color: var(--paper);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: var(--gutter);
+    transform: translateY(-100%); transition: transform 0.4s var(--ease);
+    visibility: hidden;
+  }
+  body.menu-open .mobile-menu { transform: translateY(0); visibility: visible; }
+  .mobile-menu a { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(2rem, 9vw, 3.4rem); letter-spacing: -0.03em; padding: 0.35rem 0; line-height: 1.05; }
+  .mobile-menu a:active { color: var(--magenta-soft); }
+  .mobile-menu .mm-foot { margin-top: 2.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.9; }
+
+  @media (max-width: 860px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-burger { display: inline-flex; }
   }
 
   /* =========================================================
@@ -1203,8 +1211,6 @@
     margin-bottom: 1.5rem;
   }
 
-  .nav-links a[href="blog.html"] { color: var(--magenta); }
-
   /* =========================================================
      MOBILE TYPOGRAPHY FIX
      Long headings were overflowing on phones (e.g. hero h1
@@ -1293,19 +1299,36 @@
 <!-- =========================== NAV =========================== -->
 <nav class="nav">
   <div class="wrap nav-inner">
-    <a href="../index.html" class="nav-logo" aria-label="ПРОБег">
-      <img src="../assets/logo.png" alt="ПРОБег" />
+    <a href="../index.html" class="nav-logo" aria-label="ПРОБег — на главную">
+      <img src="../assets/logo.png" alt="ПРОБег" width="147" height="54" />
       <span class="nav-wordmark">ПРОБег</span>
     </a>
     <div class="nav-links">
       <a href="../index.html#schedule">Расписание</a>
       <a href="../index.html#pricing">Абонементы</a>
-      <a href="../blog.html">Блог</a>
       <a href="../index.html#yana">Тренер</a>
+      <a href="../index.html#faq">Вопросы</a>
+      <a href="../blog.html" class="active">Блог</a>
     </div>
-    <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener" class="nav-cta">ВКонтакте</a>
+    <div class="nav-right">
+      <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener" class="nav-cta">
+        ВКонтакте
+      </a>
+      <button class="nav-burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html#schedule" data-close>Расписание</a>
+  <a href="../index.html#pricing" data-close>Абонементы</a>
+  <a href="../index.html#yana" data-close>Тренер</a>
+  <a href="../index.html#faq" data-close>Вопросы</a>
+  <a href="../blog.html">Блог</a>
+  <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте →</a>
+  <div class="mm-foot">Симферополь · Крым · ВТ 20:00 — бесплатно</div>
+</div>
 
 <header class="blog-hero">
   <div class="wrap blog-hero-inner">
@@ -1464,6 +1487,17 @@
 </footer>
 
 <script>
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const closeMenu = () => { document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); };
+  if (burger) {
+    burger.addEventListener('click', () => {
+      const open = document.body.classList.toggle('menu-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.querySelectorAll('#mobileMenu [data-close], #mobileMenu a[href^="blog"]').forEach(a => a.addEventListener('click', closeMenu));
+  }
+
   // Reveal on scroll
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
