@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Публичная оферта и условия — ПРОБег</title>
+<meta name="description" content="Публичная оферта клуба ПРОБег на оказание услуг по проведению тренировок по бегу в Симферополе. Условия, цены, мед. дисклеймер, возврат." />
+<link rel="canonical" href="https://yanaprobeg.ru/terms.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ПРОБег" />
+<meta property="og:title" content="Публичная оферта и условия — ПРОБег" />
+<meta property="og:description" content="Условия оказания услуг по проведению тренировок клуба ПРОБег в Симферополе." />
+<meta property="og:url" content="https://yanaprobeg.ru/terms.html" />
+<meta property="og:image" content="https://yanaprobeg.ru/assets/logo.png" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="robots" content="index, follow" />
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;400;600;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 17px; line-height: 1.6;
+    color: var(--ink); background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility; overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+
+  :root {
+    --magenta: #EC1E76; --magenta-deep: #B9145C; --magenta-soft: #FFD5E8;
+    --cream: #FFF7F2; --cream-deep: #FBEBE0;
+    --ink: #1A0A14; --ink-muted: #6B4258; --ink-faint: #A38296;
+    --paper: #FFFFFF;
+    --maxw: 980px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --space-section: clamp(56px, 7vw, 96px);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  ::selection { background: var(--magenta); color: var(--paper); }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  /* NAV (compact, как на privacy-policy) */
+  .nav {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(255,247,242,0.92);
+    border-bottom: 1px solid var(--magenta-soft);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; padding-bottom: 12px; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { height: 48px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: 1.6rem; font-size: 0.95rem; font-weight: 600; }
+  .nav-links a { padding: 6px 0; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--magenta); transition: width 0.22s var(--ease); }
+  .nav-links a:hover { color: var(--magenta); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta { background: var(--magenta); color: var(--paper); padding: 9px 18px; border-radius: 999px; font-weight: 700; font-size: 0.88rem; transition: transform 0.18s ease, background 0.18s ease; }
+  .nav-cta:hover { transform: translateY(-1px); background: var(--magenta-deep); }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* A11Y */
+  .a11y-bar {
+    position: fixed; right: 16px; bottom: 16px; z-index: 80;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--paper); padding: 8px 12px; border-radius: 999px;
+    box-shadow: 0 8px 24px -10px rgba(0,0,0,0.25); border: 1px solid var(--magenta-soft);
+  }
+  .a11y-bar button { width: 32px; height: 32px; border-radius: 50%; background: var(--cream); color: var(--magenta-deep); font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.85rem; transition: background 0.18s ease; }
+  .a11y-bar button:hover { background: var(--magenta-soft); }
+  .a11y-bar .sep { color: var(--ink-faint); font-size: 0.7rem; padding: 0 2px; }
+
+  /* Page hero */
+  .page-hero { background: var(--magenta); color: var(--paper); padding-top: clamp(56px, 8vw, 96px); padding-bottom: clamp(40px, 6vw, 72px); }
+  .page-hero .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.9; display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+  .page-hero .eyebrow::before { content: ''; width: 28px; height: 1.5px; background: var(--paper); display: inline-block; }
+  .page-hero h1 { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.0; letter-spacing: -0.03em; text-transform: uppercase; }
+  .page-hero h1 em { font-style: italic; font-weight: 200; color: var(--magenta-soft); }
+  .page-hero p { margin-top: 1.2rem; max-width: 60ch; font-size: 1.05rem; line-height: 1.55; opacity: 0.95; }
+
+  /* Content */
+  .content { padding-top: var(--space-section); padding-bottom: var(--space-section); }
+  .content h2 { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -0.015em; margin: 2.4rem 0 0.9rem; padding-top: 1.5rem; border-top: 1px solid var(--magenta-soft); }
+  .content h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+  .content h3 { font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 1.15rem; margin: 1.4rem 0 0.6rem; color: var(--magenta-deep); }
+  .content p { color: var(--ink); font-size: 1.02rem; line-height: 1.7; margin-bottom: 0.9rem; }
+  .content ul, .content ol { margin: 0.6rem 0 1.2rem 0; padding-left: 1.4rem; }
+  .content li { font-size: 1.02rem; line-height: 1.7; margin-bottom: 0.4rem; }
+  .content strong { color: var(--ink); font-weight: 700; }
+  .content a { color: var(--magenta-deep); border-bottom: 1px solid var(--magenta-soft); }
+  .content a:hover { border-color: var(--magenta-deep); }
+  .disclaimer { margin: 1.5rem 0; padding: 1.2rem 1.4rem; background: var(--magenta-soft); border-left: 4px solid var(--magenta); border-radius: 6px; }
+  .disclaimer strong { color: var(--magenta-deep); }
+  .updated { margin-top: 3rem; padding: 1rem 1.2rem; background: var(--cream-deep); border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; letter-spacing: 0.05em; color: var(--ink-muted); }
+
+  /* Footer */
+  footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 2.2rem 0 1.6rem; font-size: 0.9rem; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .footer-inner .brand { font-family: 'Unbounded', sans-serif; font-weight: 800; color: var(--paper); }
+  .footer-inner a { color: rgba(255,255,255,0.85); border-bottom: 1px dashed rgba(255,255,255,0.3); }
+  .footer-inner a:hover { color: var(--paper); border-color: var(--paper); }
+  .reqs { margin-top: 1.2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .reqs a { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
+  .age-mark { display: inline-flex; align-items: center; gap: 0.4rem; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="ПРОБег — на главную">
+      <img src="assets/logo.png" alt="ПРОБег" width="130" height="48" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="index.html#schedule">Расписание</a>
+      <a href="index.html#pricing">Абонементы</a>
+      <a href="blog.html">Блог</a>
+    </div>
+    <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener" class="nav-cta">ВКонтакте</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">ПРОБег · документы</span>
+    <h1>Публичная <em>оферта</em><br/>и условия</h1>
+    <p>Условия оказания услуг по проведению групповых и индивидуальных тренировок по бегу. Документ является публичной офертой в соответствии со ст. 437 ГК РФ. Внимательно прочтите перед оплатой.</p>
+  </div>
+</header>
+
+<main class="content">
+  <div class="wrap">
+
+    <h2>1. Общие положения</h2>
+    <p>1.1. Настоящая публичная оферта (далее — <strong>Оферта</strong>) определяет условия оказания услуг по проведению тренировок по бегу клубом <strong>ПРОБег</strong> (далее — <strong>Клуб</strong>) и адресована любому дееспособному физическому лицу (далее — <strong>Клиент</strong>), желающему получать услуги Клуба.</p>
+    <p>1.2. Акцептом (принятием) Оферты считается оплата Клиентом услуг Клуба или фактическое посещение первой тренировки (если она бесплатная). С момента акцепта Оферта считается заключённым договором на условиях, изложенных в ней.</p>
+    <p>1.3. Оферта действует с момента её публикации на Сайте и до момента её отзыва Клубом. Клуб вправе вносить изменения в Оферту без предварительного уведомления Клиента. Новая редакция вступает в силу с момента её размещения на Сайте.</p>
+
+    <h2>2. Термины и определения</h2>
+    <ul>
+      <li><strong>Клуб</strong> — самозанятая <strong>Четверухина-Малова Яна Сергеевна</strong> (плательщик НПД, ИНН <strong>[ИНН]</strong>), оказывающая услуги по проведению тренировок по бегу под брендом ПРОБег.</li>
+      <li><strong>Сайт</strong> — yanaprobeg.ru и его поддомены.</li>
+      <li><strong>Тренировка</strong> — групповое или индивидуальное занятие по бегу с тренером Клуба.</li>
+      <li><strong>Абонемент</strong> — пакет тренировок, оплаченный Клиентом, действующий в течение 30 календарных дней с момента первой тренировки (если иное не указано при продаже).</li>
+      <li><strong>Программа тренировок</strong> — расписание занятий, опубликованное на Сайте (раздел «Расписание»).</li>
+    </ul>
+
+    <h2>3. Предмет оферты</h2>
+    <p>3.1. Клуб обязуется провести для Клиента тренировки по бегу в соответствии с Программой тренировок, а Клиент обязуется оплатить услуги в порядке и на условиях, определённых Офертой.</p>
+    <p>3.2. Виды услуг:</p>
+    <ul>
+      <li>Бесплатная открытая пробежка (вторник, 20:00, Гагаринский парк);</li>
+      <li>Разовое занятие (одна тренировка по выбору);</li>
+      <li>Групповой абонемент (8 тренировок на 30 дней);</li>
+      <li>Индивидуальная тренировка с тренером.</li>
+    </ul>
+    <p>3.3. Стоимость услуг указана на Сайте в разделе <a href="index.html#pricing">«Абонементы»</a> и может быть изменена Клубом в одностороннем порядке. Изменения не распространяются на уже оплаченные услуги.</p>
+
+    <h2>4. Место и время оказания услуг</h2>
+    <p>4.1. Тренировки проводятся в г. Симферополь, Республика Крым. Место сбора — Гагаринский парк (для открытых пробежек) либо локация, согласованная с Клиентом (для индивидуальных занятий).</p>
+    <p>4.2. Время тренировок — согласно расписанию на Сайте. Клуб вправе изменять расписание, уведомив Клиентов через сообщество во ВКонтакте не менее чем за 24 часа.</p>
+    <p>4.3. Длительность одной тренировки — от 40 до 90 минут в зависимости от формата.</p>
+
+    <h2>5. Стоимость и порядок оплаты</h2>
+    <p>5.1. Стоимость услуг указана на Сайте в рублях и включает все применимые налоги. Клуб применяет режим «Налог на профессиональный доход» (НПД).</p>
+    <p>5.2. Оплата производится одним из способов:</p>
+    <ul>
+      <li>переводом на карту/счёт (реквизиты предоставляются в переписке во ВКонтакте);</li>
+      <li>наличными перед тренировкой;</li>
+      <li>иным способом, согласованным сторонами.</li>
+    </ul>
+    <p>5.3. После получения оплаты Клуб формирует чек самозанятого в приложении «Мой налог» и направляет его Клиенту по запросу. Чек является подтверждением оплаты и исполнения обязательств Клуба перед ФНС.</p>
+    <p>5.4. Бесплатная открытая пробежка во вторник оплаты не требует. Участие добровольное.</p>
+
+    <h2>6. Права и обязанности сторон</h2>
+    <h3>Клуб обязуется:</h3>
+    <ul>
+      <li>провести оплаченные тренировки качественно и в срок;</li>
+      <li>обеспечить безопасность тренировочного процесса в разумных пределах;</li>
+      <li>выдать чек самозанятого по запросу Клиента;</li>
+      <li>информировать Клиента об изменениях в расписании и условиях.</li>
+    </ul>
+    <h3>Клуб вправе:</h3>
+    <ul>
+      <li>отказать в проведении тренировки Клиенту в состоянии алкогольного/наркотического опьянения;</li>
+      <li>отказать в тренировке при наличии у Клиента явных медицинских противопоказаний (см. раздел 7);</li>
+      <li>изменять расписание, программу и состав тренеров с уведомлением Клиента;</li>
+      <li>приостановить оказание услуг при форс-мажорных обстоятельствах.</li>
+    </ul>
+    <h3>Клиент обязуется:</h3>
+    <ul>
+      <li>своевременно оплачивать услуги;</li>
+      <li>сообщать тренеру о хронических заболеваниях, травмах, аллергиях и других состояниях, которые могут повлиять на безопасность тренировки;</li>
+      <li>соблюдать правила техники безопасности и указания тренера;</li>
+      <li>не приходить на тренировку в состоянии опьянения;</li>
+      <li>обеспечить надлежащую экипировку (кроссовки, форма по погоде, вода).</li>
+    </ul>
+    <h3>Клиент вправе:</h3>
+    <ul>
+      <li>получать услуги в объёме и в сроки, предусмотренные оплаченным абонементом;</li>
+      <li>отменить или перенести запись на тренировку в порядке, предусмотренном разделом 8;</li>
+      <li>направить претензию Клубу в письменной форме через ВКонтакте или email.</li>
+    </ul>
+
+    <h2>7. Медицинский дисклеймер</h2>
+    <div class="disclaimer">
+      <p><strong>Внимание: тренировки по бегу имеют противопоказания.</strong> Перед началом занятий рекомендуется проконсультироваться с врачом-терапевтом или спортивным врачом, особенно при наличии хронических заболеваний сердечно-сосудистой системы, опорно-двигательного аппарата, дыхательных путей, при беременности, а также в возрасте старше 40 лет без регулярной физической нагрузки.</p>
+    </div>
+    <p>7.1. Клиент подтверждает, что ознакомлен с рисками, связанными с физической нагрузкой (включая, но не ограничиваясь: растяжения, ушибы, переломы, обострение хронических заболеваний, тепловой удар, обезвоживание, сердечно-сосудистые осложнения).</p>
+    <p>7.2. <strong>Клуб не несёт ответственности за вред здоровью Клиента, возникший в результате:</strong></p>
+    <ul>
+      <li>сокрытия Клиентом сведений о состоянии здоровья, травмах, противопоказаниях;</li>
+      <li>самостоятельных действий Клиента во время тренировки (несоблюдение указаний тренера);</li>
+      <li>занятий при наличии медицинских противопоказаний, о которых Клиент был предупреждён;</li>
+      <li>форс-мажорных обстоятельств (погодные условия, состояние покрытия и пр.).</li>
+    </ul>
+    <p>7.3. Клиент самостоятельно несёт ответственность за принятие решения о допустимости физической нагрузки с учётом состояния своего здоровья.</p>
+    <p>7.4. Информационный контент на Сайте (статьи блога, советы по технике, пульсовым зонам, питанию) носит ознакомительный характер и не заменяет консультацию специалиста.</p>
+
+    <h2>8. Порядок отмены, переноса и возврата</h2>
+    <p>8.1. <strong>Отмена/перенос записи на тренировку:</strong></p>
+    <ul>
+      <li>Клиент вправе отменить или перенести запись на разовую тренировку, уведомив Клуб не менее чем за 12 часов до её начала — без штрафа;</li>
+      <li>при отмене менее чем за 12 часов тренировка считается проведённой (если Клиент не предупредил по уважительной причине — болезнь с подтверждением);</li>
+      <li>для индивидуальных тренировок — перенос возможен не позднее чем за 24 часа, иначе удерживается 50% стоимости.</li>
+    </ul>
+    <p>8.2. <strong>Возврат денежных средств за неиспользованный абонемент:</strong></p>
+    <ul>
+      <li>при обращении Клиента в течение 7 календарных дней с даты покупки абонемента, если тренировки не проводились, — возврат 100%;</li>
+      <li>по истечении 7 дней — возврат за неиспользованные тренировки пропорционально стоимости (за вычетом уже проведённых тренировок по фактической цене разового занятия);</li>
+      <li>возврат оформляется в течение 10 рабочих дней с момента обращения тем же способом, которым была произведена оплата.</li>
+    </ul>
+    <p>8.3. <strong>Отмена тренировки по инициативе Клуба</strong> (погодные условия, болезнь тренера, форс-мажор) — тренировка переносится или Клиенту возвращается 1 тренировка из абонемента по выбору.</p>
+    <p>8.4. Претензии по качеству услуг принимаются в течение 14 календарных дней с даты тренировки.</p>
+
+    <h2>9. Обработка персональных данных</h2>
+    <p>9.1. Акцептуя Оферту, Клиент даёт согласие на обработку своих персональных данных в объёме, необходимом для исполнения договора (ФИО, контактные данные, сведения о состоянии здоровья, сообщённые Клиентом).</p>
+    <p>9.2. Подробные условия обработки персональных данных изложены в <a href="privacy-policy.html">Политике конфиденциальности</a>.</p>
+
+    <h2>10. Заключительные положения</h2>
+    <p>10.1. Оферта регулируется и толкуется в соответствии с законодательством Российской Федерации.</p>
+    <p>10.2. Все споры по Оферте разрешаются путём переговоров. При недостижении согласия — в суде по месту нахождения Клуба (г. Симферополь).</p>
+    <p>10.3. Клуб вправе в одностороннем порядке вносить изменения в Оферту. Клиент уведомляется об изменениях через Сайт и сообщество ВКонтакте.</p>
+    <p>10.4. Признание судом какого-либо положения Оферты недействительным не влечёт недействительности остальных положений.</p>
+
+    <h2>11. Реквизиты Исполнителя</h2>
+    <ul>
+      <li><strong>Исполнитель:</strong> Четверухина-Малова Яна Сергеевна</li>
+      <li><strong>Статус:</strong> самозанятая (плательщик НПД)</li>
+      <li><strong>ИНН:</strong> [ИНН]</li>
+      <li><strong>Email для связи:</strong> [EMAIL]</li>
+      <li><strong>Телефон для связи:</strong> +7 978 947 06 24</li>
+      <li><strong>Сообщество:</strong> <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">vk.com/probeg_simf</a></li>
+      <li><strong>Место оказания услуг:</strong> г. Симферополь, Республика Крым, РФ</li>
+    </ul>
+
+    <div class="updated">
+      Дата публикации: 17 июля 2026 · Дата последнего обновления: 17 июля 2026<br>
+      Документ составлен в соответствии с ГК РФ, ФЗ «О защите прав потребителей», ФЗ «О физической культуре и спорте». Рекомендуется финальная проверка текста юристом.
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <span class="brand">ПРОБег · Симферополь</span>
+      <span>
+        <a href="index.html">Главная</a> ·
+        <a href="privacy-policy.html">Политика</a> ·
+        <a href="blog.html">Блог</a> ·
+        <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте</a>
+      </span>
+    </div>
+    <div class="reqs">
+      ИП Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД) ·
+      <span class="age-mark">0+</span>
+    </div>
+  </div>
+</footer>
+
+<div class="a11y-bar" role="group" aria-label="Размер текста">
+  <button id="a11yMinus" aria-label="Уменьшить шрифт">A−</button>
+  <span class="sep">|</span>
+  <button id="a11yPlus" aria-label="Увеличить шрифт">A+</button>
+</div>
+
+<script>
+  const STORAGE_KEY = 'probeg-font-scale';
+  const body = document.body;
+  const apply = (scale) => {
+    body.style.fontSize = (17 * scale) + 'px';
+    try { localStorage.setItem(STORAGE_KEY, String(scale)); } catch (e) {}
+  };
+  let scale = 1;
+  try { scale = parseFloat(localStorage.getItem(STORAGE_KEY) || '1') || 1; } catch (e) {}
+  apply(scale);
+  document.getElementById('a11yMinus').addEventListener('click', () => { scale = Math.max(0.85, +(scale - 0.1).toFixed(2)); apply(scale); });
+  document.getElementById('a11yPlus').addEventListener('click',  () => { scale = Math.min(1.4, +(scale + 0.1).toFixed(2)); apply(scale); });
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Политика конфиденциальности — ПРОБег</title>
+<meta name="description" content="Политика обработки персональных данных клуба ПРОБег (Симферополь). Какие данные собираем, зачем, как храним, как отозвать согласие." />
+<link rel="canonical" href="https://yanaprobeg.ru/privacy-policy.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ПРОБег" />
+<meta property="og:title" content="Политика конфиденциальности — ПРОБег" />
+<meta property="og:description" content="Политика обработки персональных данных клуба ПРОБег. 152-ФЗ." />
+<meta property="og:url" content="https://yanaprobeg.ru/privacy-policy.html" />
+<meta property="og:image" content="https://yanaprobeg.ru/assets/logo.png" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="robots" content="index, follow" />
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;400;600;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+
+  :root {
+    --magenta:      #EC1E76;
+    --magenta-deep: #B9145C;
+    --magenta-soft: #FFD5E8;
+    --cream:        #FFF7F2;
+    --cream-deep:   #FBEBE0;
+    --ink:          #1A0A14;
+    --ink-muted:    #6B4258;
+    --ink-faint:    #A38296;
+    --paper:        #FFFFFF;
+    --maxw: 980px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --space-section: clamp(56px, 7vw, 96px);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  ::selection { background: var(--magenta); color: var(--paper); }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  /* NAV (compact) */
+  .nav {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(255,247,242,0.92);
+    border-bottom: 1px solid var(--magenta-soft);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 12px; padding-bottom: 12px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { height: 48px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: 1.6rem; font-size: 0.95rem; font-weight: 600; }
+  .nav-links a { padding: 6px 0; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--magenta); transition: width 0.22s var(--ease); }
+  .nav-links a:hover { color: var(--magenta); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta { background: var(--magenta); color: var(--paper); padding: 9px 18px; border-radius: 999px; font-weight: 700; font-size: 0.88rem; transition: transform 0.18s ease, background 0.18s ease; }
+  .nav-cta:hover { transform: translateY(-1px); background: var(--magenta-deep); }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* A11Y controls (font size) */
+  .a11y-bar {
+    position: fixed; right: 16px; bottom: 16px; z-index: 80;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--paper); padding: 8px 12px; border-radius: 999px;
+    box-shadow: 0 8px 24px -10px rgba(0,0,0,0.25);
+    border: 1px solid var(--magenta-soft);
+  }
+  .a11y-bar button {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--cream); color: var(--magenta-deep);
+    font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.85rem;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .a11y-bar button:hover { background: var(--magenta-soft); }
+  .a11y-bar .sep { color: var(--ink-faint); font-size: 0.7rem; padding: 0 2px; }
+
+  /* Page hero */
+  .page-hero {
+    background: var(--magenta); color: var(--paper);
+    padding-top: clamp(56px, 8vw, 96px);
+    padding-bottom: clamp(40px, 6vw, 72px);
+  }
+  .page-hero .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.9; display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+  .page-hero .eyebrow::before { content: ''; width: 28px; height: 1.5px; background: var(--paper); display: inline-block; }
+  .page-hero h1 {
+    font-family: 'Unbounded', sans-serif; font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.0; letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+  .page-hero h1 em { font-style: italic; font-weight: 200; color: var(--magenta-soft); }
+  .page-hero p { margin-top: 1.2rem; max-width: 60ch; font-size: 1.05rem; line-height: 1.55; opacity: 0.95; }
+
+  /* Content */
+  .content { padding-top: var(--space-section); padding-bottom: var(--space-section); }
+  .content h2 {
+    font-family: 'Unbounded', sans-serif; font-weight: 700;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    letter-spacing: -0.015em;
+    margin: 2.4rem 0 0.9rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--magenta-soft);
+  }
+  .content h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+  .content p { color: var(--ink); font-size: 1.02rem; line-height: 1.7; margin-bottom: 0.9rem; }
+  .content ul { margin: 0.6rem 0 1.2rem 0; padding-left: 1.4rem; }
+  .content li { font-size: 1.02rem; line-height: 1.7; margin-bottom: 0.4rem; }
+  .content strong { color: var(--ink); font-weight: 700; }
+  .content a { color: var(--magenta-deep); border-bottom: 1px solid var(--magenta-soft); }
+  .content a:hover { border-color: var(--magenta-deep); }
+  .updated {
+    margin-top: 3rem; padding: 1rem 1.2rem;
+    background: var(--cream-deep); border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; letter-spacing: 0.05em;
+    color: var(--ink-muted);
+  }
+
+  /* Footer */
+  footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 2.2rem 0 1.6rem; font-size: 0.9rem; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .footer-inner .brand { font-family: 'Unbounded', sans-serif; font-weight: 800; color: var(--paper); }
+  .footer-inner a { color: rgba(255,255,255,0.85); border-bottom: 1px dashed rgba(255,255,255,0.3); }
+  .footer-inner a:hover { color: var(--paper); border-color: var(--paper); }
+  .reqs { margin-top: 1.2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .reqs a { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
+  .age-mark { display: inline-flex; align-items: center; gap: 0.4rem; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="ПРОБег — на главную">
+      <img src="assets/logo.png" alt="ПРОБег" width="130" height="48" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="index.html#schedule">Расписание</a>
+      <a href="index.html#pricing">Абонементы</a>
+      <a href="blog.html">Блог</a>
+    </div>
+    <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener" class="nav-cta">ВКонтакте</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">ПРОБег · документы</span>
+    <h1>Политика <em>конфиденциальности</em></h1>
+    <p>Как клуб ПРОБег собирает, хранит и обрабатывает ваши персональные данные. Документ соответствует Федеральному закону № 152-ФЗ «О персональных данных».</p>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<main class="content">
+  <div class="wrap">
+
+    <h2>1. Общие положения</h2>
+    <p>Настоящая Политика обработки персональных данных (далее — <strong>Политика</strong>) действует в отношении всей информации, которую клуб ПРОБег (далее — <strong>Оператор</strong>) может получить о посетителе сайта <strong>yanaprobeg.ru</strong> (далее — <strong>Сайт</strong>).</p>
+    <p>Использование Сайта означает безоговорочное согласие посетителя с настоящей Политикой и условиями обработки его персональных данных. Если посетитель не согласен с условиями Политики, использование Сайта должно быть прекращено.</p>
+
+    <h2>2. Основные понятия</h2>
+    <ul>
+      <li><strong>Персональные данные</strong> — любая информация, относящаяся к прямо или косвенно определённому либо определяемому физическому лицу (субъекту ПД).</li>
+      <li><strong>Оператор</strong> — <strong>Четверухина-Малова Яна Сергеевна</strong>, самозанятая (плательщик НПД), ИНН <strong>[ИНН]</strong>, организующая и проводящая тренировки клуба ПРОБег.</li>
+      <li><strong>Обработка ПД</strong> — любое действие с ПД: сбор, запись, систематизация, накопление, хранение, уточнение, использование, передача, обезличивание, удаление, уничтожение.</li>
+      <li><strong>Пользователь</strong> — посетитель Сайта, субъект ПД.</li>
+    </ul>
+
+    <h2>3. Какие данные мы собираем</h2>
+    <p><strong>3.1. Автоматически (через cookies и аналитику):</strong></p>
+    <ul>
+      <li>IP-адрес, тип браузера, тип устройства, разрешение экрана;</li>
+      <li>источник перехода на Сайт (поисковая система, рекламная площадка, прямой заход);</li>
+      <li>просмотренные страницы, время на Сайте, последовательность переходов;</li>
+      <li>файлы cookies (см. раздел 7).</li>
+    </ul>
+    <p>Указанные данные собираются сервисом <strong>Яндекс.Метрика</strong> (счётчик <strong>103646147</strong>) после получения согласия Пользователя через баннер cookie-уведомления. Данные обрабатываются на территории РФ в соответствии с условиями Яндекса (<a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a>).</p>
+
+    <p><strong>3.2. При обращении через социальные сети:</strong></p>
+    <p>На Сайте нет формы записи. Все обращения за тренировками происходят через сообщество клуба во <strong>ВКонтакте</strong> (<a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">vk.com/probeg_simf</a>). Данные, которые Пользователь оставляет в VK (имя, профиль, переписка, телефон при необходимости), обрабатываются в соответствии с <a href="https://vk.com/privacy" target="_blank" rel="noopener">политикой конфиденциальности ВКонтакте</a>. Оператор получает только те данные, которые Пользователь сам предоставил в переписке.</p>
+
+    <h2>4. Цели обработки персональных данных</h2>
+    <ul>
+      <li>связь с Пользователем по вопросам тренировок, расписания, абонементов;</li>
+      <li>учёт обращений и заявок на тренировки;</li>
+      <li>аналитика посещаемости Сайта для его улучшения (Яндекс.Метрика);</li>
+      <li>исполнение договорных обязательств по оказанию услуг (см. <a href="terms.html">Публичную оферту</a>);</li>
+      <li>исполнение требований законодательства РФ (в т. ч. налогового учёта, выдачи чеков самозанятого).</li>
+    </ul>
+
+    <h2>5. Правовые основания</h2>
+    <p>Оператор обрабатывает ПД на основании:</p>
+    <ul>
+      <li>Федерального закона № 152-ФЗ «О персональных данных»;</li>
+      <li>согласия Пользователя на обработку ПД (предоставляется через cookie-баннер и/или при обращении через VK);</li>
+      <li>необходимости исполнения договора, стороной которого является Пользователь (оказание услуг по тренировкам).</li>
+    </ul>
+
+    <h2>6. Передача персональных данных третьим лицам</h2>
+    <p>Оператор <strong>не продаёт и не передаёт</strong> ПД Пользователей третьим лицам в коммерческих целях. Передача допускается исключительно:</p>
+    <ul>
+      <li><strong>Яндекс.Метрика</strong> — обезличенная аналитика после согласия Пользователя;</li>
+      <li><strong>ВКонтакте</strong> — переписка, в которой Пользователь сам делится данными с Оператором;</li>
+      <li>государственным органам — по запросу в случаях, предусмотренных законодательством РФ;</li>
+      <li>ФНС — сведения о чеках самозанятого (в обезличенной форме, в рамках режима НПД).</li>
+    </ul>
+
+    <h2>7. Cookies и метрика</h2>
+    <p>Сайт использует cookies — небольшие текстовые файлы, которые браузер сохраняет на устройстве Пользователя. Cookies применяются для работы Яндекс.Метрики и корректного отображения Сайта.</p>
+    <p>При первом посещении Сайта Пользователю показывается баннер с запросом согласия на использование cookies. Метрика <strong>не загружается</strong> до получения согласия. Пользователь может в любой момент отозвать согласие, очистив cookies в браузере.</p>
+
+    <h2>8. Сроки хранения</h2>
+    <ul>
+      <li>Данные Метрики — до 3 лет в обезличенной форме (по условиям Яндекс.Метрики);</li>
+      <li>Переписка с Пользователем в VK — срок хранения определяется VK;</li>
+      <li>Чеки самозанятого — 5 лет (по требованию ФНС);</li>
+      <li>Данные из форм записи (если будут добавлены) — до 3 лет после последнего обращения либо до отзыва согласия.</li>
+    </ul>
+
+    <h2>9. Права Пользователя (ст. 14 152-ФЗ)</h2>
+    <p>Пользователь имеет право:</p>
+    <ul>
+      <li>получить информацию об обработке своих ПД (что, зачем, как долго);</li>
+      <li>потребовать уточнения, обезличивания или удаления ПД;</li>
+      <li>отозвать согласие на обработку ПД в любой момент;</li>
+      <li>обжаловать действия Оператора в Роскомнадзоре (<a href="https://rkn.gov.ru" target="_blank" rel="noopener">rkn.gov.ru</a>) или в суде.</li>
+    </ul>
+    <p>Для реализации прав напишите Оператору на <strong>[EMAIL]</strong> — запрос обрабатывается в срок до 30 календарных дней.</p>
+
+    <h2>10. Защита персональных данных</h2>
+    <p>Оператор принимает необходимые организационные и технические меры для защиты ПД от неправомерного доступа, изменения, раскрытия или уничтожения. Сайт использует защищённое HTTPS-соединение. Доступ к аккаунтам VK и Яндекс.Метрики — по паролю с двухфакторной аутентификацией.</p>
+
+    <h2>11. Изменения в Политике</h2>
+    <p>Оператор вправе вносить изменения в Политику. Новая редакция вступает в силу с момента её размещения на Сайте, если иное не указано в новой редакции. Дата последнего обновления указана в начале документа.</p>
+
+    <h2>12. Контакты Оператора</h2>
+    <p>По вопросам обработки ПД и реализации прав Пользователя:</p>
+    <ul>
+      <li>Email: <strong>[EMAIL]</strong></li>
+      <li>ВКонтакте: <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">vk.com/probeg_simf</a></li>
+      <li>Адрес для корреспонденции: Симферополь, Республика Крым (почтовый адрес по запросу)</li>
+    </ul>
+    <p>Оператор обрабатывает обращения в срок до 30 календарных дней с момента получения.</p>
+
+    <div class="updated">
+      Дата публикации: 17 июля 2026 · Дата последнего обновления: 17 июля 2026<br>
+      Документ составлен в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных». Рекомендуется финальная проверка текста юристом.
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <span class="brand">ПРОБег · Симферополь</span>
+      <span>
+        <a href="index.html">Главная</a> ·
+        <a href="terms.html">Оферта</a> ·
+        <a href="blog.html">Блог</a> ·
+        <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте</a>
+      </span>
+    </div>
+    <div class="reqs">
+      ИП Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД) ·
+      <span class="age-mark">0+</span>
+    </div>
+  </div>
+</footer>
+
+<!-- A11Y: font size -->
+<div class="a11y-bar" role="group" aria-label="Размер текста">
+  <button id="a11yMinus" aria-label="Уменьшить шрифт">A−</button>
+  <span class="sep">|</span>
+  <button id="a11yPlus" aria-label="Увеличить шрифт">A+</button>
+</div>
+
+<script>
+  // Font size persistence (3 levels)
+  const STORAGE_KEY = 'probeg-font-scale';
+  const body = document.body;
+  const apply = (scale) => {
+    body.style.fontSize = (17 * scale) + 'px';
+    try { localStorage.setItem(STORAGE_KEY, String(scale)); } catch (e) {}
+  };
+  let scale = 1;
+  try { scale = parseFloat(localStorage.getItem(STORAGE_KEY) || '1') || 1; } catch (e) {}
+  apply(scale);
+  document.getElementById('a11yMinus').addEventListener('click', () => { scale = Math.max(0.85, +(scale - 0.1).toFixed(2)); apply(scale); });
+  document.getElementById('a11yPlus').addEventListener('click',  () => { scale = Math.min(1.4, +(scale + 0.1).toFixed(2)); apply(scale); });
+</script>
+</body>
+</html>
