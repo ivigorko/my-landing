@@ -109,6 +109,9 @@
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
+try {
+  if (localStorage.getItem('probeg-consent') === 'accept') {
+
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
@@ -117,6 +120,9 @@
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103646147', 'ym');
 
     ym(103646147, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+
+  }
+} catch (e) {}
 </script>
 <!-- /Yandex.Metrika counter -->
 </head>

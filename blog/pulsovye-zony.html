@@ -991,15 +991,6 @@
 
   footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: clamp(2.6rem, 5vw, 4rem) 0 2rem; }
   @media (max-width: 760px){ .footer-top { grid-template-columns: 1fr; gap: 1.6rem; } }
-  .footer-inner {
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 1rem; flex-wrap: wrap;
-  }
-  .footer-inner .brand {
-    font-family: 'Unbounded', sans-serif;
-    font-weight: 800;
-    color: var(--ink);
-  }
 
   /* =========================================================
      FADE-IN
@@ -1024,6 +1015,48 @@
   @media (max-width: 480px) {
     .blog-hero h1 { font-size: 2rem; }
   }
+
+  /* === Footer/Cookie sync (19.07.2026) === */
+  .footer-brand { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--paper); letter-spacing: -0.01em; }
+  .footer-brand + p { margin-top: 0.7rem; max-width: 34ch; font-size: 0.95rem; line-height: 1.55; }
+  .footer-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--magenta-soft); margin-bottom: 1rem; }
+  .footer-col a { display: block; padding: 4px 0; font-size: 0.95rem; color: rgba(255,255,255,0.72); transition: color 0.18s ease; }
+  .footer-col a:hover { color: var(--paper); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-top: 1.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); }
+  .footer-disclaimer { color: rgba(255,255,255,0.55); font-size: 0.82rem; line-height: 1.5; margin-top: 0.8rem; max-width: 36ch; }
+  .footer-disclaimer a { color: var(--magenta-soft); border-bottom: 1px solid currentColor; }
+  .footer-disclaimer a:hover { color: var(--paper); }
+  .footer-reqs { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .footer-reqs .age-mark { display: inline-flex; align-items: center; padding: 3px 9px; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.75); }
+  .footer-legal { display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: 0.88rem; }
+  .footer-legal a, .footer-legal .footer-link-btn { color: rgba(255,255,255,0.85); border-bottom: 1px dashed rgba(255,255,255,0.3); background: none; padding: 0; font-family: 'Manrope', system-ui, sans-serif; font-size: 0.88rem; cursor: pointer; }
+  .footer-legal a:hover, .footer-legal .footer-link-btn:hover { color: var(--paper); border-color: var(--paper); }
+  .footer-copy { display: flex; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 0.6rem; padding-top: 0.4rem; border-top: 1px solid rgba(255,255,255,0.08); }
+  .cookie-banner {
+    position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 90;
+    max-width: 760px; margin: 0 auto;
+    background: var(--ink); color: var(--paper);
+    border-radius: 14px; padding: 1.1rem 1.3rem;
+    box-shadow: 0 18px 50px -12px rgba(0,0,0,0.45), 0 0 0 1px rgba(236,30,118,0.3);
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    transform: translateY(160%); transition: transform 0.4s var(--ease);
+    font-size: 0.92rem; line-height: 1.45;
+  }
+  .cookie-banner.show { transform: translateY(0); }
+  .cookie-banner .cookie-text { flex: 1 1 280px; }
+  .cookie-banner .cookie-text strong { display: block; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; color: var(--magenta-soft); }
+  .cookie-banner .cookie-text a { color: var(--magenta-soft); border-bottom: 1px solid currentColor; }
+  .cookie-banner .cookie-text a:hover { color: var(--paper); }
+  .cookie-banner .cookie-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+  .cookie-banner .cookie-btn {
+    padding: 9px 18px; border-radius: 999px; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.82rem;
+    transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+  }
+  .cookie-banner .cookie-btn:hover { transform: translateY(-1px); }
+  .cookie-banner .cookie-accept { background: var(--magenta); color: var(--paper); }
+  .cookie-banner .cookie-accept:hover { background: var(--magenta-deep); }
+  .cookie-banner .cookie-reject { background: transparent; color: var(--paper); border: 1.5px solid rgba(255,255,255,0.3); }
+  .cookie-banner .cookie-reject:hover { border-color: var(--paper); }
 </style>
 
 <style>
@@ -1433,20 +1466,20 @@
       <div>
         <div class="footer-brand">ПРОБег</div>
         <p>Беговой клуб в Симферополе. Бегаем по кайфу, вместе и для всех уровней. Первая тренировка — бесплатно.</p>
-        <p class="footer-disclaimer">Тренировки по бегу имеют противопоказания. Перед началом занятий рекомендуется консультация врача. Подробнее — <a href="terms.html#disclaimer">в условиях</a>.</p>
+        <p class="footer-disclaimer">Тренировки по бегу имеют противопоказания. Перед началом занятий рекомендуется консультация врача. Подробнее — <a href="../terms.html#disclaimer">в условиях</a>.</p>
       </div>
       <div class="footer-col">
         <h4>Разделы</h4>
-        <a href="index.html#schedule">Расписание</a>
-        <a href="index.html#pricing">Абонементы</a>
-        <a href="index.html#yana">Тренер</a>
-        <a href="index.html#faq">Вопросы</a>
-        <a href="blog.html">Блог</a>
+        <a href="../index.html#schedule">Расписание</a>
+        <a href="../index.html#pricing">Абонементы</a>
+        <a href="../index.html#yana">Тренер</a>
+        <a href="../index.html#faq">Вопросы</a>
+        <a href="../blog.html">Блог</a>
       </div>
       <div class="footer-col">
         <h4>Контакты</h4>
         <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте · vk.com/probeg_simf</a>
-        <a href="index.html#join">Записаться на тренировку</a>
+        <a href="../index.html#join">Записаться на тренировку</a>
         <span style="display:block;padding:4px 0;font-size:0.95rem;">Симферополь · Крым</span>
         <span style="display:block;padding:4px 0;font-size:0.95rem;">ВТ 20:00 · Гагаринский парк</span>
       </div>
@@ -1457,8 +1490,8 @@
         <span class="age-mark" aria-label="Возрастная маркировка 0+">0+</span>
       </div>
       <div class="footer-legal">
-        <a href="terms.html">Публичная оферта</a>
-        <a href="privacy-policy.html">Политика конфиденциальности</a>
+        <a href="../terms.html">Публичная оферта</a>
+        <a href="../privacy-policy.html">Политика конфиденциальности</a>
         <button type="button" id="openCookiePrefs" class="footer-link-btn">Управление cookies</button>
       </div>
       <div class="footer-copy">
@@ -1473,7 +1506,7 @@
   <div class="cookie-text">
     <strong>Мы используем cookies и Яндекс.Метрику</strong>
     для аналитики посещаемости и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с
-    <a href="privacy-policy.html">политикой конфиденциальности</a>.
+    <a href="../privacy-policy.html">политикой конфиденциальности</a>.
   </div>
   <div class="cookie-actions">
     <button type="button" class="cookie-btn cookie-accept" id="cookieAccept">Принять</button>
