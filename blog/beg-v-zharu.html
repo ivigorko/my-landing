@@ -989,12 +989,8 @@
   }
   .cta-button:hover .arrow { transform: translateX(3px); }
 
-  footer {
-    background: var(--cream-deep);
-    color: var(--ink-muted);
-    padding: 32px 0;
-    font-size: 0.85rem;
-  }
+  footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: clamp(2.6rem, 5vw, 4rem) 0 2rem; }
+  @media (max-width: 760px){ .footer-top { grid-template-columns: 1fr; gap: 1.6rem; } }
   .footer-inner {
     display: flex; justify-content: space-between; align-items: center;
     gap: 1rem; flex-wrap: wrap;
@@ -1541,11 +1537,58 @@
 </main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <span class="brand">ПРОБег · Симферополь</span>
-    <span>Бегаем по кайфу вместе · 2026</span>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ПРОБег</div>
+        <p>Беговой клуб в Симферополе. Бегаем по кайфу, вместе и для всех уровней. Первая тренировка — бесплатно.</p>
+        <p class="footer-disclaimer">Тренировки по бегу имеют противопоказания. Перед началом занятий рекомендуется консультация врача. Подробнее — <a href="terms.html#disclaimer">в условиях</a>.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Разделы</h4>
+        <a href="index.html#schedule">Расписание</a>
+        <a href="index.html#pricing">Абонементы</a>
+        <a href="index.html#yana">Тренер</a>
+        <a href="index.html#faq">Вопросы</a>
+        <a href="blog.html">Блог</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте · vk.com/probeg_simf</a>
+        <a href="index.html#join">Записаться на тренировку</a>
+        <span style="display:block;padding:4px 0;font-size:0.95rem;">Симферополь · Крым</span>
+        <span style="display:block;padding:4px 0;font-size:0.95rem;">ВТ 20:00 · Гагаринский парк</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-reqs">
+        <span>Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД)</span>
+        <span class="age-mark" aria-label="Возрастная маркировка 0+">0+</span>
+      </div>
+      <div class="footer-legal">
+        <a href="terms.html">Публичная оферта</a>
+        <a href="privacy-policy.html">Политика конфиденциальности</a>
+        <button type="button" id="openCookiePrefs" class="footer-link-btn">Управление cookies</button>
+      </div>
+      <div class="footer-copy">
+        <span>© 2026 ПРОБег · Бегаем по кайфу вместе</span>
+        <span>Симферополь · Крым</span>
+      </div>
+    </div>
   </div>
 </footer>
+
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Уведомление о cookies">
+  <div class="cookie-text">
+    <strong>Мы используем cookies и Яндекс.Метрику</strong>
+    для аналитики посещаемости и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с
+    <a href="privacy-policy.html">политикой конфиденциальности</a>.
+  </div>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-btn cookie-accept" id="cookieAccept">Принять</button>
+    <button type="button" class="cookie-btn cookie-reject" id="cookieReject">Только необходимые</button>
+  </div>
+</div>
 
 <script>
   // Mobile menu
@@ -1572,6 +1615,127 @@
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 
+
+<script>
+window.PR_M = { id: 103646147, loaded: false };
+window.loadYandexMetrika = function() {
+  if (window.PR_M.loaded) return;
+  window.PR_M.loaded = true;
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; } }
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+  })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103646147','ym');
+  ym(103646147,'init',{ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+};
+// Принято ранее — загрузить автоматически.
+try { if (localStorage.getItem('probeg-consent') === 'accept') window.loadYandexMetrika(); } catch (e) {}
+</script>
+<script>
+// Если согласие есть, добавить img-пиксель в noscript
+try { if (localStorage.getItem('probeg-consent') === 'accept') {
+  var img = document.createElement('img');
+  img.src = 'https://mc.yandex.ru/watch/103646147';
+  img.style.position = 'absolute';
+  img.style.left = '-9999px';
+  img.alt = '';
+  var n = document.getElementById('metrika-noscript');
+  if (n) n.appendChild(img);
+}} catch (e) {}
+</script>
+<script>
+  // Cookie consent gate (152-ФЗ)
+  (function() {
+    const KEY = 'probeg-consent';
+    const banner = document.getElementById('cookieBanner');
+    const accept = document.getElementById('cookieAccept');
+    const reject = document.getElementById('cookieReject');
+    const openPrefs = document.getElementById('openCookiePrefs');
+    let saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    if (!saved) {
+      // Показываем баннер с задержкой (не раздражаем на первых секундах)
+      setTimeout(() => banner && banner.classList.add('show'), 700);
+    }
+    function decide(value) {
+      try { localStorage.setItem(KEY, value); } catch (e) {}
+      if (banner) banner.classList.remove('show');
+      if (value === 'accept' && typeof window.loadYandexMetrika === 'function') {
+        window.loadYandexMetrika();
+      }
+    }
+    if (accept) accept.addEventListener('click', () => decide('accept'));
+    if (reject) reject.addEventListener('click', () => decide('reject'));
+    if (openPrefs) openPrefs.addEventListener('click', () => {
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      if (banner) banner.classList.add('show');
+    });
+  })();
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const closeMenu = () => { document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); };
+  burger.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('#mobileMenu [data-close], #mobileMenu a[href^="blog"]').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Scroll progress + floating CTA
+  const progress = document.getElementById('progress');
+  const floatCta = document.getElementById('floatCta');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const p = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    progress.style.width = p + '%';
+    if (h.scrollTop > 640) floatCta.classList.add('show'); else floatCta.classList.remove('show');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        // level bars
+        e.target.querySelectorAll('.level-bar i').forEach(bar => { bar.style.width = bar.dataset.w; });
+        // counters
+        e.target.querySelectorAll('[data-count]').forEach(el => animateCount(el));
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Counter animation
+  function animateCount(el){
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = target + suffix; return; }
+    const dur = 900; const start = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const open = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.style.maxHeight = open ? a.scrollHeight + 'px' : 0;
+    });
+  });
+</script>
 </body>
 </html>
 

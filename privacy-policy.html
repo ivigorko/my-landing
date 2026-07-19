@@ -624,6 +624,14 @@
   .content strong { color: var(--ink); font-weight: 700; }
   .content a { color: var(--magenta-deep); border-bottom: 1px solid var(--magenta-soft); }
   .content a:hover { border-color: var(--magenta-deep); }
+
+  /* === Page hero (terms/privacy) — розовый, в стиле главной === */
+  .page-hero { background: var(--magenta); color: var(--paper); padding-top: clamp(56px, 8vw, 96px); padding-bottom: clamp(40px, 6vw, 72px); }
+  .page-hero .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.9; display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+  .page-hero .eyebrow::before { content: ''; width: 28px; height: 1.5px; background: var(--paper); display: inline-block; }
+  .page-hero h1 { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.0; letter-spacing: -0.03em; text-transform: uppercase; }
+  .page-hero h1 em { font-style: italic; font-weight: 200; color: var(--magenta-soft); }
+  .page-hero p { margin-top: 1.2rem; max-width: 60ch; font-size: 1.05rem; line-height: 1.55; opacity: 0.95; }
 </style>
 </head>
 <body>
@@ -639,7 +647,7 @@
       <a href="index.html#pricing">Абонементы</a>
       <a href="index.html#yana">Тренер</a>
       <a href="index.html#faq">Вопросы</a>
-      <a href="blog.html" >Блог</a>
+      <a href="blog.html">Блог</a>
     </div>
     <div class="nav-right">
       <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener" class="nav-cta">
@@ -765,16 +773,16 @@
       </div>
       <div class="footer-col">
         <h4>Разделы</h4>
-        <a href="#schedule">Расписание</a>
-        <a href="#pricing">Абонементы</a>
-        <a href="#yana">Тренер</a>
-        <a href="#faq">Вопросы</a>
+        <a href="index.html#schedule">Расписание</a>
+        <a href="index.html#pricing">Абонементы</a>
+        <a href="index.html#yana">Тренер</a>
+        <a href="index.html#faq">Вопросы</a>
         <a href="blog.html">Блог</a>
       </div>
       <div class="footer-col">
         <h4>Контакты</h4>
         <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте · vk.com/probeg_simf</a>
-        <a href="#join">Записаться на тренировку</a>
+        <a href="index.html#join">Записаться на тренировку</a>
         <span style="display:block;padding:4px 0;font-size:0.95rem;">Симферополь · Крым</span>
         <span style="display:block;padding:4px 0;font-size:0.95rem;">ВТ 20:00 · Гагаринский парк</span>
       </div>
