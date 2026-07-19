@@ -1022,6 +1022,17 @@
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .hero-headline span { opacity: 1; transform: none; }
   }
+
+  /* === Footer unification: добавлено 2026-07-19 для соответствия index.html === */
+  .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding-bottom: 2.4rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .footer-brand { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--paper); letter-spacing: -0.01em; }
+  .footer-brand + p { margin-top: 0.7rem; max-width: 34ch; font-size: 0.95rem; line-height: 1.55; }
+  .footer-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--magenta-soft); margin-bottom: 1rem; }
+  .footer-col a { display: block; padding: 4px 0; font-size: 0.95rem; color: rgba(255,255,255,0.72); transition: color 0.18s ease; }
+  .footer-col a:hover { color: var(--paper); }
+  .footer-copy { display: flex; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 0.6rem; padding-top: 0.4rem; border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-top: 1.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
 </style>
 
 <style>
@@ -1422,21 +1433,44 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') {
 </main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <span class="brand">ПРОБег · Симферополь</span>
-    <span>Бегаем по кайфу вместе · 2026</span>
-    <div class="footer-reqs">
-      <span>ИП Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД)</span>
-      <span class="age-mark" aria-label="Возрастная маркировка 0+">0+</span>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ПРОБег</div>
+        <p>Беговой клуб в Симферополе. Бегаем по кайфу, вместе и для всех уровней. Первая тренировка — бесплатно.</p>
+        <p class="footer-disclaimer">Тренировки по бегу имеют противопоказания. Перед началом занятий рекомендуется консультация врача. Подробнее — <a href="terms.html#disclaimer">в условиях</a>.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Разделы</h4>
+        <a href="#schedule">Расписание</a>
+        <a href="#pricing">Абонементы</a>
+        <a href="#yana">Тренер</a>
+        <a href="#faq">Вопросы</a>
+        <a href="blog.html">Блог</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте · vk.com/probeg_simf</a>
+        <a href="#join">Записаться на тренировку</a>
+        <span style="display:block;padding:4px 0;font-size:0.95rem;">Симферополь · Крым</span>
+        <span style="display:block;padding:4px 0;font-size:0.95rem;">ВТ 20:00 · Гагаринский парк</span>
+      </div>
     </div>
-    <div class="footer-legal">
-      <a href="terms.html">Публичная оферта</a>
-      <a href="privacy-policy.html">Политика конфиденциальности</a>
-      <button type="button" id="openCookiePrefs" class="footer-link-btn">Управление cookies</button>
+    <div class="footer-bottom">
+      <div class="footer-reqs">
+        <span>ИП Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД)</span>
+        <span class="age-mark" aria-label="Возрастная маркировка 0+">0+</span>
+      </div>
+      <div class="footer-legal">
+        <a href="terms.html">Публичная оферта</a>
+        <a href="privacy-policy.html">Политика конфиденциальности</a>
+        <button type="button" id="openCookiePrefs" class="footer-link-btn">Управление cookies</button>
+      </div>
+      <div class="footer-copy">
+        <span>© 2026 ПРОБег · Бегаем по кайфу вместе</span>
+        <span>Симферополь · Крым</span>
+      </div>
     </div>
-    <p class="footer-disclaimer">
-      Информационный контент блога носит ознакомительный характер и не заменяет консультацию врача. Тренировки по бегу имеют противопоказания. Подробнее — <a href="terms.html#disclaimer">в условиях</a>.
-    </p>
   </div>
 </footer>
 
