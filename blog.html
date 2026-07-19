@@ -989,12 +989,8 @@
   }
   .cta-button:hover .arrow { transform: translateX(3px); }
 
-  footer {
-    background: var(--cream-deep);
-    color: var(--ink-muted);
-    padding: 32px 0;
-    font-size: 0.85rem;
-  }
+  footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: clamp(2.6rem, 5vw, 4rem) 0 2rem; }
+  @media (max-width: 760px){ .footer-top { grid-template-columns: 1fr; gap: 1.6rem; } }
   .footer-inner {
     display: flex; justify-content: space-between; align-items: center;
     gap: 1rem; flex-wrap: wrap;
@@ -1458,7 +1454,7 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') {
     </div>
     <div class="footer-bottom">
       <div class="footer-reqs">
-        <span>ИП Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД)</span>
+        <span>Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД)</span>
         <span class="age-mark" aria-label="Возрастная маркировка 0+">0+</span>
       </div>
       <div class="footer-legal">

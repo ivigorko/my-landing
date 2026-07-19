@@ -606,22 +606,40 @@
     .reveal { opacity: 1; transform: none; }
     html { scroll-behavior: auto; }
   }
+
+  /* === Content (privacy) — для длинного текста === */
+  .content { padding-top: var(--space-section); padding-bottom: var(--space-section); }
+  .content h2 {
+    font-family: 'Unbounded', sans-serif; font-weight: 700;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    letter-spacing: -0.015em;
+    margin: 2.4rem 0 0.9rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--magenta-soft);
+  }
+  .content h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+  .content p { color: var(--ink); font-size: 1.02rem; line-height: 1.7; margin-bottom: 0.9rem; }
+  .content ul { margin: 0.6rem 0 1.2rem 0; padding-left: 1.4rem; }
+  .content li { font-size: 1.02rem; line-height: 1.7; margin-bottom: 0.4rem; }
+  .content strong { color: var(--ink); font-weight: 700; }
+  .content a { color: var(--magenta-deep); border-bottom: 1px solid var(--magenta-soft); }
+  .content a:hover { border-color: var(--magenta-deep); }
 </style>
 </head>
 <body>
 <!-- NAV -->
 <nav class="nav">
   <div class="wrap nav-inner">
-    <a href="#top" class="nav-logo" aria-label="ПРОБег — на главную">
+    <a href="index.html" class="nav-logo" aria-label="ПРОБег — на главную">
       <img src="assets/logo.png" alt="ПРОБег" width="147" height="54" />
       <span class="nav-wordmark">ПРОБег</span>
     </a>
     <div class="nav-links">
-      <a href="#schedule">Расписание</a>
-      <a href="#pricing">Абонементы</a>
-      <a href="#yana">Тренер</a>
-      <a href="#faq">Вопросы</a>
-      <a href="blog.html">Блог</a>
+      <a href="index.html#schedule">Расписание</a>
+      <a href="index.html#pricing">Абонементы</a>
+      <a href="index.html#yana">Тренер</a>
+      <a href="index.html#faq">Вопросы</a>
+      <a href="blog.html" >Блог</a>
     </div>
     <div class="nav-right">
       <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener" class="nav-cta">
@@ -763,7 +781,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-reqs">
-        <span>ИП Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД)</span>
+        <span>Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД)</span>
         <span class="age-mark" aria-label="Возрастная маркировка 0+">0+</span>
       </div>
       <div class="footer-legal">
