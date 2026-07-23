@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Как не бросить бегать через 2 недели: 7 ловушек первой половины — блог ПРОБег</title>
+<meta name="description" content="40-80% новичков бросают бег в первые 2-4 недели. Разбираем 7 ловушек, даём минимальный порог 10 минут, фиксированное расписание и правило +10% в неделю." />
+<meta name="keywords" content="как не бросить бегать, мотивация бег, новичок бег, ошибки начинающих, план бега 4 недели, ПРОБег, Симферополь" />
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;400;600;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+
+  :root {
+    --magenta:      #EC1E76;
+    --magenta-deep: #B9145C;
+    --magenta-soft: #FFD5E8;
+    --cream:        #FFF7F2;
+    --cream-deep:   #FBEBE0;
+    --ink:          #1A0A14;
+    --ink-muted:    #6B4258;
+    --ink-faint:    #A38296;
+    --paper:        #FFFFFF;
+
+    --fs-hero:   clamp(2.8rem, 8vw, 6rem);
+    --fs-h2:     clamp(2rem, 5vw, 4rem);
+    --fs-h3:     clamp(1.4rem, 2.6vw, 2.1rem);
+    --fs-kicker: 0.78rem;
+    --fs-body:   1.0625rem;
+    --leading:   1.55;
+
+    --maxw: 1280px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --space-section: clamp(72px, 9vw, 144px);
+
+    --radius: 4px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  ::selection { background: var(--magenta); color: var(--paper); }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--fs-kicker);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px; height: 1.5px;
+    background: currentColor;
+    display: inline-block;
+  }
+  .eyebrow.on-pink { color: var(--paper); }
+  .eyebrow.on-pink::before { background: var(--paper); }
+  .eyebrow.on-cream { color: var(--magenta-deep); }
+  .eyebrow.on-cream::before { background: var(--magenta-deep); }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(255,247,242,0.82);
+    border-bottom: 1px solid var(--magenta-soft);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 12px; padding-bottom: 12px; color: var(--ink);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { height: 54px; width: auto; display: block; }
+  .nav-logo .nav-wordmark {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: clamp(1rem, 2.6vw, 2.2rem);
+    font-size: 0.95rem; font-weight: 600; color: var(--ink);
+  }
+  .nav-links a { position: relative; padding: 6px 0; transition: color 0.18s ease; }
+  .nav-links a::after {
+    content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 0;
+    background: var(--magenta); transition: width 0.22s var(--ease);
+  }
+  .nav-links a:hover { color: var(--magenta); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: var(--magenta); }
+  .nav-links a.active::after { width: 100%; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .nav-cta {
+    background: var(--magenta); color: var(--paper);
+    padding: 10px 20px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+  .nav-cta:hover { transform: translateY(-1px); background: var(--magenta-deep); }
+  .nav-burger {
+    display: none; width: 42px; height: 42px; border-radius: 12px;
+    border: 1px solid var(--magenta-soft); background: var(--paper);
+    align-items: center; justify-content: center; flex-direction: column; gap: 5px;
+  }
+  .nav-burger span { width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform 0.25s var(--ease), opacity 0.2s ease; }
+  body.menu-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  body.menu-open .nav-burger span:nth-child(2) { opacity: 0; }
+  body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    position: fixed; inset: 0; top: 0; z-index: 55;
+    background: var(--magenta); color: var(--paper);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: var(--gutter);
+    transform: translateY(-100%); transition: transform 0.4s var(--ease);
+    visibility: hidden;
+  }
+  body.menu-open .mobile-menu { transform: translateY(0); visibility: visible; }
+  .mobile-menu a { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(2rem, 9vw, 3.4rem); letter-spacing: -0.03em; padding: 0.35rem 0; line-height: 1.05; }
+  .mobile-menu a:active { color: var(--magenta-soft); }
+  .mobile-menu .mm-foot { margin-top: 2.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.9; }
+
+  @media (max-width: 860px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-burger { display: inline-flex; }
+  }
+
+  /* BLOG HERO */
+  .blog-hero {
+    background: var(--magenta);
+    color: var(--paper);
+    padding-top: clamp(72px, 9vw, 128px);
+    padding-bottom: clamp(48px, 7vw, 96px);
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(255,255,255,0.12), transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(0,0,0,0.15), transparent 55%);
+    pointer-events: none;
+  }
+  .blog-hero-inner { position: relative; z-index: 1; }
+  .blog-hero h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: var(--fs-hero);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin: 1.2rem 0 1.5rem;
+    text-transform: uppercase;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .blog-hero h1 em { font-style: italic; font-weight: 200; color: var(--magenta-soft); }
+  .blog-hero p {
+    max-width: 56ch;
+    font-size: 1.15rem;
+    line-height: 1.55;
+    opacity: 0.92;
+  }
+
+  .blog-list { background: var(--cream); padding-top: var(--space-section); padding-bottom: var(--space-section); }
+  .blog-back {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--magenta-deep);
+    margin-bottom: 2.5rem;
+  }
+  .blog-back:hover { color: var(--magenta); }
+
+  .post {
+    background: var(--paper);
+    border-radius: var(--radius);
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    overflow: hidden;
+    scroll-margin-top: 120px;
+  }
+  .post-cover.post-hero-cover {
+    aspect-ratio: 21 / 9;
+    display: block;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-cover::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.6; mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+  .post-cover-glyph {
+    position: absolute;
+    right: -10px; bottom: -50px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: clamp(10rem, 22vw, 18rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: rgba(255,255,255,0.18);
+    pointer-events: none;
+  }
+
+  .post-cover-tag {
+    position: absolute;
+    bottom: 1.4rem;
+    left: 1.4rem;
+    z-index: 2;
+    background: rgba(255,255,255,0.96);
+    color: var(--magenta-deep);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+
+  .post-header { padding: clamp(1.8rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem) 0; }
+  .post-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 1rem;
+  }
+  .post-header h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.6rem;
+  }
+  .post-header h2 em { font-style: italic; font-weight: 200; color: var(--magenta); }
+  .post-dek {
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--ink-muted);
+    max-width: 60ch;
+  }
+
+  .post-body {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    max-width: 70ch;
+    margin: 0 auto;
+  }
+  .post-body p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+  .post-body p strong { color: var(--ink); font-weight: 700; }
+  .post-body h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    letter-spacing: -0.02em;
+    margin: 2.4rem 0 1rem;
+    color: var(--ink);
+  }
+  .post-body h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.015em;
+    margin: 2rem 0 0.8rem;
+  }
+  .post-body ul, .post-body ol {
+    margin: 0 0 1.5rem 0;
+    padding-left: 1.4rem;
+  }
+  .post-body li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+  .post-body blockquote {
+    border-left: 3px solid var(--magenta);
+    padding: 0.4rem 0 0.4rem 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.45;
+    color: var(--magenta-deep);
+  }
+
+  .post-share {
+    margin-top: 2.5rem;
+    padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--magenta-soft);
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+  }
+  .post-share a {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--magenta-deep);
+  }
+  .post-share a:hover { color: var(--magenta); }
+
+  .related {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--magenta-soft);
+  }
+  .related-title {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 1000px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+
+  .post-card {
+    background: var(--paper);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px -10px rgba(185,20,92,0.25);
+  }
+  .post-card a { display: block; color: inherit; }
+  .post-cover { aspect-ratio: 4/3; display: block; position: relative; overflow: hidden; }
+  .post-cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.55) 100%); pointer-events: none; z-index: 1; }
+  .post-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .post-cover-tag-card { position: absolute; bottom: 1.2rem; left: 1.2rem; background: rgba(255,255,255,0.96); color: var(--magenta-deep); padding: 5px 12px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; z-index: 2; }
+  .post-body-card { padding: 1.4rem 1.5rem 1.6rem; }
+  .post-title-card { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 1.15rem; line-height: 1.2; margin-bottom: 0.6rem; }
+  .post-cta-card { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--magenta-deep); }
+  .post-cta-card .arrow { transition: transform 0.18s ease; }
+  .post-card:hover .post-cta-card .arrow { transform: translateX(4px); }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: clamp(2.6rem, 5vw, 4rem) 0 2rem; }
+  .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding-bottom: 2.4rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  @media (max-width: 760px){ .footer-top { grid-template-columns: 1fr; gap: 1.6rem; } }
+  .footer-brand { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--paper); letter-spacing: -0.01em; }
+  .footer-brand + p { margin-top: 0.7rem; max-width: 34ch; font-size: 0.95rem; line-height: 1.55; }
+  .footer-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--magenta-soft); margin-bottom: 1rem; }
+  .footer-col a { display: block; padding: 4px 0; font-size: 0.95rem; color: rgba(255,255,255,0.72); transition: color 0.18s ease; }
+  .footer-col a:hover { color: var(--paper); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-top: 1.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+  .footer-reqs { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .footer-reqs .age-mark { display: inline-flex; align-items: center; padding: 3px 9px; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.75); }
+  .footer-legal { display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: 0.88rem; }
+  .footer-legal a, .footer-legal .footer-link-btn { color: rgba(255,255,255,0.85); border-bottom: 1px dashed rgba(255,255,255,0.3); background: none; padding: 0; font-family: 'Manrope', system-ui, sans-serif; font-size: 0.88rem; cursor: pointer; }
+  .footer-legal a:hover, .footer-legal .footer-link-btn:hover { color: var(--paper); border-color: var(--paper); }
+  .footer-disclaimer { color: rgba(255,255,255,0.55); font-size: 0.82rem; line-height: 1.5; margin-top: 0.8rem; max-width: 36ch; }
+  .footer-disclaimer a { color: var(--magenta-soft); border-bottom: 1px solid currentColor; }
+  .footer-disclaimer a:hover { color: var(--paper); }
+  .footer-copy { display: flex; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 0.6rem; padding-top: 0.4rem; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  .cookie-banner {
+    position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 90;
+    max-width: 760px; margin: 0 auto;
+    background: var(--ink); color: var(--paper);
+    border-radius: 14px; padding: 1.1rem 1.3rem;
+    box-shadow: 0 18px 50px -12px rgba(0,0,0,0.45), 0 0 0 1px rgba(236,30,118,0.3);
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    transform: translateY(160%); transition: transform 0.4s var(--ease);
+    font-size: 0.92rem; line-height: 1.45;
+  }
+  .cookie-banner.show { transform: translateY(0); }
+  .cookie-banner .cookie-text { flex: 1 1 280px; }
+  .cookie-banner .cookie-text strong { display: block; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; color: var(--magenta-soft); }
+  .cookie-banner .cookie-text a { color: var(--magenta-soft); border-bottom: 1px solid currentColor; }
+  .cookie-banner .cookie-text a:hover { color: var(--paper); }
+  .cookie-banner .cookie-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+  .cookie-banner .cookie-btn {
+    padding: 9px 18px; border-radius: 999px; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 0.82rem;
+    transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+  }
+  .cookie-banner .cookie-btn:hover { transform: translateY(-1px); }
+  .cookie-banner .cookie-accept { background: var(--magenta); color: var(--paper); }
+  .cookie-banner .cookie-accept:hover { background: var(--magenta-deep); }
+  .cookie-banner .cookie-reject { background: transparent; color: var(--paper); border: 1.5px solid rgba(255,255,255,0.3); }
+  .cookie-banner .cookie-reject:hover { border-color: var(--paper); }
+
+  @media (max-width: 760px) {
+    .blog-hero h1 { font-size: clamp(1.9rem, 8vw, 3rem); line-height: 1.05; }
+    .blog-hero p { font-size: 1rem; line-height: 1.4; }
+  }
+  @media (max-width: 540px) {
+    .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 1rem; }
+    .cookie-banner .cookie-actions { width: 100%; }
+    .cookie-banner .cookie-btn { flex: 1; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-in { opacity: 1; transform: translateY(0); }
+</style>
+
+<meta name="author" content="Яна" />
+<link rel="canonical" href="https://yanaprobeg.ru/blog/kak-ne-brosit-begat.html" />
+<meta property="og:title" content="Как не бросить бегать через 2 недели: 7 ловушек первой половины" />
+<meta property="og:description" content="40-80% новичков бросают бег в первые 2-4 недели. Разбираем 7 ловушек, даём минимальный порог 10 минут, фиксированное расписание и правило +10% в неделю." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yanaprobeg.ru/blog/kak-ne-brosit-begat.html" />
+<meta property="og:image" content="https://yanaprobeg.ru/assets/blog/kak-ne-brosit-begat.jpg" />
+<meta property="article:published_time" content="2026-07-23" />
+<meta property="article:section" content="Мотивация" />
+<meta property="article:author" content="Яна" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Как не бросить бегать через 2 недели: 7 ловушек первой половины" />
+<meta name="twitter:description" content="40-80% новичков бросают бег в первые 2-4 недели. Минимальный порог 10 минут, фиксированное расписание, +10% в неделю." />
+<meta name="twitter:image" content="https://yanaprobeg.ru/assets/blog/kak-ne-brosit-begat.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://yanaprobeg.ru/blog/kak-ne-brosit-begat.html#article",
+      "headline": "Почему новички бросают бег в первый месяц и что с этим делать",
+      "description": "Разбираем главные ловушки первой половины новичка: слишком быстрый темп, бег каждый день, неправильная обувь. Конкретные правила: минимальный порог 10 минут, фиксированное расписание, +10% объёма в неделю, группа поддержки. Что делать после пропуска и как мягко вернуться, если уже бросил.",
+      "image": "https://yanaprobeg.ru/assets/blog/kak-ne-brosit-begat.jpg",
+      "datePublished": "2026-07-23",
+      "dateModified": "2026-07-23",
+      "author": {
+        "@type": "Person",
+        "name": "Яна",
+        "jobTitle": "Тренер бегового клуба ПРОБег"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ПРОБег",
+        "url": "https://yanaprobeg.ru",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yanaprobeg.ru/assets/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://yanaprobeg.ru/blog/kak-ne-brosit-begat.html"
+      },
+      "articleSection": "Мотивация",
+      "inLanguage": "ru-RU",
+      "keywords": "как не бросить бегать, мотивация бег, новичок бег, ошибки начинающих, план бега 4 недели, ПРОБег, Симферополь"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько нужно бегать в первые 2 недели, чтобы не бросить?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3 тренировки в неделю по 15-20 минут. Лучше меньше, но регулярно, чем один длинный забег на 40 минут и потом неделя отдыха."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли бегать через 2 недели после полного нуля, если есть лишний вес?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, но с ограничениями: первые 1-2 недели — только ходьба 20-30 мин, потом чередование ходьба и бег. Обязательно удобные кроссовки с амортизацией. Перед стартом — консультация терапевта."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если пропустил неделю — начинать сначала?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не сначала, а на шаг назад. Если был на 3 минутах бега — возвращаешься с 2 минут. Полный ребут нужен только после 3+ недель пропуска."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Бег в жару в Крыму летом — сокращать дистанцию?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, и значительно: при +28°C и выше — объём минус 30-40%, утреннее или вечернее время (до 9:00 или после 19:00), гидратация 200 мл каждые 20 мин."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Обязательно ли бегать в группе, чтобы не бросить?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не обязательно, но сильно помогает. Исследования показывают, что в группах с супервизией дроп-аут 12-13%, без супервизии — 40-50%. В клубе ПРОБег — ВТ 20:00 открытая пробежка, темп подбирается под группу."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Стоит ли покупать кроссовки для бега до первой пробежки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. Первую тренировку можно провести в любых удобных кроссовках. Покупать беговые — после 3-4 пробежек, когда понятно, что бег будет регулярным, и ноги привыкли к нагрузке."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; } }
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103646147', 'ym');
+
+    ym(103646147, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<!-- Yandex.Metrika noscript -->
+<noscript><div><img src="https://mc.yandex.ru/watch/103646147" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika noscript -->
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="ПРОБег — на главную">
+      <img src="../assets/logo.png" alt="ПРОБег" width="147" height="54" />
+      <span class="nav-wordmark">ПРОБег</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#schedule">Расписание</a>
+      <a href="../index.html#pricing">Абонементы</a>
+      <a href="../index.html#yana">Тренер</a>
+      <a href="../index.html#faq">Вопросы</a>
+      <a href="../blog.html" class="active">Блог</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener" class="nav-cta">
+        ВКонтакте
+      </a>
+      <button class="nav-burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html#schedule" data-close>Расписание</a>
+  <a href="../index.html#pricing" data-close>Абонементы</a>
+  <a href="../index.html#yana" data-close>Тренер</a>
+  <a href="../index.html#faq" data-close>Вопросы</a>
+  <a href="../blog.html">Блог</a>
+  <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте →</a>
+  <div class="mm-foot">Симферополь · Крым · ВТ 20:00 — бесплатно</div>
+</div>
+
+<header class="blog-hero">
+  <div class="wrap blog-hero-inner">
+    <span class="eyebrow on-pink">Блог ПРОБег · Мотивация</span>
+    <h1>Как не <em>бросить бегать</em> через 2 недели</h1>
+    <p>Купил кроссовки, побегал 3 раза, забросил. Знакомо? Это не лень — это три системные ошибки.</p>
+  </div>
+</header>
+
+<main class="blog-list">
+  <div class="wrap">
+    <a href="../blog.html" class="blog-back">← К списку статей</a>
+
+    <article class="post" itemscope itemtype="https://schema.org/Article">
+      <div class="post-cover post-hero-cover">
+          <img src="../assets/blog/kak-ne-brosit-begat.jpg" alt="Бегун в парке завязывает кроссовки утром, мягкий дневной свет, зелень вокруг" loading="lazy">
+          <span class="post-cover-tag">Мотивация</span>
+        </div>
+      <header class="post-header">
+        <div class="post-date">
+          <time itemprop="datePublished" datetime="2026-07-23">23 июля 2026</time> · 8 мин чтения
+        </div>
+        <h2 itemprop="headline">Почему новички бросают бег в первый месяц и что с этим делать</h2>
+        <p class="post-dek" itemprop="description">Разбираем главные ловушки первой половины новичка: слишком быстрый темп, бег каждый день, неправильная обувь. Конкретные правила: минимальный порог 10 минут, фиксированное расписание, +10% объёма в неделю, группа поддержки. Что делать после пропуска и как мягко вернуться, если уже бросил.</p>
+        <meta itemprop="author" content="Яна" />
+        <meta itemprop="articleSection" content="Мотивация" />
+      </header>
+      <div class="post-body" itemprop="articleBody">
+
+        <h2>Почему 8 из 10 новичков бросают бег в первый месяц</h2>
+        <p>Цифры неприятные, но полезные. По данным разных исследований, 40% новичков прекращают бегать в первые три месяца, около 50% — за полгода, а по отдельным подсчётам до 80% бросают в первые два месяца. Третья-четвёртая неделя — статистически ожидаемая точка срыва, а не «личная слабость».</p>
+        <p>Хорошая новость: привычка в среднем формируется за 59-66 дней, но разброс огромный — от 4 до 335 дней. То есть кто-то становится «бегуном» за две недели, кому-то нужно полгода. Главное — пройти этот срок, а не заставлять себя любить бег прямо сейчас.</p>
+        <p>Что на самом деле означает «бросил» в большинстве случаев: человек не «не любит бег». Он неправильно начал, получил травму или разочаровался, и теперь уверен, что бег — не его. Но причина почти всегда — не в беге, а в трёх конкретных ошибках старта.</p>
+
+        <h2>Ошибка №1: слишком быстрый темп с первых дней</h2>
+        <p>Это самая частая причина срыва. Человек выходит на пробежку, пробегает километр в максимальном темпе, задыхается, чувствует боль в боку, коленях, голени. Решает: «Бег не для меня». На самом деле — не для того темпа, в котором он начал.</p>
+        <p>Признак правильного темпа для новичка простой: вы должны уметь произнести фразу из 5-7 слов на бегу без одышки. Не петь, не декламировать, но сказать «давай сегодня медленнее» или «когда следующая тренировка» — должны.</p>
+        <p>Если есть часы с пульсометром — ориентируйтесь на 60-70% от максимального пульса. Грубая формула: 220 минус возраст. Для 30 лет это 114-133 удара в минуту, для 40 лет — 108-126. В первые недели — лучше держаться нижней границы. Темп придёт сам, когда сердце и суставы адаптируются.</p>
+        <blockquote>«Думаете, что бегаете медленно? Бегите ещё медленнее. Первые два-три месяца темп не важен. Важна привычка выходить и пульс в нижних зонах.»</blockquote>
+
+        <h2>Ошибка №2: бегать каждый день</h2>
+        <p>«Чтобы был результат, надо каждый день» — это про силовые, но не про бег для новичка. Трёх тренировок в неделю с днями отдыха между ними более чем достаточно на старте. Исследования показывают, что при увеличении недельного объёма больше чем на 20% риск травмы резко возрастает.</p>
+        <p>Что происходит при ежедневном беге на старте: мышцы не успевают восстановиться, суставы и связки получают накопительную нагрузку, к третьей неделе — боль в коленях или ахилле. После этого человек либо получает травму и надолго забывает про бег, либо снижает нагрузку и разочаровывается.</p>
+        <p>Схема на старте: бег — отдых — бег — отдых — бег — отдых — отдых. Три пробежки, четыре дня восстановления. В дни отдыха — лёгкая прогулка 20-30 минут или полный отдых. Тело скажет спасибо.</p>
+
+        <h2>Ошибка №3: старая обувь и техника «из головы»</h2>
+        <p>Бег в кедах «из шкафа», в кроссовках для зала или, тем более, в шлёпанцах — это удар по коленям, голеностопу и пояснице. Беговая обувь с нормальной амортизацией снижает ударную нагрузку и бережёт суставы.</p>
+        <p>Но покупать дорогие беговые кроссовки до первой пробежки — не нужно. Первые 3-4 тренировки можно провести в любых удобных кроссовках с хорошей амортизацией (не flat, не hardsole). Когда понятно, что бег будет регулярным, и ноги привыкли к нагрузке — тогда идём в магазин и выбираем правильную пару под свой вес, тип покрытия и постановку стопы.</p>
+        <p>Про технику — главное правило первых недель: не нужно «бежать красиво». Мозг будет пытаться копировать картинки из рекламы — широкий шаг, подпрыгивание, напряжённые плечи. Это лишняя работа. Бегите расслабленно, коротким шагом, с темпом ниже, чем кажется нужным. Технику можно оттачивать позже — мы разбираем её отдельно в статье <a href="tehnika-bega.html" style="color:var(--magenta-deep);font-weight:600">про типичные ошибки в технике бега</a>.</p>
+
+        <h2>Что работает: правило «минимального порога»</h2>
+        <p>Главный приём, который снижает дроп-аут: скажите себе заранее — «выйду хотя бы на 10 минут». Не на 30, не на 20, а на 10. Если после 10 минут хочется продолжить — отлично, бежите дальше. Если нет — вы всё равно выполнили тренировку.</p>
+        <p>Почему это работает: убирается внутренний торг «идти или не идти». Вы не решаете, бежать ли 30 минут, — это тяжело. Вы решаете только: «могу ли я выйти на 10 минут?». Практически всегда — да.</p>
+        <p>Есть принцип «плохая тренировка лучше пропущенной». Если плохо спали, настроения нет, устали — выйдите хотя бы на 15 минут ходьбы. Это сохраняет привычку и снижает риск «всё, больше не бегаю» после одного плохого дня.</p>
+
+        <h2>Что работает: фиксированное расписание вместо мотивации</h2>
+        <p>«Буду бегать три раза в неделю» — это про мотивацию. «Бегаю по понедельникам, средам и субботам в 19:00» — это про расписание. Мотивация приходит и уходит, расписание работает в любом состоянии.</p>
+        <p>Сила привычки в её конкретности. Не «когда будет настроение», а «ПН 19:00, СР 19:00, СБ 09:00». Поставьте напоминание в календарь, привяжите к существующему ритуалу: до работы, сразу после, перед ужином. Через 3-4 недели тело само начнёт готовиться к тренировке в это время.</p>
+        <p>Когда расписание фиксированное, промахи перестают быть катастрофой. Пропустил среду — значит, в следующий ПН выйдешь как обычно. Не «всё, поезд ушёл», а «просто сдвинул на неделю».</p>
+
+        <h2>Что работает: данные вместо ощущений</h2>
+        <p>Ощущения на первых порах врут. Кажется, что бежишь медленно — а на самом деле слишком быстро. Кажется, что прогресса нет — а на пульсометре видно, что пульс при том же темпе за месяц упал. Кажется, что устал и надо отдохнуть — а Garmin показывает Body Battery 80% и зелёный свет. Чтобы понимать, какие цифры вообще значат, держите под рукой памятку про <a href="pulsovye-zony.html" style="color:var(--magenta-deep);font-weight:600">пульсовые зоны бегуна</a>.</p>
+        <p>На первый месяц достаточно трёх показателей:</p>
+        <ul>
+          <li><strong>Пульс во время пробежки</strong> — держите 60-70% от максимума (см. формулу 220 − возраст).</li>
+          <li><strong>Темп при этом пульсе</strong> — фиксируйте раз в две недели. Если темп растёт при том же пульсе — вы прогрессируете, даже если не чувствуете этого субъективно.</li>
+          <li><strong>Самочувствие утром</strong> — пульс покоя, общее состояние. Если с утра тяжело и пульс выше обычного — день отдыха, не насилуйте себя.</li>
+        </ul>
+        <p>Без часов с пульсометром — просто ориентируйтесь на разговорный тест. С часами — будет проще и объективнее.</p>
+
+        <h2>Что работает: группа поддержки (и тут подключается ПРОБег)</h2>
+        <p>Исследования показывают, что в группах с супервизией (тренер, расписание, ответственность перед другими) дроп-аут — около 12-13%. Без супервизии — 40-50%. Разница в 3-4 раза. Группа работает не потому, что «бегать с друзьями веселее», а потому, что стыдно не прийти, когда тебя ждут.</p>
+        <p>В клубе ПРОБег для этого есть открытая бесплатная пробежка каждый вторник в 20:00, сбор у Гагаринского парка. Маршрут по Салгирке 5-7 км в лёгком темпе. Темп подбирается под группу — отстать невозможно. Яна ведёт, подсказывает технику, поправляет. Приходите в удобной одежде, без регистрации и формы, первая тренировка — бесплатно. Чем именно полезен живой тренер по бегу и почему регулярность сильнее мотивации — разбирали в статье <a href="trener-po-begu-simferopol.html" style="color:var(--magenta-deep);font-weight:600">5 мифов о тренере по бегу</a>.</p>
+        <p>Второй вариант — индивидуальная тренировка с тренером (2 000 ₽), если хочется личного плана. Групповая (4 000 ₽ за 8 занятий) — если хочется регулярности и команды. Но для старта хватает открытой во вторник — без обязательств и оплаты.</p>
+        <p>Что важно: группа — это не про «бегать 5 км в одном темпе с десятью другими». Это про регулярный выход, ритуал, ответственность. Когда есть конкретные люди, которые ждут тебя в парке во вторник, бросить после первой недели гораздо сложнее.</p>
+
+        <h2>Как вернуться после пропуска: правило «шаг назад»</h2>
+        <p>Пропустил неделю из-за командировки, болезни, работы — это нормально. Главное — не пытаться «догнать» прежний уровень за одну тренировку. Правило простое: после любого пропуска возвращаешься на один уровень назад.</p>
+        <p>Пример. Шёл по плану: 3 минуты бега / 1 минута ходьбы. Пропустил неделю. На следующей тренировке начинаешь с 2 минут бега / 2 минут ходьбы, как было две недели назад. Не с 4 минут, не с 5 — на шаг назад. Через 2-3 тренировки вернёшься на прежний уровень без потерь.</p>
+        <p>Полный «ребут» нужен только после 3+ недель пропуска. До этого — работает правило «шаг назад».</p>
+        <p>И ещё одно: не компенсируйте пропуск длинной тренировкой. Если пропустили среду — не надо в субботу бежать двойную дистанцию. Это прямой путь к травме.</p>
+
+        <h2>4-недельный план удержания</h2>
+        <p>Конкретный план, чтобы продержаться первый месяц. Три тренировки в неделю, чередование бега и ходьбы, постепенный рост.</p>
+        <p><strong>Неделя 1.</strong> 3 × 10-15 минут. Чередование 1 минута бега / 2 минуты ходьбы, 5-6 повторов. Цель — привыкнуть к регулярности, не убиться в первый день.</p>
+        <p><strong>Неделя 2.</strong> 3 × 15-20 минут. Чередование 2 минуты бега / 2 минуты ходьбы. Если легко — не ускоряйтесь, просто добавляйте одну серию.</p>
+        <p><strong>Неделя 3.</strong> 3 × 20-25 минут. Чередование 3 минуты бега / 1 минута ходьбы. Здесь уже можно попробовать первый раз 5 минут непрерывного бега.</p>
+        <p><strong>Неделя 4.</strong> 3 × 25-30 минут. Чередование 4 минуты бега / 1 минута ходьбы. Или попробуйте 10 минут непрерывного бега в лёгком темпе.</p>
+        <p>Правило прогресса: если 3 тренировки подряд в текущем режиме дались легко — можно добавить нагрузку. Если хотя бы одна из трёх была тяжёлой — остаёмся на этом уровне ещё неделю. Без геройства, без «убиться на тренировке».</p>
+
+        <h2>Что делать, если уже бросил</h2>
+        <p>Если вы читаете это и думаете «да, я уже бросил пару месяцев назад» — это нормально. Большинство людей бросало бег не один раз. Главное — не винить себя. Вы не «неспортивный», вы просто прошли стандартный сценарий неудачного старта.</p>
+        <p>Что делать:</p>
+        <ul>
+          <li>Начните с 10 минут ходьбы. Не с 30 минут бега. С 10 минут ходьбы в удобном темпе. Это перезагрузка без давления.</li>
+          <li>Не пытайтесь «догнать» прежний уровень. У вас нет прежнего уровня — есть неудачный опыт. Начните с нуля, но уже с правильной схемой: чередование бега и ходьбы, 3 раза в неделю, медленнее, чем кажется нужным.</li>
+          <li>Лучшая следующая тренировка — самая лёгкая, которую вы реально сделаете. Не «когда-нибудь пробегу 10 км», а завтра выйду на 10 минут и вернусь.</li>
+          <li>Присоединитесь к группе. Одному начинать заново в три раза сложнее, чем с людьми. Открытая пробежка в клубе ПРОБег по вторникам — бесплатно, без обязательств. Приходите, посмотрите, попробуйте.</li>
+        </ul>
+        <p>Возвращение после перерыва — это не «начать заново». Это продолжение, но с новым пониманием, что работает, а что нет. Во второй раз шансы пройти первый месяц гораздо выше.</p>
+
+        <h2>Частые вопросы</h2>
+        <h3>Сколько нужно бегать в первые 2 недели, чтобы не бросить?</h3>
+        <p>3 тренировки в неделю по 15-20 минут. Лучше меньше, но регулярно, чем один длинный забег на 40 минут и потом неделя отдыха. Минимальный порог — 10 минут ходьбы, если совсем нет сил.</p>
+
+        <h3>Можно ли бегать через 2 недели после полного нуля, если есть лишний вес?</h3>
+        <p>Да, но с ограничениями. Первые 1-2 недели — только ходьба 20-30 минут. Потом — чередование ходьба и бег с короткими отрезками. Обязательно удобные кроссовки с хорошей амортизацией. Перед стартом — консультация терапевта, особенно при наличии хронических заболеваний или возрасте старше 40.</p>
+
+        <h3>Что делать, если пропустил неделю — начинать сначала?</h3>
+        <p>Не сначала, а на шаг назад. Если был на 3 минутах бега — возвращаешься с 2 минут. Полный ребут нужен только после 3+ недель пропуска. Не компенсируйте пропуск длинной тренировкой — это путь к травме.</p>
+
+        <h3>Бег в жару в Крыму летом — сокращать дистанцию?</h3>
+        <p>Да, и значительно. При +28°C и выше — объём минус 30-40%, время суток — утро до 9:00 или вечер после 19:00, гидратация 200 мл каждые 20 минут бега. В самое пекло лучше заменить пробежку на длительную прогулку или ОФП в зале. Подробный разбор режима, воды и одежды для жаркого сезона — в статье <a href="beg-v-zharu.html" style="color:var(--magenta-deep);font-weight:600">«Бег в жару: 8 правил тренировок летом в Симферополе»</a>.</p>
+
+        <h3>Обязательно ли бегать в группе, чтобы не бросить?</h3>
+        <p>Не обязательно, но сильно помогает. Исследования показывают, что в группах с супервизией дроп-аут 12-13%, без супервизии — 40-50%. В клубе ПРОБег — ВТ 20:00 открытая пробежка, темп подбирается под группу, тренер Яна ведёт. Приходите, первая тренировка — бесплатно.</p>
+
+        <h3>Стоит ли покупать кроссовки для бега до первой пробежки?</h3>
+        <p>Нет. Первую тренировку можно провести в любых удобных кроссовках. Покупать беговые — после 3-4 пробежек, когда понятно, что бег будет регулярным, и ноги привыкли к нагрузке. На старте главное — не «правильные» кроссовки, а регулярность и медленный темп.</p>
+
+      </div>
+
+    <aside class="post-share">
+        <a href="../blog.html">← Все статьи блога</a>
+        <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">Поделиться ВКонтакте →</a>
+      </aside>
+    </article>
+
+    <section class="related" aria-label="Другие статьи">
+      <h3 class="related-title">Другие записи</h3>
+      <div class="blog-grid">
+
+      <article class="post-card">
+        <a href="kak-nachat-begat.html">
+          <div class="post-cover">
+          <img src="../assets/blog/start.jpg" alt="Как начать бегать с нуля: первая пробежка" loading="lazy">
+          <span class="post-cover-tag-card">Старт</span>
+        </div>
+          <div class="post-body-card">
+            <h2 class="post-title-card">Как начать бегать: <em>первая неделя</em></h2>
+            <span class="post-cta-card">Читать статью <span class="arrow">→</span></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="post-card">
+        <a href="pulsovye-zony.html">
+          <div class="post-cover">
+          <img src="../assets/blog/pulse.jpg" alt="Пульсовые зоны бегуна: тренировка с пульсометром" loading="lazy">
+          <span class="post-cover-tag-card">Тренировки</span>
+        </div>
+          <div class="post-body-card">
+            <h2 class="post-title-card">Пульсовые зоны: <em>зачем</em> следить за пульсом</h2>
+            <span class="post-cta-card">Читать статью <span class="arrow">→</span></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="post-card">
+        <a href="pitanie-beguna.html">
+          <div class="post-cover">
+          <img src="../assets/blog/pitanie-beguna.jpg" alt="Питание бегуна: завтрак и перекусы до и после пробежки" loading="lazy">
+          <span class="post-cover-tag-card">Питание</span>
+        </div>
+          <div class="post-body-card">
+            <h2 class="post-title-card">Питание бегуна: <em>что есть</em> до и после пробежки</h2>
+            <span class="post-cta-card">Читать статью <span class="arrow">→</span></span>
+          </div>
+        </a>
+      </article>
+
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ПРОБег</div>
+        <p>Беговой клуб в Симферополе. Бегаем по кайфу, вместе и для всех уровней. Первая тренировка — бесплатно.</p>
+        <p class="footer-disclaimer">Тренировки по бегу имеют противопоказания. Перед началом занятий рекомендуется консультация врача. Подробнее — <a href="../terms.html#disclaimer">в условиях</a>.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Разделы</h4>
+        <a href="../index.html#schedule">Расписание</a>
+        <a href="../index.html#pricing">Абонементы</a>
+        <a href="../index.html#yana">Тренер</a>
+        <a href="../index.html#faq">Вопросы</a>
+        <a href="../blog.html">Блог</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте · vk.com/probeg_simf</a>
+        <a href="../index.html#join">Записаться на тренировку</a>
+        <span style="display:block;padding:4px 0;font-size:0.95rem;">Симферополь · Крым</span>
+        <span style="display:block;padding:4px 0;font-size:0.95rem;">ВТ 20:00 · Гагаринский парк</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-reqs">
+        <span>Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД)</span>
+        <span class="age-mark" aria-label="Возрастная маркировка 0+">0+</span>
+      </div>
+      <div class="footer-legal">
+        <a href="../terms.html">Публичная оферта</a>
+        <a href="../privacy-policy.html">Политика конфиденциальности</a>
+        <button type="button" id="openCookiePrefs" class="footer-link-btn">Управление cookies</button>
+      </div>
+      <div class="footer-copy">
+        <span>© 2026 ПРОБег · Бегаем по кайфу вместе</span>
+        <span>Симферополь · Крым</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Уведомление о cookies">
+  <div class="cookie-text">
+    <strong>Мы используем cookies и Яндекс.Метрику</strong>
+    для аналитики посещаемости и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с
+    <a href="../privacy-policy.html">политикой конфиденциальности</a>.
+  </div>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-btn cookie-accept" id="cookieAccept">Принять</button>
+    <button type="button" class="cookie-btn cookie-reject" id="cookieReject">Только необходимые</button>
+  </div>
+</div>
+
+<script>
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const closeMenu = () => { document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); };
+  if (burger) {
+    burger.addEventListener('click', () => {
+      const open = document.body.classList.toggle('menu-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.querySelectorAll('#mobileMenu [data-close], #mobileMenu a[href^="blog"]').forEach(a => a.addEventListener('click', closeMenu));
+  }
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Cookie consent gate (152-ФЗ)
+  (function() {
+    const KEY = 'probeg-consent';
+    const banner = document.getElementById('cookieBanner');
+    const accept = document.getElementById('cookieAccept');
+    const reject = document.getElementById('cookieReject');
+    const openPrefs = document.getElementById('openCookiePrefs');
+    let saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    if (!saved) {
+      setTimeout(() => banner && banner.classList.add('show'), 700);
+    }
+    function decide(value) {
+      try { localStorage.setItem(KEY, value); } catch (e) {}
+      if (banner) banner.classList.remove('show');
+    }
+    if (accept) accept.addEventListener('click', () => decide('accept'));
+    if (reject) reject.addEventListener('click', () => decide('reject'));
+    if (openPrefs) openPrefs.addEventListener('click', () => {
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      if (banner) banner.classList.add('show');
+    });
+  })();
+</script>
+</body>
+</html>
