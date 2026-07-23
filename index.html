@@ -338,9 +338,9 @@
     background: var(--ink); color: var(--paper);
     padding: clamp(1.4rem, 3vw, 2.2rem) 0;
   }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, auto); gap: 1px clamp(1.5rem, 4vw, 3rem); justify-content: end; }
   @media (max-width: 760px){ .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1px; } }
-  .stat { padding: 0 clamp(0.6rem, 2vw, 1.4rem); position: relative; }
+  .stat { padding: 0; position: relative; }
   .stat + .stat::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 6px; width: 1px; background: rgba(255,255,255,0.14); }
   @media (max-width: 760px){ .stat:nth-child(odd)::before{ display:none; } }
   .stat strong {
