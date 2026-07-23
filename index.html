@@ -238,7 +238,7 @@
     background: var(--magenta); color: var(--paper);
     position: relative; overflow: hidden;
     padding-top: clamp(8px, 2vw, 20px);
-    padding-bottom: clamp(28px, 4vw, 48px);
+    padding-bottom: 0;
     min-height: auto;
     display: flex; flex-direction: column;
   }
@@ -301,7 +301,7 @@
   .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem; }
   .hero-meta {
     justify-self: end; text-align: right; align-self: end;
-    display: flex; flex-direction: column; gap: 0.6rem;
+    display: flex; flex-direction: row; gap: clamp(1.5rem, 4vw, 3rem); align-items: flex-start;
     font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.4;
     text-transform: uppercase; letter-spacing: 0.06em;
   }
@@ -309,14 +309,14 @@
 
   /* marquee */
   .marquee {
-    position: relative; z-index: 3; margin-top: clamp(1.2rem, 3vw, 1.8rem);
+    position: relative; z-index: 3; margin-top: clamp(1.2rem, 3vw, 1.8rem); margin-bottom: 0;
     border-top: 1px solid rgba(255,255,255,0.22); border-bottom: 1px solid rgba(255,255,255,0.22);
-    overflow: hidden; padding: 10px 0; --dur: 26s;
+    overflow: hidden; padding: clamp(1.1rem, 2vw, 1.6rem) 0; --dur: 26s;
   }
   .marquee-track { display: inline-flex; white-space: nowrap; will-change: transform; animation: marq var(--dur) linear infinite; }
   .marquee:hover .marquee-track { animation-play-state: paused; }
   .marquee-track span {
-    font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.4vw, 2rem);
     text-transform: uppercase; letter-spacing: 0.02em; padding: 0 1.4rem; display: inline-flex; align-items: center; gap: 1.4rem;
   }
   .marquee-track span::after { content: '●'; font-size: 0.5em; color: var(--magenta-soft); }
@@ -336,7 +336,7 @@
      ========================================================= */
   .stats {
     background: var(--ink); color: var(--paper);
-    padding: clamp(2.4rem, 5vw, 3.6rem) 0;
+    padding: 0 0 clamp(2.4rem, 5vw, 3.6rem);
   }
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; }
   @media (max-width: 760px){ .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1px; } }
