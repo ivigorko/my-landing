@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
@@ -237,8 +237,9 @@
   .hero {
     background: var(--magenta); color: var(--paper);
     position: relative; overflow: hidden;
-    padding-top: clamp(40px, 7vw, 80px);
-    min-height: calc(100vh - 78px);
+    padding-top: clamp(28px, 4vw, 48px);
+    padding-bottom: clamp(40px, 6vw, 72px);
+    min-height: auto;
     display: flex; flex-direction: column;
   }
   .hero::before {
@@ -268,7 +269,7 @@
     pointer-events: none; user-select: none;
   }
 
-  .hero-top { position: relative; z-index: 3; display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 3vw, 2rem); padding-top: clamp(1rem, 4vw, 3rem); }
+  .hero-top { position: relative; z-index: 3; display: grid; grid-template-columns: 1fr; gap: clamp(0.8rem, 2.5vw, 1.6rem); padding-top: clamp(0.6rem, 2.5vw, 1.6rem); }
   .hero-kicker {
     font-family: 'JetBrains Mono', monospace; font-size: 0.82rem;
     letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.9;
@@ -281,8 +282,8 @@
 
   .hero-headline {
     font-family: 'Unbounded', sans-serif; font-weight: 800;
-    font-size: var(--fs-hero); line-height: 0.9; letter-spacing: -0.045em;
-    text-transform: uppercase; display: grid; gap: 0.01em; margin-top: 0.4rem;
+    font-size: clamp(2.6rem, 8vw, 7.5rem); line-height: 0.9; letter-spacing: -0.045em;
+    text-transform: uppercase; display: grid; gap: 0.01em; margin-top: 0.3rem;
   }
   .hero-headline span { display: block; animation: rise 0.8s var(--ease) both; }
   .hero-headline span:nth-child(1){ animation-delay: 0.05s; }
@@ -293,7 +294,7 @@
 
   .hero-bottom {
     position: relative; z-index: 3;
-    margin-top: auto; padding-top: clamp(1.6rem, 4vw, 3rem);
+    margin-top: clamp(1.2rem, 3vw, 2.4rem); padding-top: clamp(1rem, 2.5vw, 1.6rem);
     display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: end;
   }
   .hero-copy { max-width: 42ch; font-size: 1.1rem; line-height: 1.55; color: rgba(255,255,255,0.94); }
@@ -1178,7 +1179,7 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') {
     </div>
     <div class="footer-bottom">
       <div class="footer-reqs">
-        <span>Четверухина-Малова Яна Сергеевна · ИНН [ИНН] · Самозанятая (плательщик НПД)</span>
+        <span>Четверухина-Малова Яна Сергеевна · ИНН 910702854220 · Самозанятая (плательщик НПД)</span>
         <span class="age-mark" aria-label="Возрастная маркировка 0+">0+</span>
       </div>
       <div class="footer-legal">
