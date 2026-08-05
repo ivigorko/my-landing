@@ -265,7 +265,8 @@
   .blog-hero {
     background: var(--magenta);
     color: var(--paper);
-    padding: clamp(3rem, 6vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem);
+    padding-top: clamp(72px, 9vw, 128px);
+    padding-bottom: clamp(48px, 7vw, 96px);
     position: relative;
     overflow: hidden;
   }
@@ -273,38 +274,39 @@
     content: '';
     position: absolute; inset: 0;
     background:
-      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.12), transparent 45%),
-      radial-gradient(circle at 10% 90%, rgba(185,20,92,0.6), transparent 55%);
+      radial-gradient(circle at 85% 15%, rgba(255,255,255,0.12), transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(0,0,0,0.15), transparent 55%);
     pointer-events: none;
   }
-  .blog-hero .wrap { position: relative; z-index: 1; }
+  .blog-hero-inner { position: relative; z-index: 1; }
   .blog-hero h1 {
     font-family: 'Unbounded', sans-serif;
     font-weight: 800;
-    font-size: clamp(2.2rem, 6vw, 4.5rem);
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
-    max-width: 18ch;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin: 1.2rem 0 1.5rem;
+    text-transform: uppercase;
   }
   .blog-hero h1 em { font-style: italic; font-weight: 200; color: var(--magenta-soft); }
   .blog-hero p {
+    max-width: 56ch;
     font-size: 1.15rem;
     line-height: 1.55;
-    color: rgba(255,255,255,0.92);
-    max-width: 60ch;
+    opacity: 0.92;
   }
+
+  .blog-list { background: var(--cream); padding-top: var(--space-section); padding-bottom: var(--space-section); }
   .blog-back {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    color: var(--paper);
+    display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.4rem;
-    opacity: 0.85;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--magenta-deep);
+    margin-bottom: 2.5rem;
   }
-  .blog-back:hover { opacity: 1; }
+  .blog-back:hover { color: var(--magenta); }
 
   /* =========================================================
      POST
@@ -315,6 +317,19 @@
     aspect-ratio: 3 / 2;
     overflow: hidden;
     background: var(--magenta-soft);
+  }
+  .post-cover.post-hero-cover {
+    aspect-ratio: 21 / 9;
+    display: block;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-cover::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.6; mix-blend-mode: overlay;
+    pointer-events: none;
   }
   .post-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .post-cover-glyph {
@@ -686,19 +701,22 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') window.loadYandex
 </div>
 
 <header class="blog-hero">
-  <div class="wrap">
-    <a href="../blog.html" class="blog-back">← К списку статей</a>
-    <span class="eyebrow on-pink">Тренировки</span>
+  <div class="wrap blog-hero-inner">
+    <span class="eyebrow on-pink">Блог ПРОБег · тренировки</span>
     <h1>Длительная пробежка: <em>как бежать долго</em><br>и не угробить себя</h1>
     <p>90 минут — это уже долго. 2 часа — это генеральная репетиция забега. Что есть, как пить и когда тормозить.</p>
   </div>
 </header>
 
-<article class="post" itemscope itemtype="https://schema.org/Article">
-  <div class="post-cover">
-    <img src="../assets/blog/dlitelnaya-probezhka.jpg" alt="Бегунья на длинной пробежке по набережной Симферополя, мягкий утренний свет, длинная тень на асфальте" loading="lazy" width="1200" height="800" />
+<main class="blog-list">
+  <div class="wrap">
+    <a href="../blog.html" class="blog-back">← К списку статей</a>
+
+    <article class="post" itemscope itemtype="https://schema.org/Article">
+  <div class="post-cover post-hero-cover">
+    <img src="../assets/blog/dlitelnaya-probezhka.jpg" alt="Бегунья на длинной пробежке по набережной Симферополя, мягкий утренний свет, длинная тень на асфальте" itemprop="image" loading="lazy" width="1600" height="1067" />
+    <span class="post-cover-glyph">60</span>
     <span class="post-cover-tag">Тренировки</span>
-    <span class="post-cover-glyph" aria-hidden="true">L</span>
   </div>
   <div class="post-header">
     <time class="post-date" itemprop="datePublished" datetime="2026-08-05">5 августа 2026</time>
@@ -810,6 +828,8 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') window.loadYandex
     <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">Обсудить в ВКонтакте</a>
   </div>
 </article>
+  </div>
+</main>
 
 <section class="related" aria-label="Другие статьи">
   <h3 class="related-title">Другие записи</h3>
