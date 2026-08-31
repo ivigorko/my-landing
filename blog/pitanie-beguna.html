@@ -1651,32 +1651,6 @@
 </div>
 
 <script>
-  // Mobile menu
-  const burger = document.getElementById('burger');
-  const closeMenu = () => { document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded','false'); };
-  if (burger) {
-    burger.addEventListener('click', () => {
-      const open = document.body.classList.toggle('menu-open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    document.querySelectorAll('#mobileMenu [data-close], #mobileMenu a[href^="blog"]').forEach(a => a.addEventListener('click', closeMenu));
-  }
-
-  // Reveal on scroll
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('is-in');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-
-
-<script>
 window.PR_M = { id: 103646147, loaded: false };
 window.loadYandexMetrika = function() {
   if (window.PR_M.loaded) return;
@@ -1749,8 +1723,10 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') {
     const h = document.documentElement;
     const max = h.scrollHeight - h.clientHeight;
     const p = max > 0 ? (h.scrollTop / max) * 100 : 0;
-    progress.style.width = p + '%';
-    if (h.scrollTop > 640) floatCta.classList.add('show'); else floatCta.classList.remove('show');
+    if (progress) progress.style.width = p + '%';
+    if (floatCta) {
+      if (h.scrollTop > 640) floatCta.classList.add('show'); else floatCta.classList.remove('show');
+    }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
