@@ -1,0 +1,25 @@
+{
+  "free_run": {
+    "time": "19:15"
+  },
+  "expected_reference_counts": {
+    "blog.html": 2,
+    "blog/beg-v-mezhsezone-krym.html": 2,
+    "blog/beg-v-zharu.html": 3,
+    "blog/chek-list-marafonca.html": 2,
+    "blog/gde-begat-v-simferopole.html": 7,
+    "blog/kak-nachat-begat.html": 2,
+    "blog/kak-ne-brosit-begat.html": 5,
+    "blog/ofp-dlya-begunov.html": 2,
+    "blog/pitanie-beguna.html": 2,
+    "blog/podgotovka-k-zabegu-5-10-km.html": 4,
+    "blog/pulsovye-zony.html": 2,
+    "blog/razminka-i-zaminka.html": 4,
+    "blog/tehnika-bega.html": 2,
+    "blog/trener-po-begu-simferopol.html": 5,
+    "index.html": 11,
+    "privacy-policy.html": 2,
+    "terms.html": 3
+  }
+}
+

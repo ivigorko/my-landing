@@ -56,7 +56,18 @@ sed -i 's|vk.com/probeg_simf|vk.com/новый-handle|g' index.html blog.html bl
 В `index.html`, секция «Абонементы», найди блок `<div class="price-card">` для каждого тарифа и обнови `<div class="p-amount">`.
 
 ### 5. Расписание тренировок
-В `index.html`, секция «Расписание», карточки `.day-card`. Меняй текст, дни, время, описание.
+
+Время бесплатной пробежки хранится в `data/schedule.json`. Не меняй его вручную в HTML-файлах.
+
+После изменения значения запусти:
+
+```bash
+python -X utf8 tools/sync_schedule.py
+python -X utf8 tools/check_schedule.py
+python -X utf8 -m unittest tools/test_schedule.py
+```
+
+Синхронизатор обновляет видимый текст, метаописания и JSON-LD. Проверка завершается с ошибкой, если время или количество зарегистрированных ссылок расходится с конфигурацией.
 
 ## Что внутри (страницы)
 
