@@ -271,12 +271,8 @@
     serviceWarmed = true;
     try {
       var separator = CONFIG.endpoint.indexOf("?") >= 0 ? "&" : "?";
-      window.fetch(CONFIG.endpoint + separator + "warmup=1", {
-        method: "GET",
-        mode: "no-cors",
-        credentials: "omit",
-        keepalive: true
-      }).catch(function () {});
+      var transport = document.getElementById("registrationTransport");
+      if (transport) transport.src = CONFIG.endpoint + separator + "warmup=1";
     } catch (error) {}
   }
 
@@ -393,3 +389,4 @@
     if (open) open.addEventListener("click", show);
   }());
 }());
+
