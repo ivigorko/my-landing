@@ -10,6 +10,44 @@
     thanksUrl: "thanks.html"
   };
 
+  function analyticsUrl(value) {
+    if (!value) return "";
+    try {
+      var parsed = new URL(value, window.location.origin);
+      return parsed.origin + parsed.pathname;
+    } catch (error) { return ""; }
+  }
+
+  function configureYandexMetrika() {
+    window.PR_M = window.PR_M || { id: 103646147, loaded: false };
+    if (typeof window.loadYandexMetrika !== "function") {
+      window.loadYandexMetrika = function () {
+        if (window.PR_M.loaded) return;
+        window.PR_M.loaded = true;
+        (function (m, e, t, r, i, k, a) {
+          m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+          m[i].l = 1 * new Date();
+          for (var j = 0; j < document.scripts.length; j += 1) if (document.scripts[j].src === r) return;
+          k = e.createElement(t); a = e.getElementsByTagName(t)[0]; k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+        }(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=103646147", "ym"));
+        window.ym(103646147, "init", {
+          ssr: true,
+          webvisor: false,
+          clickmap: true,
+          referrer: analyticsUrl(document.referrer),
+          url: analyticsUrl(window.location.href),
+          accurateTrackBounce: true,
+          trackLinks: true
+        });
+      };
+    }
+    try {
+      if (localStorage.getItem("probeg-consent") === "accept") window.loadYandexMetrika();
+    } catch (error) {}
+  }
+
+  configureYandexMetrika();
+
   var form = document.getElementById("registrationForm");
   var submitButton = document.getElementById("submitButton");
   var statusNode = document.getElementById("formStatus");
