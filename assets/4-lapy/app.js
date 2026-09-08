@@ -20,6 +20,8 @@
   var progressNode = document.getElementById("submissionProgress");
   var progressTitle = document.getElementById("submissionTitle");
   var progressHint = document.getElementById("submissionHint");
+  var emailInput = document.getElementById("email");
+  var emailAdvisory = document.getElementById("emailAdvisory");
   var draftKey = "four-lapy-registration-draft-v1";
   var submitting = false;
   var timeoutId = null;
@@ -127,6 +129,15 @@
 
   function normalizePhone(value) {
     return value.trim().replace(/[\s()\-]/g, "");
+  }
+
+  function checkEmailDomain() {
+    if (!emailInput || !emailAdvisory) return;
+    var domain = (emailInput.value.split("@")[1] || "").toLowerCase();
+    var commonTypos = ["ail.com", "gamil.com", "gmial.com", "yandex.r", "mail.r"];
+    emailAdvisory.textContent = commonTypos.indexOf(domain) >= 0
+      ? "Проверьте домен «" + domain + "». Если он указан верно, форму можно отправить."
+      : "";
   }
 
   function fieldError(id, message, errors) {
@@ -312,6 +323,10 @@
     loadCaptcha();
     scheduleServiceWarmup();
     form.addEventListener("input", saveDraft);
+    if (emailInput) {
+      emailInput.addEventListener("blur", checkEmailDomain);
+      emailInput.addEventListener("input", function () { if (emailAdvisory) emailAdvisory.textContent = ""; });
+    }
     form.querySelectorAll('input[name="participationFormat"]').forEach(function (input) { input.addEventListener("change", toggleDogFields); });
     form.addEventListener("focusin", function () {
       warmRegistrationService();
@@ -352,17 +367,20 @@
   var menuButton = document.querySelector(".menu-button");
   var mobileMenu = document.getElementById("mobileMenu");
   if (menuButton && mobileMenu) {
-    menuButton.addEventListener("click", function () {
-      var open = document.body.classList.toggle("menu-open");
+    var menuLabel = menuButton.querySelector("span");
+    function setMenuState(open) {
+      document.body.classList.toggle("menu-open", open);
       menuButton.setAttribute("aria-expanded", String(open));
       menuButton.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+      if (menuLabel) menuLabel.textContent = open ? "Закрыть" : "Меню";
+    }
+    menuButton.addEventListener("click", function () {
+      setMenuState(!document.body.classList.contains("menu-open"));
     });
-    mobileMenu.querySelectorAll("a").forEach(function (link) { link.addEventListener("click", function () { document.body.classList.remove("menu-open"); menuButton.setAttribute("aria-expanded", "false"); menuButton.setAttribute("aria-label", "Открыть меню"); }); });
+    mobileMenu.querySelectorAll("a").forEach(function (link) { link.addEventListener("click", function () { setMenuState(false); }); });
     window.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && document.body.classList.contains("menu-open")) {
-        document.body.classList.remove("menu-open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Открыть меню");
+        setMenuState(false);
         menuButton.focus();
       }
     });
@@ -374,6 +392,14 @@
     var accept = document.getElementById("cookieAccept");
     var reject = document.getElementById("cookieReject");
     var open = document.getElementById("openCookiePrefs");
+    var origin = document.createComment("cookie-banner-origin");
+    var compactViewport = window.matchMedia("(max-width: 720px)");
+    banner.parentNode.insertBefore(origin, banner);
+    function placeBanner() {
+      var header = document.querySelector(".site-header");
+      if (compactViewport.matches && header) header.insertAdjacentElement("afterend", banner);
+      else if (origin.parentNode) origin.parentNode.insertBefore(banner, origin.nextSibling);
+    }
     function show() { banner.classList.add("show"); }
     function hide() { banner.classList.remove("show"); }
     function save(value) {
@@ -383,10 +409,20 @@
     }
     var stored = null;
     try { stored = localStorage.getItem(key); } catch (error) {}
+    placeBanner();
+    if (typeof compactViewport.addEventListener === "function") compactViewport.addEventListener("change", placeBanner);
+    else if (typeof compactViewport.addListener === "function") compactViewport.addListener(placeBanner);
     if (!stored) window.setTimeout(show, 500);
     accept.addEventListener("click", function () { save("accept"); });
     reject.addEventListener("click", function () { save("reject"); });
-    if (open) open.addEventListener("click", show);
+    if (open) open.addEventListener("click", function () {
+      show();
+      placeBanner();
+      if (compactViewport.matches) {
+        banner.scrollIntoView({ block: "start", behavior: "smooth" });
+        accept.focus({ preventScroll: true });
+      }
+    });
   }());
 }());
 

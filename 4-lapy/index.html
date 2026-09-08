@@ -27,9 +27,9 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"></noscript>
-  <link rel="preload" as="script" href="../assets/4-lapy/app.js">
+  <link rel="preload" as="script" href="../assets/4-lapy/app.js?v=20260908-3">
   <link rel="preload" as="image" href="../assets/4-lapy/hero-dogs-running.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="../assets/4-lapy/styles.css">
+  <link rel="stylesheet" href="../assets/4-lapy/styles.css?v=20260908-3">
   <script>
     window.PR_M = { id: 103646147, loaded: false };
     window.loadYandexMetrika = function () {
@@ -305,7 +305,7 @@
               <div class="field"><label for="participantName">Имя</label><input id="participantName" name="participantName" type="text" autocomplete="name" maxlength="80" required><span class="field-error" id="participantNameError"></span></div>
               <div class="field"><label for="age">Возраст</label><input id="age" name="age" type="number" inputmode="numeric" min="18" max="100" required><span class="field-error" id="ageError"></span></div>
               <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="30" required><small>Можно указать российский или международный номер.</small><span class="field-error" id="phoneError"></span></div>
-              <div class="field"><label for="email">Электронная почта</label><input id="email" name="email" type="email" autocomplete="email" maxlength="120" required><small>Письма автоматически не отправляются.</small><span class="field-error" id="emailError"></span></div>
+              <div class="field"><label for="email">Электронная почта</label><input id="email" name="email" type="email" autocomplete="email" maxlength="120" aria-describedby="emailHint emailAdvisory emailError" required><small id="emailHint">Письма автоматически не отправляются.</small><span class="field-advisory" id="emailAdvisory" aria-live="polite"></span><span class="field-error" id="emailError"></span></div>
             </div>
           </fieldset>
 
@@ -369,6 +369,7 @@
     <div class="cookie-actions"><button class="accept" type="button" id="cookieAccept">Принять</button><button type="button" id="cookieReject">Только необходимые</button></div>
   </div>
 
-  <script src="../assets/4-lapy/app.js" defer></script>
+  <script src="../assets/4-lapy/app.js?v=20260908-3" defer></script>
 </body>
 </html>
+
