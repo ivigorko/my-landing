@@ -42,6 +42,15 @@ jobs:
           echo "## ✅ Yandex.Metrika ${COUNTER_ID} found on all ${TOTAL} HTML pages" >> "$GITHUB_STEP_SUMMARY"
           echo "OK: Metrika present on ${TOTAL} pages"
 
+      - name: Reject Instagram links on Four Paws pages
+        run: |
+          set -e
+          if grep -RniE "href=[\"'][^\"']*(instagram\\.com|instagr\\.am)" 4-lapy assets/4-lapy; then
+            echo "::error::Instagram links are not allowed in the Four Paws section"
+            exit 1
+          fi
+          echo "OK: no Instagram links found in the Four Paws section"
+
   check-schedule:
     name: Verify the free run schedule on every HTML page
     runs-on: ubuntu-latest
