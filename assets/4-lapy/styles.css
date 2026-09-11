@@ -538,6 +538,7 @@ body.menu-open .cookie-banner.show { transform: translateY(calc(100% + 40px)); v
 .payment-section { background: var(--sun-light); }
 .payment-section > p { margin-bottom: 0; }
 .payment-warning { padding: 15px 16px; border: 1px solid var(--orange-dark); border-radius: var(--radius-sm); background: var(--paper); }
+.payment-link { margin-top: 18px; }
 .thanks-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .thanks-donation-link { padding: 12px 4px; color: var(--orange-dark); font-weight: 800; text-underline-offset: 4px; }
 .thanks-donation-link:hover { color: var(--navy); }
