@@ -233,11 +233,23 @@
   .mobile-menu a { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: clamp(2rem, 9vw, 3.4rem); letter-spacing: -0.03em; padding: 0.35rem 0; line-height: 1.05; }
   .mobile-menu a:active { color: var(--magenta-soft); }
   .mobile-menu .mobile-event {
-    width: fit-content; margin-bottom: 0.55rem; padding: 0.55rem 0.8rem;
-    border: 2px solid var(--paper); border-radius: 16px; background: #f5c94c; color: var(--ink);
-    box-shadow: 5px 5px 0 var(--paper); white-space: nowrap;
+    width: 100%; min-height: 84px; margin: 0.55rem 0; padding: 13px 16px;
+    display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr;
+    column-gap: 16px; align-items: center;
+    border: 2px solid var(--paper); border-radius: 20px; background: #f5c94c; color: var(--ink);
+    box-shadow: 5px 5px 0 var(--paper);
   }
   .mobile-menu .mobile-event:active { color: var(--ink); }
+  .mobile-event-label, .mobile-event-date {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .mobile-event-label { align-self: end; }
+  .mobile-event strong {
+    align-self: start; font-family: 'Unbounded', sans-serif;
+    font-size: clamp(1.65rem, 7vw, 2.2rem); letter-spacing: -0.04em; line-height: 1;
+  }
+  .mobile-event-date { grid-column: 2; grid-row: 1 / span 2; white-space: nowrap; }
   .mobile-menu .mm-foot { margin-top: 2.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 0.08em; opacity: 0.9; }
 
   @media (max-width: 860px) {
@@ -720,7 +732,11 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') {
   <a href="#yana" data-close>Тренер</a>
   <a href="#faq" data-close>Вопросы</a>
   <a href="blog.html">Блог</a>
-  <a href="4-lapy/" class="mobile-event">4 лапы</a>
+  <a href="4-lapy/" class="mobile-event">
+    <span class="mobile-event-label">Благотворительный кросс</span>
+    <strong>4 лапы</strong>
+    <span class="mobile-event-date">15 ноября</span>
+  </a>
   <a href="https://vk.com/probeg_simf" target="_blank" rel="noopener">ВКонтакте</a>
   <div class="mm-foot">Симферополь · Крым · ВТ 19:15 — бесплатно</div>
 </div>
