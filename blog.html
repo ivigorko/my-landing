@@ -893,6 +893,8 @@
     transition: transform 0.18s ease, background 0.18s ease;
   }
   .blog-all:hover { transform: translateY(-2px); background: var(--magenta-deep); }
+  #blog-posts > .post-card[hidden], .blog-footer[hidden] { display: none; }
+  .blog-all:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
 
   /* =========================================================
      CTA / FOOTER
@@ -1339,7 +1341,7 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') {
 <main class="blog-list">
   <div class="wrap">
     <a href="index.html" class="blog-back">← На главную</a>
-    <div class="blog-grid">
+    <div class="blog-grid" id="blog-posts">
       <article class="post-card">
         <a href="blog/oktyabr-2026.html">
           <div class="post-cover" style="aspect-ratio: 4 / 5;">
@@ -1580,6 +1582,9 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') {
       </article>
 
     </div>
+    <div class="blog-footer" id="blog-more" hidden>
+      <button type="button" class="blog-all" aria-controls="blog-posts" aria-expanded="false">Показать ещё</button>
+    </div>
   </div>
 </main>
 
@@ -1718,6 +1723,32 @@ try { if (localStorage.getItem('probeg-consent') === 'accept') {
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+<script>
+  // Все статьи остаются в HTML; компактная лента включается только с JavaScript.
+  (function initBlogFeed() {
+    const grid = document.getElementById('blog-posts');
+    const control = document.getElementById('blog-more');
+    if (!grid || !control || grid.dataset.feedReady) return;
+    const button = control.querySelector('button');
+    const cards = Array.from(grid.children).filter(card => card.classList.contains('post-card'));
+    const remaining = cards.slice(9);
+    if (!button || !remaining.length) return;
+    const firstLink = remaining[0].querySelector('a[href]');
+    if (!firstLink) return;
+
+    button.textContent = 'Показать ещё ' + remaining.length;
+    button.addEventListener('click', function() {
+      remaining.forEach(card => { card.hidden = false; });
+      button.setAttribute('aria-expanded', 'true');
+      firstLink.focus();
+      control.hidden = true;
+    });
+    remaining.forEach(card => { card.hidden = true; });
+    control.hidden = false;
+    grid.dataset.feedReady = 'true';
+  })();
 </script>
 
 </body>
