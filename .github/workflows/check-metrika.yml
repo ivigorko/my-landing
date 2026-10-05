@@ -69,3 +69,21 @@ jobs:
       - name: Check schedule consistency
         run: python -X utf8 tools/check_schedule.py
 
+  check-publication:
+    name: Verify article templates and homepage cards
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test publication checks with broken examples
+        run: python -X utf8 -m unittest tools/test_publication.py
+
+      - name: Check article templates and homepage cards
+        run: python -X utf8 tools/check_publication.py
+
