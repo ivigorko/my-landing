@@ -1,58 +1,18 @@
 name: Check Yandex.Metrika on all pages
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
+# Only newer runs of this workflow for the same PR cancel older ones.
+# Other PRs and deployment workflows have separate groups.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
-  check-metrika:
-    name: Verify Metrika 103646147 is on every HTML page
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Find HTML files without Metrika
-        id: check
-        run: |
-          set -e
-          COUNTER_ID="103646147"
-          MISSING=""
-          # Ищем все HTML, кроме шаблона (в нём метрика закомментирована-размечена, но это не публичная страница)
-          for f in $(find . -type f -name "*.html" ! -name "template.html"); do
-            if ! grep -Eq "mc\.yandex\.ru/watch/${COUNTER_ID}|data-metrika-counter=\"${COUNTER_ID}\"" "$f"; then
-              MISSING="${MISSING}\n  - ${f}"
-            fi
-          done
-
-          if [ -n "$MISSING" ]; then
-            echo "## ❌ Yandex.Metrika ${COUNTER_ID} is missing on:" >> "$GITHUB_STEP_SUMMARY"
-            echo -e "$MISSING" >> "$GITHUB_STEP_SUMMARY"
-            echo ""
-            echo "::error::Yandex.Metrika ${COUNTER_ID} is missing on the following HTML files:"
-            echo -e "$MISSING"
-            echo ""
-            echo "Добавь код счётчика или согласованный маркер отложенной загрузки data-metrika-counter."
-            exit 1
-          fi
-
-          TOTAL=$(find . -type f -name "*.html" ! -name "template.html" | wc -l)
-          echo "## ✅ Yandex.Metrika ${COUNTER_ID} found on all ${TOTAL} HTML pages" >> "$GITHUB_STEP_SUMMARY"
-          echo "OK: Metrika present on ${TOTAL} pages"
-
-      - name: Reject Instagram links on Four Paws pages
-        run: |
-          set -e
-          if grep -RniE "href=[\"'][^\"']*(instagram\\.com|instagr\\.am)" 4-lapy assets/4-lapy; then
-            echo "::error::Instagram links are not allowed in the Four Paws section"
-            exit 1
-          fi
-          echo "OK: no Instagram links found in the Four Paws section"
-
-  check-schedule:
-    name: Verify the free run schedule on every HTML page
+  site-check:
+    name: Verify site (Metrika, Four Paws, schedule, publication)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -63,27 +23,5 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Test schedule synchronization
-        run: python -X utf8 -m unittest tools/test_schedule.py
-
-      - name: Check schedule consistency
-        run: python -X utf8 tools/check_schedule.py
-
-  check-publication:
-    name: Verify article templates and homepage cards
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Test publication checks with broken examples
-        run: python -X utf8 -m unittest tools/test_publication.py
-
-      - name: Check article templates and homepage cards
-        run: python -X utf8 tools/check_publication.py
-
+      - name: Run all site checks
+        run: python -X utf8 tools/preflight.py
