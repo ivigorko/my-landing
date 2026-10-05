@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 
 from schedule_common import (
-    apply_time,
+    apply_schedule,
     load_config,
     public_html_files,
     read_html,
@@ -14,7 +14,7 @@ from schedule_common import (
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Синхронизировать время бесплатной пробежки во всех HTML-файлах."
+        description="Синхронизировать день, время и место бесплатной пробежки во всех HTML-файлах."
     )
     parser.add_argument(
         "--dry-run",
@@ -24,13 +24,13 @@ def main() -> int:
     args = parser.parse_args()
 
     config = load_config()
-    expected_time = config["free_run"]["time"]
+    free_run = config["free_run"]
     total_references = 0
     changed_files = 0
 
     for path in public_html_files():
         source = read_html(path)
-        updated, references = apply_time(source, expected_time)
+        updated, references = apply_schedule(source, free_run)
         if not references:
             continue
 
@@ -47,7 +47,7 @@ def main() -> int:
     mode = "Проверено" if args.dry_run else "Синхронизировано"
     print(
         f"{mode}: {total_references} ссылок; "
-        f"файлов с изменениями: {changed_files}; время: {expected_time}"
+        f"файлов с изменениями: {changed_files}; расписание: {free_run['dayOfWeek']}, {free_run['time']}, {free_run['place']}"
     )
     return 0
 

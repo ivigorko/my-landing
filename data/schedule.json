@@ -1,26 +1,29 @@
 {
   "free_run": {
-    "time": "19:15"
+    "dayOfWeek": "Saturday",
+    "time": "10:00",
+    "place": "парк Шевченко",
+    "meeting_point": "в парке Шевченко",
+    "effective_from": "2026-10-10"
   },
   "expected_reference_counts": {
-    "blog.html": 2,
     "blog/beg-v-mezhsezone-krym.html": 2,
     "blog/beg-v-zharu.html": 3,
     "blog/chek-list-marafonca.html": 2,
-    "blog/gde-begat-v-simferopole.html": 7,
-    "blog/kak-nachat-begat.html": 2,
-    "blog/kak-ne-brosit-begat.html": 5,
+    "blog/gde-begat-v-simferopole.html": 9,
+    "blog/kak-nachat-begat.html": 3,
+    "blog/kak-ne-brosit-begat.html": 8,
     "blog/ofp-dlya-begunov.html": 2,
-    "blog/pitanie-beguna.html": 2,
-    "blog/podgotovka-k-zabegu-5-10-km.html": 4,
+    "blog/pitanie-beguna.html": 4,
+    "blog/podgotovka-k-zabegu-5-10-km.html": 6,
     "blog/pulsovye-zony.html": 2,
-    "blog/razminka-i-zaminka.html": 4,
-    "blog/tehnika-bega.html": 2,
-    "blog/trener-po-begu-simferopol.html": 5,
+    "blog/razminka-i-zaminka.html": 6,
+    "blog/tehnika-bega.html": 3,
+    "blog/trener-po-begu-simferopol.html": 6,
     "blog/vosstanovlenie-posle-marafona.html": 2,
-    "index.html": 11,
+    "blog.html": 2,
+    "index.html": 15,
     "privacy-policy.html": 2,
-    "terms.html": 3
+    "terms.html": 5
   }
 }
-
