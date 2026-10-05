@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from schedule_common import (
-    apply_time,
+    apply_schedule,
     load_config,
     public_html_files,
     read_html,
@@ -11,14 +11,14 @@ from schedule_common import (
 
 def main() -> int:
     config = load_config()
-    expected_time = config["free_run"]["time"]
+    free_run = config["free_run"]
     expected_counts = config["expected_reference_counts"]
     actual_counts: dict[str, int] = {}
     errors: list[str] = []
 
     for path in public_html_files():
         source = read_html(path)
-        updated, references = apply_time(source, expected_time)
+        updated, references = apply_schedule(source, free_run)
         if not references:
             continue
 
@@ -26,14 +26,14 @@ def main() -> int:
         actual_counts[relative] = len(references)
         mismatches = sorted(
             {
-                reference.previous_time
+                reference.previous_text
                 for reference in references
-                if reference.previous_time != expected_time
+                if reference.previous_text != reference.expected_text
             }
         )
         if updated != source:
             errors.append(
-                f"{relative}: найдено несогласованное время {', '.join(mismatches)}"
+                f"{relative}: найдено несогласованное расписание {', '.join(mismatches)}"
             )
 
     for relative, expected_count in sorted(expected_counts.items()):
@@ -58,7 +58,7 @@ def main() -> int:
     total = sum(actual_counts.values())
     print(
         f"Расписание согласовано: {len(actual_counts)} файлов, "
-        f"{total} ссылок, время бесплатной пробежки {expected_time}"
+        f"{total} ссылок, бесплатная пробежка: {free_run['dayOfWeek']}, {free_run['time']}, {free_run['place']}"
     )
     return 0
 
