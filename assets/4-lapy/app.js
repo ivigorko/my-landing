@@ -195,7 +195,7 @@
     var format = form.querySelector('input[name="participationFormat"]:checked');
 
     fieldError("participantName", name.length < 2 ? "Укажите имя, не короче двух символов." : "", errors);
-    fieldError("age", !Number.isInteger(age) || age < 18 || age > 100 ? "Основная дистанция доступна участникам от 18 до 100 лет." : "", errors);
+    fieldError("age", !Number.isInteger(age) || age < 4 || age > 100 ? "Участие доступно в возрасте от 4 до 100 лет." : "", errors);
     fieldError("phone", !/^\+?[0-9]{7,15}$/.test(phone) ? "Укажите телефон из 7–15 цифр." : "", errors);
     fieldError("email", !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? "Укажите корректный адрес электронной почты." : "", errors);
     fieldError("participationFormat", !format ? "Выберите формат участия." : "", errors);
@@ -463,4 +463,5 @@
     });
   }());
 }());
+
 
