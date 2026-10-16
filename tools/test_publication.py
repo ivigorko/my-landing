@@ -37,7 +37,20 @@ class PublicationTests(unittest.TestCase):
 <section class="related">{cards}</section>
 <footer></footer><div class="cookie-banner"></div></body></html>'''
             self.write(name, source)
-        self.write('blog.html', '<main>' + ''.join(self.card(name) for name in self.names) + '</main>')
+        feed_script = '''<script>
+const cards = Array.from(document.querySelectorAll('#blog-posts > .post-card'));
+const remaining = cards.slice(9);
+button.textContent = 'Показать ещё ' + remaining.length;
+</script>'''
+        self.write(
+            'blog.html',
+            '<main><div class="blog-grid" id="blog-posts">'
+            + ''.join(self.card(name) for name in self.names)
+            + '</div><div class="blog-footer" id="blog-more" hidden>'
+              '<button type="button" aria-controls="blog-posts" aria-expanded="false">Показать ещё</button>'
+              '</div></main><style>#blog-posts > .post-card[hidden] { display: none; }</style>'
+            + feed_script
+        )
         self.write('index.html', '<section id="blog">' + ''.join(self.card(name) for name in self.names[:6]) + '</section>')
         self.write('sitemap.xml', '<urlset>' + ''.join(f'<url><loc>{DOMAIN}{name}</loc></url>' for name in self.names) + '</urlset>')
 
@@ -133,7 +146,14 @@ class PublicationTests(unittest.TestCase):
 
     def test_old_article_removed_from_full_blog_fails(self):
         self.replace('blog.html', self.card(self.names[6]), '')
-        self.assert_failure('полная лента')
+        self.assert_failure('HTML-лента')
+    def test_missing_show_more_control_fails(self):
+        self.replace('blog.html', 'id="blog-more"', 'id="missing-blog-more"')
+        self.assert_failure("{'id': 'blog-more'}")
+
+    def test_wrong_initial_visible_count_fails(self):
+        self.replace('blog.html', 'cards.slice(9)', 'cards.slice(8)')
+        self.assert_failure('после девятой')
 
     def test_unsorted_blog_and_home_fail(self):
         self.replace(self.names[0], 'datetime="2026-10-07"', 'datetime="2026-09-01"')

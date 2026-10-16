@@ -1,6 +1,7 @@
 """Проверка шаблона статей и размещения карточек перед публикацией."""
 import argparse
 import json
+import re
 from dataclasses import dataclass, field
 from datetime import date
 from html.parser import HTMLParser
@@ -116,6 +117,25 @@ def validate(root=ROOT):
     blog = read(root / 'blog.html')
     home_section = require('index.html', home, id='blog')
     blog_main = require('blog.html', blog, tag='main')
+    blog_grid = require('blog.html', blog_main, id='blog-posts') if blog_main else None
+    blog_more = require('blog.html', blog_main, id='blog-more') if blog_main else None
+    if blog_more:
+        button = require('blog.html', blog_more, tag='button', **{'aria-controls': 'blog-posts'})
+        if button and button.attrs.get('aria-expanded') != 'false':
+            fail('blog.html', 'кнопка «Показать ещё» должна начинать с aria-expanded="false"')
+        if 'hidden' not in blog_more.attrs:
+            fail('blog.html', 'блок кнопки «Показать ещё» должен быть скрыт до запуска JavaScript')
+    blog_source = (root / 'blog.html').read_text(encoding='utf-8')
+    feed_patterns = {
+        'лента должна скрывать карточки после девятой': r'cards\.slice\(\s*9\s*\)',
+        'кнопка должна показывать число скрытых карточек':
+            r"button\.textContent\s*=\s*['\"]Показать ещё ['\"]\s*\+\s*remaining\.length",
+        'скрытые карточки должны исключаться из раскладки':
+            r'#blog-posts\s*>\s*\.post-card\[hidden\]',
+    }
+    for message, pattern in feed_patterns.items():
+        if not re.search(pattern, blog_source):
+            fail('blog.html', message)
 
     def card_urls(page, node):
         urls = []
@@ -129,15 +149,15 @@ def validate(root=ROOT):
         return urls
 
     home_urls = card_urls('index.html', home_section)
-    blog_urls = card_urls('blog.html', blog_main)
+    blog_urls = card_urls('blog.html', blog_grid)
     if len(home_urls) != 6:
         fail('index.html', f'в #blog должно быть ровно 6 карточек, найдено {len(home_urls)}')
     if home_urls != blog_urls[:6]:
-        fail('index.html', 'карточки должны совпадать с первыми шестью в полной ленте, новая статья первой')
+        fail('index.html', 'карточки должны совпадать с первыми шестью в HTML-ленте, новая статья первой')
     article_paths = sorted(root.glob('blog/*.html'))
     expected_urls = {path.relative_to(root).as_posix() for path in article_paths}
     if set(blog_urls) != expected_urls:
-        fail('blog.html', 'полная лента должна содержать по одной карточке каждой статьи')
+        fail('blog.html', 'HTML-лента должна содержать по одной карточке каждой статьи')
     try:
         sitemap = ElementTree.parse(root / 'sitemap.xml')
         sitemap_urls = [node.text for node in sitemap.findall('.//{*}loc')]
@@ -234,7 +254,7 @@ def main():
         for error in errors:
             print('- ' + error)
         return 1
-    print('Публикация согласована: шаблоны статей, 3 связанные карточки, 6 карточек главной и полная лента.')
+    print('Публикация согласована: шаблоны статей, 3 связанные карточки, 6 карточек главной, все статьи в HTML и раскрытие после девятой карточки.')
     return 0
 
 
