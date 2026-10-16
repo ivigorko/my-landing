@@ -5,6 +5,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 import os
+import shutil
 import subprocess
 import sys
 import unittest
@@ -36,6 +37,7 @@ class PreflightTests(unittest.TestCase):
             self.write('blog.html', b'mc.yandex.ru/watch/999')
             self.assertEqual(1, preflight.check_metrika(self.root))
 
+    @unittest.skipUnless(shutil.which('grep'), 'grep is unavailable')
     def test_metrika_matches_legacy_grep(self):
         cases = [b'mc.yandex.ru/watch/103646147', b'data-metrika-counter="103646147"',
                  b'data-metrika-counter="999"', b'DATA-METRIKA-COUNTER="103646147"',
@@ -47,6 +49,7 @@ class PreflightTests(unittest.TestCase):
                     r'mc\.yandex\.ru/watch/103646147|data-metrika-counter="103646147"', str(path)])
                 self.assertEqual(old.returncode, preflight.check_metrika(self.root))
 
+    @unittest.skipUnless(shutil.which('grep'), 'grep is unavailable')
     def test_instagram_matches_legacy_grep_in_both_directories(self):
         cases = [b'<a href="https://instagram.com/x">', b"HREF='https://INSTAGR.AM/x'",
                  b'href="https://vk.com/x"', b'instagram.com plain text',
@@ -74,7 +77,7 @@ class PreflightTests(unittest.TestCase):
             with self.assertRaises(PermissionError):
                 preflight.check_metrika(self.root)
 
-    def run_main(self, codes=(0, 0, 0), metrika=0, four_paws=0, error=None):
+    def run_main(self, codes=(0, 0, 0, 0), metrika=0, four_paws=0, error=None):
         output = StringIO()
         with patch.object(preflight, 'check_metrika', return_value=metrika, side_effect=error), \
              patch.object(preflight, 'check_four_paws', return_value=four_paws), \
@@ -82,8 +85,10 @@ class PreflightTests(unittest.TestCase):
              patch.dict(os.environ, {'GITHUB_STEP_SUMMARY': ''}), redirect_stdout(output):
             code = preflight.main()
         self.assertEqual([
-            ('-m', 'unittest', 'tools/test_schedule.py', 'tools/test_publication.py', 'tools/test_preflight.py'),
-            ('tools/check_schedule.py',), ('tools/check_publication.py',)
+            ('-m', 'unittest', 'tools/test_schedule.py', 'tools/test_publication.py',
+             'tools/test_preflight.py', 'tools/test_newline_churn.py'),
+            ('tools/check_schedule.py',), ('tools/check_publication.py',),
+            ('tools/check_newline_churn.py',)
         ], [call.args for call in runner.call_args_list])
         return code, output.getvalue()
 
@@ -91,8 +96,8 @@ class PreflightTests(unittest.TestCase):
         self.assertEqual(0, self.run_main()[0])
 
     def test_each_group_failure_fails_without_skipping_remaining_checks(self):
-        for position in range(5):
-            codes = [0] * 5
+        for position in range(6):
+            codes = [0] * 6
             codes[position] = 7
             with self.subTest(position=position):
                 self.assertEqual(1, self.run_main(codes[2:], *codes[:2])[0])

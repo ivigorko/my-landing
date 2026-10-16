@@ -52,11 +52,13 @@ def main():
     checks = (
         ('Metrika', check_metrika),
         ('Four Paws links', check_four_paws),
-        ('Tests (schedule, publication, preflight)',
+        ('Tests (schedule, publication, preflight, newline churn)',
          lambda: python_check('-m', 'unittest', 'tools/test_schedule.py',
-                              'tools/test_publication.py', 'tools/test_preflight.py')),
+                              'tools/test_publication.py', 'tools/test_preflight.py',
+                              'tools/test_newline_churn.py')),
         ('Schedule', lambda: python_check('tools/check_schedule.py')),
         ('Publication', lambda: python_check('tools/check_publication.py')),
+        ('Newline churn', lambda: python_check('tools/check_newline_churn.py')),
     )
     failed = []
     for name, check in checks:
