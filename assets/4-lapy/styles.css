@@ -433,8 +433,8 @@ main { position: relative; isolation: isolate; overflow: hidden; }
 .required-note { margin: 0 0 28px; padding: 14px 16px; border-left: 4px solid var(--orange); background: #fff3ec; }
 .form-shell fieldset { margin: 0 0 32px; padding: 0; border: 0; }
 .form-shell legend { margin-bottom: 18px; font-family: "Unbounded", sans-serif; font-size: 1.15rem; font-weight: 800; }
-.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.field { display: grid; gap: 7px; margin-bottom: 18px; }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.field { display: grid; gap: 7px; margin-bottom: 0; }
 .field label, .field-label { font-weight: 800; }
 .field small { color: var(--muted); font-size: 0.9rem; }
 .field input, .field select, .field textarea {
@@ -451,6 +451,7 @@ main { position: relative; isolation: isolate; overflow: hidden; }
 .field [aria-invalid="true"] { border-color: var(--error); background: #fff4f3; }
 .field-error { min-height: 1.2em; color: var(--error); font-size: 0.88rem; font-weight: 700; }
 .field-advisory { min-height: 1.2em; color: #764300; font-size: 0.88rem; font-weight: 700; }
+.field-error:empty, .field-advisory:empty { display: none; }
 .radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .radio-card { position: relative; display: block; }
 .radio-card input { position: absolute; opacity: 0; }
@@ -629,7 +630,6 @@ body.menu-open .cookie-banner.show { transform: translateY(calc(100% + 40px)); v
   .route-pending { margin-top: 20px; padding: 14px; }
   .finance-note { padding: 22px; }
   .faq summary { padding-block: 18px; }
-  .field { margin-bottom: 12px; }
   .form-shell fieldset { margin-bottom: 24px; }
   .form-shell legend { margin-bottom: 14px; }
   .form-shell { padding: 21px; border-radius: var(--radius); box-shadow: 7px 7px 0 var(--navy); }
