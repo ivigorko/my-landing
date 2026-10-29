@@ -287,6 +287,7 @@
 
   function errorMessage(code) {
     var messages = {
+      CLOSED: "Приём заявок завершён 1 ноября.",
       VALIDATION: "Проверьте данные и повторите отправку.",
       CAPTCHA: "Не удалось подтвердить, что заявку отправляет человек. Пройдите проверку ещё раз.",
       BUSY: "Сервис занят. Подождите минуту и повторите отправку.",
@@ -338,6 +339,23 @@
 
   function configureRegistrationState() {
     var ready = Boolean(CONFIG.endpoint && (!CONFIG.captchaRequired || CONFIG.smartCaptchaClientKey));
+    var registrationState = window.FOUR_LAPY_REGISTRATION
+      ? window.FOUR_LAPY_REGISTRATION.stateAt(Date.now())
+      : { closed: false };
+    if (registrationState.closed) {
+      document.querySelectorAll("[data-registration-deadline]").forEach(function (node) {
+        node.classList.add("is-closed");
+        node.innerHTML = "<strong>Приём заявок завершён.</strong> Регистрация закрыта 1 ноября.";
+      });
+      document.querySelectorAll(".registration-cta").forEach(function (link) {
+        link.textContent = "Регистрация завершена";
+        link.setAttribute("aria-disabled", "true");
+        link.removeAttribute("href");
+      });
+      form.classList.add("is-closed");
+      submitButton.disabled = true;
+      return;
+    }
     document.querySelectorAll(".registration-cta").forEach(function (link) {
       link.textContent = ready ? (link.closest(".hero-actions") ? "Подать заявку" : "Регистрация") : "Регистрация скоро";
     });

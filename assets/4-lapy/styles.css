@@ -195,6 +195,9 @@ main { position: relative; isolation: isolate; overflow: hidden; }
 .hero-copy { position: relative; z-index: 2; }
 .hero-copy .display span { color: var(--navy); }
 .hero-copy .lead { margin: 26px 0 0; }
+.registration-deadline { max-width: 700px; margin: 20px 0 0; padding: 14px 16px; border-left: 4px solid var(--orange); border-radius: 0 12px 12px 0; background: rgba(255,255,255,0.78); line-height: 1.5; }
+.registration-deadline-form { background: var(--paper); }
+.registration-deadline.is-closed { border-left-color: var(--navy); background: var(--paper); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .hero-note { margin: 20px 0 0; font-size: 0.92rem; font-weight: 700; }
 .hero-media { position: relative; }
@@ -430,6 +433,7 @@ main { position: relative; isolation: isolate; overflow: hidden; }
 .form-layout { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: clamp(32px, 7vw, 90px); align-items: start; }
 .form-aside { position: sticky; top: 112px; }
 .form-shell { padding: clamp(24px, 5vw, 56px); border: 2px solid var(--navy); border-radius: var(--radius-lg); background: var(--paper); box-shadow: 12px 12px 0 var(--navy); }
+.form-shell.is-closed { display: none; }
 .required-note { margin: 0 0 28px; padding: 14px 16px; border-left: 4px solid var(--orange); background: #fff3ec; }
 .form-shell fieldset { margin: 0 0 32px; padding: 0; border: 0; }
 .form-shell legend { margin-bottom: 18px; font-family: "Unbounded", sans-serif; font-size: 1.15rem; font-weight: 800; }
