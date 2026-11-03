@@ -287,7 +287,7 @@
 
   function errorMessage(code) {
     var messages = {
-      CLOSED: "Приём заявок завершён 1 ноября.",
+      CLOSED: "Приём заявок завершён 9 ноября.",
       VALIDATION: "Проверьте данные и повторите отправку.",
       CAPTCHA: "Не удалось подтвердить, что заявку отправляет человек. Пройдите проверку ещё раз.",
       BUSY: "Сервис занят. Подождите минуту и повторите отправку.",
@@ -345,7 +345,7 @@
     if (registrationState.closed) {
       document.querySelectorAll("[data-registration-deadline]").forEach(function (node) {
         node.classList.add("is-closed");
-        node.innerHTML = "<strong>Приём заявок завершён.</strong> Регистрация закрыта 1 ноября.";
+        node.innerHTML = "<strong>Приём заявок завершён.</strong> Регистрация закрыта 9 ноября.";
       });
       document.querySelectorAll(".registration-cta").forEach(function (link) {
         link.textContent = "Регистрация завершена";
@@ -481,5 +481,6 @@
     });
   }());
 }());
+
 
 

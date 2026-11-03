@@ -5,15 +5,16 @@
 }(typeof window !== "undefined" ? window : this, function () {
   "use strict";
 
-  var closesAt = Date.parse("2026-11-01T00:00:00+03:00");
+  var closesAt = Date.parse("2026-11-09T00:00:00+03:00");
 
   function stateAt(now) {
     return {
       closed: Number(now) >= closesAt,
       closesAt: closesAt,
-      deadlineLabel: "31 октября 2026 года включительно"
+      deadlineLabel: "8 ноября 2026 года включительно"
     };
   }
 
   return { stateAt: stateAt };
 }));
+
