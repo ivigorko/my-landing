@@ -200,6 +200,14 @@ main { position: relative; isolation: isolate; overflow: hidden; }
 .registration-deadline.is-closed { border-left-color: var(--navy); background: var(--paper); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .hero-note { margin: 20px 0 0; font-size: 0.92rem; font-weight: 700; }
+.schedule-highlight { max-width: 700px; margin-top: 22px; padding: 15px 18px 18px; border: 2px solid var(--navy); border-radius: var(--radius-sm); color: var(--paper); background: var(--navy); box-shadow: 6px 6px 0 var(--orange); }
+.schedule-highlight-label { margin: 0 0 12px; color: var(--sun); font-family: "JetBrains Mono", monospace; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.schedule-highlight dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; }
+.schedule-highlight dl div { min-width: 0; padding: 0 16px; border-left: 1px solid rgba(255,255,255,0.28); }
+.schedule-highlight dl div:first-child { padding-left: 0; border-left: 0; }
+.schedule-highlight dl div:last-child { padding-right: 0; }
+.schedule-highlight dt { font-size: 0.82rem; font-weight: 700; line-height: 1.25; }
+.schedule-highlight dd { margin: 4px 0 0; color: var(--sun); font-family: "Unbounded", sans-serif; font-size: clamp(1.35rem, 2.5vw, 2rem); font-weight: 800; line-height: 1; }
 .hero-media { position: relative; }
 .hero-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; border: 7px solid var(--paper); border-radius: 42% 42% 26px 26px; box-shadow: var(--shadow); }
 .date-stamp { position: absolute; left: -40px; bottom: 34px; width: 150px; height: 150px; display: grid; place-items: center; padding: 14px; border-radius: 50%; color: var(--paper); background: var(--navy); text-align: center; transform: rotate(-7deg); }
@@ -594,6 +602,10 @@ body.menu-open .cookie-banner.show { transform: translateY(calc(100% + 40px)); v
   .hero-grid { gap: 24px; padding-block: 36px 58px; }
   .hero-copy .lead { margin-top: 20px; }
   .hero-actions { margin-top: 24px; }
+  .schedule-highlight { width: calc(100% - 6px); margin-top: 24px; padding: 14px 13px 16px; box-shadow: 5px 5px 0 var(--orange); }
+  .schedule-highlight dl div { padding-inline: 10px; }
+  .schedule-highlight dt { font-size: 0.7rem; }
+  .schedule-highlight dd { font-size: clamp(1.25rem, 6vw, 1.55rem); }
   .hero-media { width: 100%; }
   .date-stamp { left: 12px; bottom: -34px; width: 126px; height: 126px; }
   .date-stamp strong { font-size: 2.1rem; }
