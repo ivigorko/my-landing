@@ -31,6 +31,18 @@ class FourLapyLocationTest(unittest.TestCase):
         self.assertNotIn("Регистрация открыта до 31 октября", index)
         self.assertNotIn("До 31 октября включительно", index)
 
+    def test_confirmed_schedule_has_prominent_first_screen_block(self):
+        index = (ROOT / "4-lapy" / "index.html").read_text(encoding="utf-8")
+        styles = (ROOT / "assets" / "4-lapy" / "styles.css").read_text(encoding="utf-8")
+
+        self.assertIn('class="schedule-highlight"', index)
+        self.assertIn("Расписание старта", index)
+        self.assertIn(">9:15</time>", index)
+        self.assertIn(">10:00</time>", index)
+        self.assertIn(">10:30</time>", index)
+        self.assertIn(".schedule-highlight", styles)
+        self.assertNotIn("Дата и время", index)
+
 
 if __name__ == "__main__":
     unittest.main()
